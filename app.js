@@ -1,17 +1,17 @@
 // server requirements
-var express 		= require('express');
-		session 		= require('express-session'),
-		http 				= require('http'),
-		bodyParser 	= require('body-parser'),
-		exphbs  		= require('express-handlebars');
-		app 				= express(),
-		server 			= http.Server(app),
+var express 			 = require('express');
+		session 			 = require('express-session'),
+		http 					 = require('http'),
+		bodyParser 		 = require('body-parser'),
+		exphbs  			 = require('express-handlebars');
+		app 					 = express(),
+		server 				 = http.Server(app),
 
 		// database requirements
-		MongoClient = require('mongodb'),
-		monk				= require('monk'),
-		url 				= 'localhost:27017/simsDB',
-		db			 		= monk(url),
+		MongoClient 	 = require('mongodb'),
+		monk					 = require('monk'),
+		url 					 = 'localhost:27017/simsDB',
+		db			 			 = monk(url),
 
 		permissionData = require('./data/permissions.js'),
 		dataSource		 = require('./data/dataSource.js');
@@ -70,6 +70,29 @@ var manageRouter = require('./routes/manageRouter');
 app.use('/manage', manageRouter);
 
 
+
+
+
+app.get('/db/:collection', function(req, res, next) {
+	const message = "";
+	const collection = req.params.collection;
+
+	let promise = new Promise((resolve, reject) => {
+		const collectionDB = db.get(collection);
+		collectionDB.find()
+		.then((doc) => {
+			resolve(doc);
+		}).catch((err) => {
+			console.log(err);
+		});
+	});
+
+	promise.then((succes) => {
+		res.send(succes);
+	});
+
+
+});
 
 
 
