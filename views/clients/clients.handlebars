@@ -1,0 +1,25 @@
+{{> header}}
+
+<div class="container" id="clients">
+
+	{{> side-nav}}
+
+	<main>
+		<div class="dashboard-info">
+			<p>gebruiker: {{req.session.username}}</p>
+			<h1>{{title}}</h1>
+			<a href="{{req.originalUrl}}/new">Nieuwe klant aanmaken</a>
+		</div>
+
+		<div class="tile-container">
+
+			{{#each clients}}
+			<div class="tile">
+				<div class="project-logo" style="background-image: url('{{logo}}')"></div>
+				<h1>{{name}}</h1>
+			</div>
+			{{/each}}
+
+		</div>
+	</main>
+</div>

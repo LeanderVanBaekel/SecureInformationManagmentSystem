@@ -1,0 +1,4 @@
+yarn.lock
+public/img/*
+
+node_modules/*

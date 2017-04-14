@@ -1,0 +1,47 @@
+{{> header}}
+
+<div class="container" id="projects">
+
+	{{> side-nav}}
+
+	<main>
+		{{!-- <div class="dashboard-info">
+			<p>gebruiker: {{req.session.username}}</p>
+			<h1>{{title}}</h1>
+			<a href="new">Nieuw project aanmaken</a>
+		</div> --}}
+
+		<form action="/projects/new" method="post">
+
+			{{#if error}}<p class="error-log">{{error}}</p>{{/if}}
+
+
+			<label for="client">Klant id!</label>
+			{{#each clients}}
+				<p>{{name}} - {{_id}}</p>
+			{{/each}}
+			<input id='client' name='client' type='text' value="{{client}}">
+
+			<label for="projectName">Naam project</label>
+			<input id='projectName' name='projectName' type='text' value="{{projectName}}">
+
+			<label>Beheerder</label>
+			{{#each accounts}}
+				<label for="{{id}}">{{name}}</label>
+				<input id='{{id}}' name='managerId' type='checkbox' value="{{id}}">
+			{{/each}}
+
+			<label>Accounts</label>
+			{{#each accounts}}
+				<label for="{{id}}">{{name}} - {{permission}}</label>
+				<input id='{{id}}' name='accountId' type='checkbox' value="{{id}}">
+			{{/each}}
+
+			{{!-- <label for="permission">rol</label>
+			<input id='permission' name='permission' type='text' value="{{permission}}"> --}}
+
+			<button type="submit">Aanmaken</button>
+		</form>
+
+	</main>
+</div>

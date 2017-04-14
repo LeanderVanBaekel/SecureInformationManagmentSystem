@@ -1,0 +1,17 @@
+
+{{> header}}
+
+<div class="card">
+	<form action="/login/" method="post">
+
+		{{#if error}}<p class="error-log">{{error}}</p>{{/if}}
+
+		<label for="userName">Gebruikersnaam</label>
+		<input id='userName' name='userName' type='name' value="{{userName}}">
+
+		<label for="username">Wachtwoord</label>
+		<input id='password' name='password' type='password' value="{{password}}">
+
+		<button type="submit">Login</button>
+	</form>
+</div>

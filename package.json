@@ -1,0 +1,25 @@
+{
+  "name": "Active-Vault",
+  "version": "1.0.0",
+  "description": "secure information management system",
+  "main": "app.js",
+  "author": "Leander van Baekel",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.1",
+    "monk": "^4.0.0",
+    "pug": "^2.0.0-beta11"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.7.7",
+    "cssnano": "^3.10.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-postcss": "^0.8.0",
+    "grunt-sass": "^2.0.0",
+    "pixrem": "^3.0.2"
+  }
+}

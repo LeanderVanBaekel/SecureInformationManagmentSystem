@@ -1,0 +1,49 @@
+.card
+	width: 40%
+	min-width: 18em
+	max-width: 25em
+	margin:  40vh auto 0
+	display: block
+	transform: translateY(-50%)
+
+	background-color: $prim-color
+
+	form
+		// display: flex
+		// margin 0
+		text-align: center
+		padding: 1.6em
+
+
+	p, label
+		color: white
+
+	label, input
+		display: block
+		margin: 0 auto
+		padding: 0
+		border: 0
+		width: 50%
+		min-width: 8em
+
+	label
+		margin: 0.8em auto 0.4em auto
+		text-align: left
+
+	input
+		padding: 0.4em
+		// width: 50%
+
+	button
+		display: block
+		margin: 1.6em auto 0.8em
+		padding: 0.8em
+		min-width: 10em
+
+		color: white
+		background-color: $action-color
+		border: 0
+		transition: background-color 0.2s ease-out
+		
+		&:hover
+			background-color: $action-color-active

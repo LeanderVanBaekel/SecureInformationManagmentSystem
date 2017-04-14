@@ -1,0 +1,52 @@
+{{> header}}
+
+<div class="container" id="manage">
+
+	{{> side-nav}}
+
+	<main>
+		<div class="dashboard-info">
+			<p>gebruiker: {{req.session.username}}</p>
+			<h1>{{title}}</h1>
+		</div>
+
+		<div class="tile-container">
+
+			<div class="tile">
+				<a href="/manage/accounts">
+					<div class="project-logo" style="background-image: url('')"></div>
+					<h1>Accounts</h1>
+				</a>
+			</div>
+
+			<div class="tile">
+				<a href="#0">
+					<div class="project-logo" style="background-image: url('')"></div>
+					<h1>Rollen</h1>
+				</a>
+			</div>
+
+			<div class="tile">
+				<a href="#0">
+					<div class="project-logo" style="background-image: url('')"></div>
+					<h1>Logs</h1>
+				</a>
+			</div>
+
+			<div class="tile">
+				<a href="#0">
+					<div class="project-logo" style="background-image: url('')"></div>
+					<h1>Project templates</h1>
+				</a>
+			</div>
+
+			<div class="tile">
+				<a href="#0">
+					<div class="project-logo" style="background-image: url('')"></div>
+					<h1>Systeem settings</h1>
+				</a>
+			</div>
+
+		</div>
+	</main>
+</div>

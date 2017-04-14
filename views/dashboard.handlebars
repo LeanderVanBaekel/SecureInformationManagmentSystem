@@ -1,0 +1,25 @@
+{{> header}}
+
+<div class="container" id="dashboard">
+
+	{{> side-nav}}
+
+	<main>
+		<div class="dashboard-info">
+			<p>gebruiker: {{req.session.username}}</p>
+			<h1>{{title}}</h1>
+		</div>
+
+		<div class="tile-container">
+
+			{{#each recentProjects}}
+			<div class="tile">
+				<div class="project-logo" style="background-image: url('{{projectImage}}')"></div>
+				<h1>{{name}}</h1>
+				{{!-- <p>{{date}}</p> --}}
+			</div>
+			{{/each}}
+
+		</div>
+	</main>
+</div>
