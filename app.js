@@ -50,7 +50,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/logout', function(req, res) {
-	req.session.username ? req.session.destroy() : console.log('no username set');
+	req.session.userName ? req.session.destroy() : console.log('no username set');
 	res.redirect('/');
 });
 

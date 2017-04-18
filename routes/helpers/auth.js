@@ -1,4 +1,5 @@
 module.exports = {
+  // Middleware by Martijn Nieuwehuizen https://github.com/MartijnNieuwenhuizen
   login: (req, res, next) => {
     if (!req.session.userName) {
       console.log('niet ingelogd');
