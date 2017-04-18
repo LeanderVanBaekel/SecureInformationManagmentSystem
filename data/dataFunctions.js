@@ -14,21 +14,21 @@ module.exports = {
 	getAccounts: function(data, query) {
 		return data.accounts;
 	},
-	getUserProjects: function(user, data, recent) {
-		var projects = [];
-		for (var i = 0; i < data.projects.length; i++) {
-			if (recent) {
-				if (user.recentProjects.indexOf(data.projects[i].id) >= 0) {
-					projects.push(data.projects[i]);
-				}
-			} else {
-				if (user.projects.indexOf(data.projects[i].id) >= 0) {
-					projects.push(data.projects[i]);
-				}
-			}
-		}
-		return projects;
-	},
+	// getUserProjects: function(user, data, recent) {
+	// 	var projects = [];
+	// 	for (var i = 0; i < data.projects.length; i++) {
+	// 		if (recent) {
+	// 			if (user.recentProjects.indexOf(data.projects[i].id) >= 0) {
+	// 				projects.push(data.projects[i]);
+	// 			}
+	// 		} else {
+	// 			if (user.projects.indexOf(data.projects[i].id) >= 0) {
+	// 				projects.push(data.projects[i]);
+	// 			}
+	// 		}
+	// 	}
+	// 	return projects;
+	// },
 	getUserClients: function(user, data) {
 		var clients = [];
 		var projects = this.getUserProjects(user, data, false);
@@ -43,5 +43,22 @@ module.exports = {
 			}
 		}
 		return clients;
-	}
+	},
+
+	// TODO: update user data if something changes
+
+	getUserProjects: function(req) {
+		return new Promise((resolve, reject) => {
+			const projects = db.get('projects');
+    	projects.find({_id: {$in:req.session.user.recentProjects}})
+    	.then((doc) => {
+    		if (doc) {
+          resolve(doc)
+        } else {
+          reject('Geen projecten gevonden.')
+        }
+      })
+		})
+	},
+
 };

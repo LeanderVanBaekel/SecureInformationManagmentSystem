@@ -13,9 +13,16 @@ app.use(auth.login);
 router.route('/').get(function(req, res, next) {
 
 	// var recentProjects = dataFunctions.getUserProjects(req.session.user, data, true);
-	var recentProjects;
 
-	res.render('dashboard', {req: req, title: 'Dashboard', recentProjects: recentProjects});
+	console.log(req.session);
+
+	dataFunctions.getUserProjects(req).then((succes) => {
+		var recentProjects = succes;
+		res.render('dashboard', {req: req, title: 'Dashboard', recentProjects: recentProjects});
+	}).catch((err) => {
+		res.send(err);
+	});
+
 });
 
 

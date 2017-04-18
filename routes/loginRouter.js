@@ -17,6 +17,7 @@ router.route('/').get(function(req, res) {
 router.route('/').post(function(req, res) {
 	auth.authenticate(req).then((succes) => {
 
+		req.session.user = succes;
 		req.session.userName = succes.userName;
 		res.redirect('/dashboard');
 
