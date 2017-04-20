@@ -33,7 +33,26 @@ app.use(session({
   resave: false
 }));
 
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+var hbs = exphbs.create({
+	// Specify helpers which are only registered on this instance.
+	defaultLayout: 'main',
+	helpers: {
+		ifEqual: function (var1, var2) {
+			if (var1 == var2) {
+				return true;
+			} else {
+				return false;
+			}
+		},
+		bar: function () { return 'BAR!'; }
+	}
+});
+
+// app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+
+// app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', hbs.engine);
+// app.set('handlebars', { defaultLayout: 'main' });
 app.set('view engine', 'handlebars');
 
 // start server

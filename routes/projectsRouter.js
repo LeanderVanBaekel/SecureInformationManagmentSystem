@@ -27,6 +27,23 @@ router.route('/').get(function(req, res, next) {
 
 });
 
+router.route('/:projectId/:location?').get(function(req, res, next) {
+
+	var data = {
+		projectId: req.params.projectId,
+		location: req.params.location,
+		title: req.params.projectId
+
+	};
+
+	if (data.location == undefined) {
+		data.location = 'files';
+	};
+
+	res.render('projects/projectDetail', {req: req, data: data, title: data.title})
+
+});
+
 
 router.route('/new').get(function(req, res, next) {
 
@@ -56,6 +73,7 @@ router.route('/new').post(function(req, res, next) {
 	console.log(req.body.projectName);
 	console.log(req.body.accountId);
 
+	// TODO
 	// project aan klant toeveoegen!!
 	// account met permission koppelen aan prject
 	// projecten laden in project overzicht
