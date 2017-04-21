@@ -41,6 +41,8 @@ router.get('/manage/accounts', auth.login, auth.admin, manageCtrl.getAccounts);
 // file handeling
 var fileCtrl = require('../controllers/fileCtrl');
 router.get('/file', auth.login, fileCtrl.getFile);
+router.get('/file/create', auth.login, fileCtrl.getCreate);
+router.post('/file/create', auth.login, fileCtrl.postCreate);
 
 
 module.exports = router;

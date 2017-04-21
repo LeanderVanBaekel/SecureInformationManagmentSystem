@@ -78,7 +78,7 @@ module.exports = {
     return newAuthData;
   },
 
-  file: function(name, type, filePath, contains, projectId, byUser, permissionId) {
+  file: function(name, root, type, filePath, contains, projectId, byUser, permissionId) {
     date = new Date();
     var newFile = {
       name: '',
@@ -95,6 +95,7 @@ module.exports = {
 
     newFile.date = date;
     newFile.name = name;
+    newFile.root = root;
     newFile.type = type;
     newFile.filePath = filePath;
     newFile.contains = contains;
