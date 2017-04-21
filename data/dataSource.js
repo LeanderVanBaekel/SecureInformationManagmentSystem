@@ -10,7 +10,8 @@ module.exports = {
       password: '',
       permissionId: null,
       profilePicture: '',
-      projects: []
+      projects: [],
+      recentProjects: []
     }
     newUser.active = true;
     newUser.date = date;

@@ -5,20 +5,37 @@
 	{{> side-nav}}
 
 	<main>
-		<div class="dashboard-info">
-			<p>gebruiker: {{req.session.username}}</p>
+		{{!-- <div class="dashboard-info">
+			<p>gebruiker: {{req.session.userName}}</p>
 			<h1>{{title}}</h1>
-		</div>
+		</div> --}}
 
-		<div class="tile-container">
+		<div class="dashboard-container">
 
-			{{#each recentProjects}}
-			<div class="tile">
-				<div class="project-logo" style="background-image: url('{{projectImage}}')"></div>
-				<h1>{{name}}</h1>
-				{{!-- <p>{{date}}</p> --}}
+			<div class="dashboard-col">
+				<div class="dashboard-tile dashboard-col-header">
+					<h2>Recente projecten</h2>
+				</div>
+				{{#each recentProjects}}
+				<div class="dashboard-tile">
+					<div class="project-logo" style="background-image: url('{{projectImage}}')"></div>
+					<h1>{{name}}</h1>
+					{{!-- <p>{{date}}</p> --}}
+				</div>
+				{{/each}}
 			</div>
-			{{/each}}
+
+			<div class="dashboard-col">
+				<div class="dashboard-tile dashboard-col-header">
+					<h2>Belangrijke projecten</h2>
+				</div>
+			</div>
+
+			<div class="dashboard-col">
+				<div class="dashboard-tile dashboard-col-header">
+					<h2>nieuwe projecten</h2>
+				</div>
+			</div>
 
 		</div>
 	</main>

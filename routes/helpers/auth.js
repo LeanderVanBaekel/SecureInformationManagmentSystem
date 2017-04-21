@@ -1,4 +1,5 @@
 module.exports = {
+  // Middleware by Martijn Nieuwehuizen https://github.com/MartijnNieuwenhuizen
   login: (req, res, next) => {
     if (!req.session.userName) {
       console.log('niet ingelogd');
@@ -12,5 +13,18 @@ module.exports = {
       console.log('CHECK: all good, continue');
       next();
     }
+  },
+  authenticate: function(req) {
+    return new Promise((resolve, reject) => {
+      const users = db.get('users');
+    	users.findOne({userName: req.body.userName, password: req.body.password})
+    	.then((doc) => {
+    		if (doc) {
+          resolve(doc)
+        } else {
+          reject('Gebruikersnaam of wachtwoord is onjuist.')
+        }
+      })
+    })
   }
 };
