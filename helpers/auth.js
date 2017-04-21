@@ -14,6 +14,14 @@ module.exports = {
       next();
     }
   },
+  admin: (req, res, next) => {
+    if (req.session.userName == 'admin') {
+      next();
+      // If there's no SessionID (so no logged in user), rederect
+    } else {
+      res.redirect('/dashboard');
+    }
+  },
   authenticate: function(req) {
     return new Promise((resolve, reject) => {
       const users = db.get('users');

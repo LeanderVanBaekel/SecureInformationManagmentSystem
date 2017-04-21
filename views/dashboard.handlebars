@@ -13,26 +13,26 @@
 		<div class="dashboard-container">
 
 			<div class="dashboard-col">
-				<div class="dashboard-tile dashboard-col-header">
+				<div class="dashboard-col-header">
 					<h2>Recente projecten</h2>
 				</div>
 				{{#each recentProjects}}
-				<div class="dashboard-tile">
-					<div class="project-logo" style="background-image: url('{{projectImage}}')"></div>
-					<h1>{{name}}</h1>
+				<a class="dashboard-tile" href="/projects/{{_id}}">
+					<div class="project-logo" style="background-image: url('http://iamcore.nl/wp-content/uploads/2016/05/AC.png')"></div>
+					<h2>{{name}}</h2>
 					{{!-- <p>{{date}}</p> --}}
-				</div>
+				</a>
 				{{/each}}
 			</div>
 
 			<div class="dashboard-col">
-				<div class="dashboard-tile dashboard-col-header">
+				<div class="dashboard-col-header">
 					<h2>Belangrijke projecten</h2>
 				</div>
 			</div>
 
 			<div class="dashboard-col">
-				<div class="dashboard-tile dashboard-col-header">
+				<div class="dashboard-col-header">
 					<h2>nieuwe projecten</h2>
 				</div>
 			</div>

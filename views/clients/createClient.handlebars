@@ -8,10 +8,10 @@
 		{{!-- <div class="dashboard-info">
 			<p>gebruiker: {{req.session.username}}</p>
 			<h1>{{title}}</h1>
-			<a href="new">Nieuw project aanmaken</a>
+			<a href="create">Nieuw project aanmaken</a>
 		</div> --}}
 
-		<form action="/clients/new" method="post">
+		<form action="/clients/create" method="post">
 
 			{{#if error}}<p class="error-log">{{error}}</p>{{/if}}
 

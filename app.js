@@ -29,11 +29,30 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 app.use(session({
   secret: '1234567890!@#$%^&*()_+',
-  saveUninitialized: true,
-  resave: false
+  saveUninitialized: false,
+  resave: true
 }));
 
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+var hbs = exphbs.create({
+	// Specify helpers which are only registered on this instance.
+	defaultLayout: 'main',
+	helpers: {
+		ifEqual: function (var1, var2) {
+			if (var1 == var2) {
+				return true;
+			} else {
+				return false;
+			}
+		},
+		bar: function () { return 'BAR!'; }
+	}
+});
+
+// app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+
+// app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', hbs.engine);
+// app.set('handlebars', { defaultLayout: 'main' });
 app.set('view engine', 'handlebars');
 
 // start server
@@ -41,38 +60,24 @@ server.listen(8080, () => console.log('listening on *:8080'));
 
 
 
+// Middleware
+function logger(req,res,next){
+  console.log(new Date(), req.method, req.url);
+  next();
+}
+
+app.use(logger);
+
+
 /////////////////////////////////////////////////
 //  basic routes
 /////////////////////////////////////////////////
 
-app.get('/', function(req, res) {
-	res.redirect('/login');
-});
-
-app.get('/logout', function(req, res) {
-	req.session.userName ? req.session.destroy() : console.log('no username set');
-	res.redirect('/');
-});
-
-var loginRouter = require('./routes/loginRouter');
-app.use('/login', loginRouter);
-
-var dashboardRouter = require('./routes/dashboardRouter');
-app.use('/dashboard', dashboardRouter);
-
-var clientsRouter = require('./routes/clientsRouter');
-app.use('/clients', clientsRouter);
-
-var projectsRouter = require('./routes/projectsRouter');
-app.use('/projects', projectsRouter);
-
-var manageRouter = require('./routes/manageRouter');
-app.use('/manage', manageRouter);
+var routes = require('./routes/routes');
+app.use('/', routes);
 
 
-
-
-
+// db route
 app.get('/db/:collection', function(req, res, next) {
 	const message = "";
 	const collection = req.params.collection;
