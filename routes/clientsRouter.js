@@ -15,7 +15,7 @@ router.route('/').get(function(req, res) {
 	const clients = db.get('clients');
 	clients.find({})
 	.then((doc) => {
-			console.log(doc);
+			// console.log(doc);
 			var clients = doc;
 
 			res.render('clients/clients', {req: req, title: 'Klanten', clients: clients});
@@ -25,7 +25,7 @@ router.route('/').get(function(req, res) {
 });
 
 
-router.route('/new').get(function(req, res, next) {
+router.route('/create').get(function(req, res) {
 
 	const users = db.get('users');
 	users.find({})
@@ -39,19 +39,19 @@ router.route('/new').get(function(req, res, next) {
 
 		console.log(accounts);
 
-		res.render('clients/newClient', {req: req, title: 'nieuwe klant', accounts: accounts})
+		res.render('clients/createClient', {req: req, title: 'nieuwe klant', accounts: accounts})
 	});
 });
 
 
-router.route('/new').post(function(req, res, next) {
+router.route('/create').post(function(req, res) {
 
 	console.log(req.body.clientName);
 
-	var newClient = new dataSource.client(req.body.clientName, false);
+	var createClient = new dataSource.client(req.body.clientName, false);
 
 	const clients = db.get('clients');
-	clients.insert(newClient)
+	clients.insert(createClient)
 		.then((docs) => {
 			console.log(docs);
 			//save new project

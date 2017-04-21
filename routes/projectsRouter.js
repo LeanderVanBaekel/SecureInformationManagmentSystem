@@ -8,44 +8,18 @@ var dataSource = require('../data/dataSource.js');
 const auth = require('./helpers/auth');
 app.use(auth.login);
 
-router.route('/').get(function(req, res, next) {
-	// console.log(req.session);
-	// var projects = dataFunctions.getUserProjects(req.session.user, data);
-	// var projects;
-	//
-	// res.render('projects/projects', {req: req, title: 'Projecten', projects: projects});
+router.get('/', function(req, res, next) {
 
-	const projects = db.get('projects');
-	projects.find({})
-	.then((doc) => {
-			var projects = doc;
-			console.log(projects);
-			res.render('projects/projects', {req: req, title: 'Projecten', projects: projects});
-		}).catch((err) => {
-			console.log(err);
-		})
+	dataFunctions.getUserProjects(req).then((succes) => {
+		var projects = succes;
+		res.render('projects/projects', {req: req, title: 'Projecten', projects: projects});
+	}).catch((err) => {
+		res.send(err);
+	});
 
 });
 
-router.route('/:projectId/:location?').get(function(req, res, next) {
-
-	var data = {
-		projectId: req.params.projectId,
-		location: req.params.location,
-		title: req.params.projectId
-
-	};
-
-	if (data.location == undefined) {
-		data.location = 'files';
-	};
-
-	res.render('projects/projectDetail', {req: req, data: data, title: data.title})
-
-});
-
-
-router.route('/new').get(function(req, res, next) {
+router.get('/create', function(req, res, next) {
 
 	const users = db.get('users');
 	users.find({})
@@ -61,13 +35,13 @@ router.route('/new').get(function(req, res, next) {
 		clients.find({})
 		.then((doc) => {
 			var clients = doc;
-			res.render('projects/newProject', {req: req, title: 'nieuw project', clients: clients, accounts: accounts})
+			res.render('projects/createProject', {req: req, title: 'nieuw project', clients: clients, accounts: accounts})
 		});
 	});
 });
 
 
-router.route('/new').post(function(req, res, next) {
+router.post('/create', function(req, res, next) {
 
 	console.log(req.body.client);
 	console.log(req.body.projectName);
@@ -113,5 +87,24 @@ router.route('/new').post(function(req, res, next) {
 		});
 
 });
+
+
+router.get('/:projectId/:location?', function(req, res, next) {
+
+	var data = {
+		projectId: req.params.projectId,
+		location: req.params.location,
+		title: req.params.projectId
+
+	};
+
+	if (data.location == undefined) {
+		data.location = 'files';
+	};
+
+	res.render('projects/projectDetail', {req: req, data: data, title: data.title})
+
+});
+
 
 module.exports = router;
