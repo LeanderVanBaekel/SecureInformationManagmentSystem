@@ -100,9 +100,15 @@ module.exports = {
     var data = {
       baseUrl: '/projects/' + req.params.projectId + '/files',
   		projectId: req.params.projectId,
-  		title: req.params.projectId,
       folder: req.params.folder
   	};
+
+    var projectDataCall = dataFunctions.getProjectData(data.projectId).then((succes) => {
+      console.log('project data succes');
+      return succes;
+    }).catch((err) => {
+      res.send(err);
+    });
 
     if (!req.params.folder) {
       console.log('No folder is specified root is called');
@@ -124,11 +130,13 @@ module.exports = {
     }
 
 
-    Promise.all([fileCall]).then(values => {
+    Promise.all([fileCall, projectDataCall]).then(values => {
       data.container = values[0].container;
       data.files = values[0].contains;
+      data.project = values[1];
+      data.path = ['data.project.name']
 
-      res.render('projects/projectFiles', {req: req, data: data, title: data.title})
+      res.render('projects/projectFiles', {req: req, data: data, title: data.project.name})
 
       // res.render('projects/createProject', {req: req, title: 'nieuw project', clients: clients, accounts: accounts});
     });
@@ -151,7 +159,7 @@ module.exports = {
       console.log(values);
       data.rootFiles = values[0];
 
-      res.render('projects/projectAuth', {req: req, data: data, title: data.title})
+      res.render('projects/projectAuth', {req: req, data: data, title: data.project.name})
 
       // res.render('projects/createProject', {req: req, title: 'nieuw project', clients: clients, accounts: accounts});
     });

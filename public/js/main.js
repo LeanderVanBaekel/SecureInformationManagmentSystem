@@ -11,3 +11,8 @@
 // Handlebars.registerHelper("log", function(variable) {
 //     console.log(variable);
 // });
+
+// var popup = function(button, element) {
+//
+//   console.log('hoi');
+// }

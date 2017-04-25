@@ -1,0 +1,23 @@
+.popup
+  min-width: 100%
+  min-height: 100%
+  position: fixed
+  margin: auto
+  display: none
+
+  &.show
+    display: block
+
+.popup-closer
+  width: 100vw
+  height: 100vh
+  background-color: rgba(90,90,90,0.2)
+
+.popup-content
+  display: block
+  position: fixed
+  top: 0
+  min-width: 50vw
+  min-height: 50vh
+  margin: auto
+  background-color: $white

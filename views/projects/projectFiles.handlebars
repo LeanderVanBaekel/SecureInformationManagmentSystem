@@ -12,7 +12,10 @@
 
 		<div class="files-container">
 			<div class="files-header">
-				<h2>{{title}} > development</h2>
+				<h2>{{title}}</h2>
+				<div class="new-file-button newFileButtonListner" id="newFileButton">
+					new file
+				</div>
 			</div>
 			<div class="files-list">
 				{{#each data.files}}
@@ -22,55 +25,71 @@
 				{{/each}}
 				{{!-- <div class="files-item files-item-folder files-item-active">
 					<p>Vormgeving</p>
-				</div>
-				<div class="files-item files-item-folder">
-					<p>Management</p>
-				</div>
-				<div class="files-item files-item-folder">
-					<p>Website</p>
-				</div>
-				<div class="files-item files-item-folder">
-					<p>Applicatie</p>
-				</div>
-				<div class="files-item files-item-folder">
-					<p>Images</p>
-				</div>
-				<div class="files-item files-item-folder">
-					<p>Fonts</p>
-				</div>
-				<div class="files-item files-item-file">
-					<p>logo.jpg</p>
-				</div>
-				<div class="files-item files-item-file">
-					<p>logo_white.png</p>
-				</div>
-				<div class="files-item files-item-file">
-					<p>logo.jpg</p>
-				</div>
-				<div class="files-item files-item-file">
-					<p>logo_white.png</p>
-				</div>
-				<div class="files-item files-item-file">
-					<p>logo.jpg</p>
-				</div>
-				<div class="files-item files-item-file">
-					<p>logo_white.png</p>
-				</div>
-				<div class="files-item files-item-file">
-					<p>logo.jpg</p>
-				</div>
-				<div class="files-item files-item-file">
-					<p>logo_white.png</p>
-				</div>
-				<div class="files-item files-item-file">
-					<p>logo.jpg</p>
-				</div>
-				<div class="files-item files-item-file">
-					<p>logo_white.png</p>
-				</div> --}}
+				</div>  --}}
 			</div>
 		</div>
 
 
 	</main>
+
+	<div class="popup" id="newFilePopup">
+		<div class="popup-closer newFileButtonListner">
+
+		</div>
+		<div class="popup-content">
+			<p>map toevoegen</p>
+
+			<form action="/file/create" method="post">
+
+				{{#if error}}<p class="error-log">{{error}}</p>{{/if}}
+
+				<input type="hidden" name="redirect" value="{{req.url}}">
+
+				<label for="fileName">Naam</label>
+				<input type="text" name="fileName" value="">
+
+				<label for="type">Type</label>
+				<select name="type">
+					<option value="folder">folder</option>
+					<option value="file">file</option>
+				</select>
+
+				<label for="projectId">projectId</label>
+				<input type="text" name="projectId" value="{{data.projectId}}">
+
+				<label for="containdIn">containdIn (in welke folder zit ik?)</label>
+				<input type="text" name="containdIn" value="{{data.container._id}}">
+
+				<label for="premissionId">premissionId</label>
+				<input type="number" name="premissionId" value="{{req.session.user.permissionId}}">
+
+				<button type="submit">Aanmaken</button>
+			</form>
+
+		</div>
+	</div>
+
 </div>
+
+<script type="text/javascript">
+
+var popup = function(listners, element) {
+	var toggle = function() {
+		document.getElementById(element).classList.toggle('show');
+	}
+
+	var listners = document.querySelectorAll('.' + listners);
+
+	listners.forEach(function(listner) {
+		listner.addEventListener('click', toggle);
+	});
+
+  // document.getElementById(button).addEventListener('click', active);
+  // console.log('hoi');
+}
+
+
+	window.onload = function() {
+		popup('newFileButtonListner', 'newFilePopup');
+	};
+</script>

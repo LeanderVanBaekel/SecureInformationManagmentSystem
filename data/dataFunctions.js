@@ -24,6 +24,22 @@ module.exports = {
 		})
 	},
 
+	getProjectData: function(id) {
+		return new Promise((resolve, reject) => {
+			const projects = db.get('projects');
+    	projects.findOne({_id: id})
+    	.then((doc) => {
+    		if (doc) {
+          resolve(doc)
+        } else {
+          reject('Geen project gevonden.')
+        }
+      }).catch((err) => {
+				console.log(err);
+		  }).then(() => db.close());
+		})
+	},
+
 	getUserClients: function(req) {
 		return new Promise((resolve, reject) => {
 			const clients = db.get('clients');

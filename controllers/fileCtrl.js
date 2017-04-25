@@ -48,7 +48,7 @@ module.exports = {
     .then((succes) => {
       console.log(succes);
       // res.redirect('/file/create');
-      res.send(succes);
+      res.redirect(req.body.redirect);
     }).catch((err) => {
       res.send(err);
     });
