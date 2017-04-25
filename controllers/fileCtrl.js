@@ -6,7 +6,7 @@ var dataSource = require('../data/dataSource.js');
 
 module.exports = {
   getFile : function(req, res){
-    res.redirect('file/create');
+    res.redirect('/file/create');
   },
 
   getCreate : function(req, res){
@@ -19,21 +19,25 @@ module.exports = {
   postCreate: function(req, res) {
     console.log(req.body);
     var fileName      = req.body.fileName;
-    var root          = req.body.root;
+    // var root          = req.body.root;
     var type          = req.body.type;
     var filePath      = req.body.filePath;
-    var containdIn     = req.body.contaidIn;
-    var contains      = [];
+    var containdIn     = req.body.containdIn;
+    // var contains      = [];
     var projectId     = req.body.projectId;
     var byUser        = req.session.user._id;
     var permissionId  = req.body.permissionId;
 
+    console.log(req.body.containdIn);
+    req.body.containdIn ? containdIn = req.body.containdIn : containdIn = null;
+
     var newFile = dataSource.file(
       fileName,
-      root,
+      // root,
       type,
       filePath,
-      contains,
+      // contains,
+      containdIn,
       projectId,
       byUser,
       permissionId
@@ -43,7 +47,8 @@ module.exports = {
     dataFunctions.saveFile(newFile)
     .then((succes) => {
       console.log(succes);
-      res.redirect('/file/create');
+      // res.redirect('/file/create');
+      res.send(succes);
     }).catch((err) => {
       res.send(err);
     });

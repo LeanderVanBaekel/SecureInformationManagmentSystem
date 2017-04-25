@@ -69,6 +69,12 @@ function logger(req,res,next){
 app.use(logger);
 
 
+var LogEnabled = true;
+if (LogEnabled !== true) {
+    console.log = function() {};
+}
+
+
 /////////////////////////////////////////////////
 //  basic routes
 /////////////////////////////////////////////////

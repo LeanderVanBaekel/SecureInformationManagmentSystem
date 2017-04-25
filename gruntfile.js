@@ -26,7 +26,7 @@ module.exports = function(grunt) {
         src: 'public/css/style.css'
       }
     },
-    
+
     watch: {
       source: {
         files: ['assets/sass/**/*'],
@@ -37,11 +37,11 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['sass', 'postcss']);
   grunt.registerTask('test', ['sass']);
-  
+
   // grunt.registerTask('watch', 'watch');
 
   grunt.loadNpmTasks('grunt-sass');
-  grunt.loadNpmTasks('grunt-contrib-watch');  
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-postcss');
 
 };

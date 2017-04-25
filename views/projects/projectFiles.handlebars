@@ -1,0 +1,76 @@
+{{> header}}
+
+<div class="container" id="projectDetail">
+
+	{{> side-nav}}
+
+	<main>
+		<nav class="project-nav">
+			<a href="{{req.baseUrl}}/projects/{{title}}/files">Bestanden</a>
+			<a href="{{req.baseUrl}}/projects/{{title}}/auth">Autenticatie gegevens</a>
+		</nav>
+
+		<div class="files-container">
+			<div class="files-header">
+				<h2>{{title}} > development</h2>
+			</div>
+			<div class="files-list">
+				{{#each data.files}}
+					<a href="{{../data.baseUrl}}/{{_id}}" class="files-item files-item-folder">
+						<p>{{name}}</p>
+					</a>
+				{{/each}}
+				{{!-- <div class="files-item files-item-folder files-item-active">
+					<p>Vormgeving</p>
+				</div>
+				<div class="files-item files-item-folder">
+					<p>Management</p>
+				</div>
+				<div class="files-item files-item-folder">
+					<p>Website</p>
+				</div>
+				<div class="files-item files-item-folder">
+					<p>Applicatie</p>
+				</div>
+				<div class="files-item files-item-folder">
+					<p>Images</p>
+				</div>
+				<div class="files-item files-item-folder">
+					<p>Fonts</p>
+				</div>
+				<div class="files-item files-item-file">
+					<p>logo.jpg</p>
+				</div>
+				<div class="files-item files-item-file">
+					<p>logo_white.png</p>
+				</div>
+				<div class="files-item files-item-file">
+					<p>logo.jpg</p>
+				</div>
+				<div class="files-item files-item-file">
+					<p>logo_white.png</p>
+				</div>
+				<div class="files-item files-item-file">
+					<p>logo.jpg</p>
+				</div>
+				<div class="files-item files-item-file">
+					<p>logo_white.png</p>
+				</div>
+				<div class="files-item files-item-file">
+					<p>logo.jpg</p>
+				</div>
+				<div class="files-item files-item-file">
+					<p>logo_white.png</p>
+				</div>
+				<div class="files-item files-item-file">
+					<p>logo.jpg</p>
+				</div>
+				<div class="files-item files-item-file">
+					<p>logo_white.png</p>
+				</div> --}}
+			</div>
+		</div>
+
+
+	</main>
+</div>
