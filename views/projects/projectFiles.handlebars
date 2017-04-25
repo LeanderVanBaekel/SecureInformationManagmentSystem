@@ -12,13 +12,19 @@
 
 		<div class="files-container">
 			<div class="files-header">
-				<h2>{{title}}</h2>
+				<a href="{{data.baseUrl}}">{{title}}</a>
+				{{#each data.path}}
+					> <a href="{{../data.baseUrl}}/{{id}}">{{name}}</a>
+				{{/each}}
 				<div class="new-file-button newFileButtonListner" id="newFileButton">
 					new file
 				</div>
 			</div>
 			<div class="files-list">
 				{{#each data.files}}
+					{{#if (ifEqual type "file")}}
+						test
+					{{/if}}
 					<a href="{{../data.baseUrl}}/{{_id}}" class="files-item files-item-folder">
 						<p>{{name}}</p>
 					</a>

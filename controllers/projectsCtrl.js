@@ -100,29 +100,30 @@ module.exports = {
     var data = {
       baseUrl: '/projects/' + req.params.projectId + '/files',
   		projectId: req.params.projectId,
-      folder: req.params.folder
+      folder: req.params.folder,
+      path: [] // array of map id's
   	};
 
     var projectDataCall = dataFunctions.getProjectData(data.projectId).then((succes) => {
-      console.log('project data succes');
+      // console.log('project data succes');
       return succes;
     }).catch((err) => {
       res.send(err);
     });
 
     if (!req.params.folder) {
-      console.log('No folder is specified root is called');
+      // console.log('No folder is specified root is called');
       var fileCall = dataFunctions.findRootFiles(data.projectId, null).then((succes) => {
         // console.log(succes);
-        console.log('root files succes');
+        // console.log('root files succes');
         return succes;
       }).catch((err) => {
         res.send(err);
       });
     } else {
-      console.log('Folder is specified data is called');
-      var fileCall = dataFunctions.findfolderAndContent(data.projectId, data.folder).then((succes) => {
-        console.log('files succes');
+      // console.log('Folder is specified data is called');
+      var fileCall = dataFunctions.findFolderAndContent(data.projectId, data.folder).then((succes) => {
+        // console.log('files succes');
         return succes;
       }).catch((err) => {
         res.send(err);
@@ -130,16 +131,40 @@ module.exports = {
     }
 
 
-    Promise.all([fileCall, projectDataCall]).then(values => {
-      data.container = values[0].container;
-      data.files = values[0].contains;
-      data.project = values[1];
-      data.path = ['data.project.name']
+    getPath = function(folder) {
+      var fileCall = dataFunctions.findFolder(folder).then((succes) => {
+        // console.log(succes);
+        return succes;
+      }).catch((err) => {
+        res.send(err);
+      });
+      fileCall.then(succes => {
+        if(succes.containdIn != null) {
+          data.path.push({id:succes._id, name:succes.name});
+          getPath(succes.containdIn);
+        } else {
+          data.path.reverse();
+          done();
+        };
+      });
+    }
 
-      res.render('projects/projectFiles', {req: req, data: data, title: data.project.name})
+    var done = function() {
+      Promise.all([fileCall, projectDataCall]).then(values => {
+        data.container = values[0].container;
+        data.files = values[0].contains;
+        data.project = values[1];
 
-      // res.render('projects/createProject', {req: req, title: 'nieuw project', clients: clients, accounts: accounts});
-    });
+        res.render('projects/projectFiles', {req: req, data: data, title: data.project.name})
+      });
+    }
+
+    if (data.folder) {
+      getPath(data.folder);
+    } else {
+      done();
+    }
+
   },
 
   getProjectAuth: function (req, res) {

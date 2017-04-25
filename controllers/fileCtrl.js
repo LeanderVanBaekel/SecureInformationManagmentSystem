@@ -17,7 +17,6 @@ module.exports = {
   },
 
   postCreate: function(req, res) {
-    console.log(req.body);
     var fileName      = req.body.fileName;
     // var root          = req.body.root;
     var type          = req.body.type;
@@ -28,7 +27,6 @@ module.exports = {
     var byUser        = req.session.user._id;
     var permissionId  = req.body.permissionId;
 
-    console.log(req.body.containdIn);
     req.body.containdIn ? containdIn = req.body.containdIn : containdIn = null;
 
     var newFile = dataSource.file(
@@ -42,11 +40,9 @@ module.exports = {
       byUser,
       permissionId
     );
-    console.log(newFile);
 
     dataFunctions.saveFile(newFile)
     .then((succes) => {
-      console.log(succes);
       // res.redirect('/file/create');
       res.redirect(req.body.redirect);
     }).catch((err) => {

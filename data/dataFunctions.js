@@ -132,7 +132,23 @@ module.exports = {
 		});
 	},
 
-	findfolderAndContent: function(projectId, folderId) {
+	findFolder: function(folderId) {
+		return new Promise((resolve, reject) => {
+			const files = db.get('files');
+			files.findOne({_id: folderId})
+			.then((doc) => {
+				if (doc) {
+					resolve(doc)
+				} else {
+					reject('Folder niet gevonden.')
+				}
+			}).catch((err) => {
+				console.log(err);
+			})
+		});
+	},
+
+	findFolderAndContent: function(projectId, folderId) {
 		return new Promise((resolve, reject) => {
 			const files = db.get('files');
 			files.findOne({projectId: projectId, _id: folderId})
