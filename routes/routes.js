@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 var auth = require('../helpers/auth.js');
 
+var multer  = require('multer')
+var upload = multer({ dest: 'uploads/' })
+
 // app.get('/', function(req, res) {
 // 	res.redirect('/login');
 //   // res.send('hoi');
@@ -45,7 +48,7 @@ router.get('/manage/accounts', auth.login, auth.admin, manageCtrl.getAccounts);
 var fileCtrl = require('../controllers/fileCtrl');
 router.get('/file', auth.login, fileCtrl.getFile);
 router.get('/file/create', auth.login, fileCtrl.getCreate);
-router.post('/file/create', auth.login, fileCtrl.postCreate);
+router.post('/file/create', auth.login, upload.array('file'), fileCtrl.postCreate);
 
 
 module.exports = router;

@@ -29,6 +29,19 @@ module.exports = {
 
     req.body.containdIn ? containdIn = req.body.containdIn : containdIn = null;
 
+    var upload = req.files;
+    console.log(upload);
+
+    for (var i = 0; i < upload.length; i++) {
+      fs.rename(upload[i].path, "/storage/projects/" + projectId + "/" + upload[i].originalname, function (err) {
+  			if(err){
+  				res.send("ojee");
+  			} else {
+          filePath = "/storage/projects/" + projectId + "/" + upload[i].originalname;
+        }
+      });
+    }
+
     var newFile = dataSource.file(
       fileName,
       // root,
@@ -40,6 +53,7 @@ module.exports = {
       byUser,
       permissionId
     );
+
 
     dataFunctions.saveFile(newFile)
     .then((succes) => {

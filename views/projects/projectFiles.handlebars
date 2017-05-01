@@ -7,7 +7,7 @@
 	<main>
 		<nav class="project-nav">
 			<a href="{{req.baseUrl}}/projects/{{title}}/files">Bestanden</a>
-			<a href="{{req.baseUrl}}/projects/{{title}}/auth">Autenticatie gegevens</a>
+			<a href="{{req.baseUrl}}/projects/{{title}}/auth">Authenticatie gegevens</a>
 		</nav>
 
 		<div class="files-container">
@@ -45,7 +45,7 @@
 		<div class="popup-content">
 			<p>map toevoegen</p>
 
-			<form action="/file/create" method="post">
+			<form action="/file/create" enctype="multipart/form-data" method="post">
 
 				{{#if error}}<p class="error-log">{{error}}</p>{{/if}}
 
@@ -54,6 +54,9 @@
 				<label for="fileName">Naam</label>
 				<input type="text" name="fileName" value="">
 
+				<label for="file">Bestand</label>
+				<input type="file" name="file" multiple value="">
+
 				<label for="type">Type</label>
 				<select name="type">
 					<option value="folder">folder</option>
@@ -61,10 +64,10 @@
 				</select>
 
 				<label for="projectId">projectId</label>
-				<input type="text" name="projectId" value="{{data.projectId}}">
+				<input type="hidden" name="projectId" value="{{data.projectId}}">
 
 				<label for="containdIn">containdIn (in welke folder zit ik?)</label>
-				<input type="text" name="containdIn" value="{{data.container._id}}">
+				<input type="hidden" name="containdIn" value="{{data.container._id}}">
 
 				<label for="premissionId">premissionId</label>
 				<input type="number" name="premissionId" value="{{req.session.user.permissionId}}">
