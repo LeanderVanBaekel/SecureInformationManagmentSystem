@@ -16,6 +16,172 @@
 @import "components/tiles" // lego blocks
 @import "components/header"
 @import "components/side-nav"
+@import "components/popup"
 
 @import "pages/dashboard"
 @import "pages/projectDetail"
+
+
+#new-project
+  main
+    display: flex
+
+
+    .page-content
+      // width: 50%
+      display: block
+      // flex: 1
+      width: 100%
+
+      form
+        max-width: 40rem
+        margin: 2em auto
+        // background-color: white
+
+        .full-width
+          width: 100% !important
+
+        h1
+          margin-bottom: 1rem
+
+        h1, p, label
+        	color: black
+
+        label, input, select, .checkboxes
+        	display: inline-block
+        	margin: 0 auto
+        	padding: 0
+        	border: 0
+        	// min-width: 8em
+
+        label
+          font-family: 'DinBold'
+          width: 25%
+          margin: 0.8em auto 0.4em auto
+          text-align: left
+
+        input
+          width: 72%
+          padding: 0.4em
+          // width: 50%
+
+        .checkboxes
+          width: 70%
+          margin: 0.8em auto 0.4em auto
+          padding: 0.4em 0.4em
+          background-color: white
+
+          label
+            font-family: 'DinLight'
+            margin: 0.4em auto
+            width: 22%
+          input
+            width: auto
+            margin: 0 0.4rem 0 1rem
+
+
+        select
+          width: 74%
+          background-color: white
+          -webkit-border-radius: 1px
+          -moz-border-radius: 1px
+          border-radius: 1px
+
+        button
+          display: block
+          margin: 1.6em auto 0.8em
+          padding: 0.8em
+          min-width: 10em
+
+          color: white
+          background-color: $action-color
+          border: 0
+          transition: background-color 0.2s ease-out
+
+          &:hover
+            background-color: $action-color-active
+
+
+    .classifications
+      // flex: 0.5
+      background: $icn-bg
+      // min-width: 30em
+      width: 24rem
+      min-height: 2em
+      padding: 0
+      display: flex
+      flex-direction: column
+      flex-wrap: nowrap
+      align-items: stretch
+
+      h1
+        color: $white
+        text-transform: uppercase
+        font-size: 1.15rem
+        margin: 1rem
+
+      .icn-container
+        width: 100%
+        // height: 83.5%
+        overflow-y: scroll
+
+      .icn-card
+        // width: calc(100% - 2rem)
+        width: 20rem
+        height: 6rem
+        margin: 0 1rem 1rem 1rem
+        padding: 1rem
+        overflow: hidden
+        display: flex
+        flex-direction: column
+        flex-wrap: wrap
+        align-items: stretch
+        box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.6)
+        position: relative
+
+        img
+          width: 6rem
+          // display: inline-block
+          border-radius: 100%
+
+        h2
+          color: $white
+          width: auto
+          max-width: 11rem
+          display: inline-block
+          text-transform: uppercase
+          margin: 0 0 0.4rem 0
+          font-size: 1.4rem
+
+        h3
+          color: $white
+          display: inline-block
+          margin: 0
+          max-width: 11rem
+          font-size: 1rem
+
+        .icn-action
+          color: $white
+          // height: 2rem
+          font-size: 0.3rem
+          // position: fixed
+          right: 1rem
+          position: absolute
+
+.n-one
+  background-color: $n-one
+
+.n-two
+  background-color: $n-two
+
+.n-three
+  background-color: $n-three
+
+.n-four
+  background-color: $n-four
+
+.n-five
+  background-color: $n-five
+
+.n-six
+  background-color: $n-six

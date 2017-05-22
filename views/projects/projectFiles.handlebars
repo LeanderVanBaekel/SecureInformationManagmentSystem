@@ -1,0 +1,104 @@
+{{> header}}
+
+<div class="container" id="projectDetail">
+
+	{{> side-nav}}
+
+	<main>
+		<nav class="project-nav">
+			<a class="active" href="{{req.baseUrl}}/projects/{{data.project._id}}/files">Bestanden</a>
+			<a href="{{req.baseUrl}}/projects/{{data.project._id}}/auth">Authenticatie gegevens</a>
+		</nav>
+
+		<div class="files-container">
+			<div class="files-header">
+				<a href="{{data.baseUrl}}">{{title}}</a>
+				{{#each data.path}}
+					> <a href="{{../data.baseUrl}}/{{id}}">{{name}}</a>
+				{{/each}}
+				<div class="new-file-button newFileButtonListner" id="newFileButton">
+					+
+				</div>
+			</div>
+			<div class="files-list">
+				{{#each data.files}}
+					{{#if (ifEqual type "file")}}
+						{{!-- test --}}
+					{{/if}}
+					<a href="{{../data.baseUrl}}/{{_id}}" class="files-item files-item-folder">
+						<p>{{name}}</p>
+					</a>
+				{{/each}}
+				{{!-- <div class="files-item files-item-folder files-item-active">
+					<p>Vormgeving</p>
+				</div>  --}}
+			</div>
+		</div>
+
+
+	</main>
+
+	<div class="popup" id="newFilePopup">
+		<div class="popup-closer newFileButtonListner">
+
+		</div>
+		<div class="popup-content">
+			<h2>map toevoegen</h2>
+
+			<form action="/file/create" enctype="multipart/form-data" method="post">
+
+				{{#if error}}<p class="error-log">{{error}}</p>{{/if}}
+
+				<input type="hidden" name="redirect" value="{{req.url}}">
+
+				<label for="fileName">Naam</label>
+				<input type="text" name="fileName" value=""><br>
+
+				<label for="file">Bestand</label>
+				<input type="file" name="file" multiple value=""><br>
+
+				<label for="type">Type</label>
+				<select name="type">
+					<option value="folder">folder</option>
+					<option value="file">file</option>
+				</select><br>
+
+				{{!-- <label for="projectId">projectId</label> --}}
+				<input type="hidden" name="projectId" value="{{data.projectId}}">
+
+				{{!-- <label for="containdIn">containdIn (in welke folder zit ik?)</label> --}}
+				<input type="hidden" name="containdIn" value="{{data.container._id}}">
+
+				<label for="premissionId">premissionId</label>
+				<input type="number" name="premissionId" value="{{req.session.user.permissionId}}"><br>
+
+				<button type="submit">Aanmaken</button>
+			</form>
+
+		</div>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+
+var popup = function(listners, element) {
+	var toggle = function() {
+		document.getElementById(element).classList.toggle('show');
+	}
+
+	var listners = document.querySelectorAll('.' + listners);
+
+	listners.forEach(function(listner) {
+		listner.addEventListener('click', toggle);
+	});
+
+  // document.getElementById(button).addEventListener('click', active);
+  // console.log('hoi');
+}
+
+
+	window.onload = function() {
+		popup('newFileButtonListner', 'newFilePopup');
+	};
+</script>

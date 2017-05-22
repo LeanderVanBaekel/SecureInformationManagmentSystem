@@ -1,0 +1,67 @@
+{{> header}}
+
+<div class="container" id="projectDetail">
+
+	{{> side-nav}}
+
+	<main>
+		<nav class="project-nav">
+			<a href="{{req.baseUrl}}/projects/{{data.project._id}}/files">Bestanden</a>
+			<a class="active" href="{{req.baseUrl}}/projects/{{data.project._id}}/auth">Authenticatie gegevens</a>
+		</nav>
+
+			<div class="auth-container">
+
+				<div class="auth-block">
+					<div class="auth-header">
+						<h2>Server login</h2>
+						<div class="auth-edit">
+							edit
+						</div>
+					</div>
+					<div class="auth-text">
+						<p>Het IP address is: 92.435.124.35</p>
+						<p>Vergeet niet te verbinden met de VPN!</p>
+					</div>
+					<div class="auth-data">
+						<p>E@$5twerGerw</p>
+						<p>RRgd4563@tg45y.h,we</p>
+					</div>
+				</div>
+
+				<div class="auth-block">
+					<div class="auth-header">
+						<h2>Applicatie test account</h2>
+						<div class="auth-edit">
+							edit
+						</div>
+					</div>
+					<div class="auth-text">
+						<p>[options] (Object|String|Array): If the options is a string, it will be parsed as the fields to select. In addition to the mongo options, you can pass the option rawCursor in order to get the raw mongo cursor when the promise resolve.</p>
+					</div>
+					<div class="auth-data">
+						<p>JohnDoe</p>
+						<p>12345</p>
+					</div>
+				</div>
+
+				<div class="auth-block">
+					<div class="auth-header">
+						<h2>Database login</h2>
+						<div class="auth-edit">
+							edit
+						</div>
+					</div>
+					<div class="auth-text">
+						<p>[options] (Object|String|Array): If the options is a string, it will be parsed as the fields to select. In addition to the mongo options, you can pass the option rawCursor in order to get the raw mongo cursor when the promise resolve.</p>
+					</div>
+					<div class="auth-data">
+						<p>username</p>
+						<p>password</p>
+					</div>
+				</div>
+
+			</div>
+
+	</main>
+</div>

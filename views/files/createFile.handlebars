@@ -6,11 +6,41 @@
 
 	<main>
 
+		<style>
+			label, input{display:block;}
+		</style>
+
 		<form action="/file/create" method="post">
 
 			{{#if error}}<p class="error-log">{{error}}</p>{{/if}}
 
+			<input type="hidden" name="redirect" value="req.url">
 
+			<label for="fileName">Naam</label>
+			<input type="text" name="fileName" value="">
+
+			{{!-- <label for="root">Root?</label>
+			<input type="checkbox" name="root" value="true"> --}}
+
+			<label for="type">Type</label>
+			<select name="type">
+				<option value="folder">folder</option>
+				<option value="file">file</option>
+			</select>
+
+			<label for="projectId">projectId (als het de root folder is)</label>
+			<input type="text" name="projectId" value="">
+
+			<label for="containdIn">containdIn (in welke folder zit ik?)</label>
+			<input type="text" name="containdIn" value="">
+
+			<label for="premissionId">premissionId</label>
+			<input type="number" name="premissionId" value="{{req.session.user.permissionId}}">
+
+
+
+
+{{!--
 			<label for="client">Klant id!</label>
 			{{#each clients}}
 				<p>{{name}} - {{_id}}</p>
@@ -30,7 +60,7 @@
 			{{#each accounts}}
 				<label for="{{id}}">{{name}} - {{permission}}</label>
 				<input id='{{id}}' name='accountId' type='checkbox' value="{{id}}">
-			{{/each}}
+			{{/each}} --}}
 
 			{{!-- <label for="permission">rol</label>
 			<input id='permission' name='permission' type='text' value="{{permission}}"> --}}

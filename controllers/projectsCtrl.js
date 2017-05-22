@@ -1,7 +1,7 @@
 var data = require('../data/testdata.js');
 var dataFunctions = require('../data/dataFunctions.js');
 var dataSource = require('../data/dataSource.js');
-// var auth = require('../helpers/auth.js');
+var helper = require('../helpers/functions.js');
 // app.use(auth.login);
 
 module.exports = {
@@ -16,23 +16,32 @@ module.exports = {
   },
 
   getCreate : function(req, res){
-    const users = db.get('users');
-  	users.find({})
-  	.then((doc) => {
 
-  		var accounts = [];
-
-  		doc.forEach(function(account){
+    var accountsCall = dataFunctions.getUserAccounts().then((succes) => {
+      var accounts = [];
+      succes.forEach(function(account){
   			accounts.push({id:account._id, name:account.userName, permission:account.permissionId});
   		})
-  		console.log(accounts);
-  		const clients = db.get('clients');
-  		clients.find({})
-  		.then((doc) => {
-  			var clients = doc;
-  			res.render('projects/createProject', {req: req, title: 'nieuw project', clients: clients, accounts: accounts})
-  		});
+  		return accounts;
+      console.log('accounts succes');
+  	}).catch((err) => {
+  		res.send(err);
   	});
+
+    var clientsCall = dataFunctions.getClients().then((succes) => {
+  		return succes;
+      console.log('clients succes');
+  	}).catch((err) => {
+  		res.send(err);
+  	});
+
+    Promise.all([accountsCall, clientsCall]).then(values => {
+      console.log(values);
+      var accounts = values[0];
+      var clients = values[1];
+
+      res.render('projects/createProject', {req: req, title: 'nieuw project', clients: clients, accounts: accounts});
+    });
   },
 
   postCreate: function(req, res) {
@@ -46,7 +55,7 @@ module.exports = {
   	// projecten laden in project overzicht
 
   	const users = db.get('users');
-  	users.findOne({_id: req.body.accountId})
+  	users.findOne({_id: req.body.accountId[0]})
 		.then((doc) => {
 			var accounts = [[doc._id, doc.permissionId]];
 			var newProject = new dataSource.project(req.body.projectName, req.body.managerId, '', accounts);
@@ -80,18 +89,104 @@ module.exports = {
 		});
   },
 
-  getProject: function (req, res) {
+  projectRedirect: function (req, res) {
+
+    res.redirect(req.url + '/files');
+  },
+
+
+  getProjectFiles: function (req, res) {
+
+    var data = {
+      baseUrl: '/projects/' + req.params.projectId + '/files',
+  		projectId: req.params.projectId,
+      folder: req.params.folder,
+      path: [] // array of map id's
+  	};
+
+    var projectDataCall = dataFunctions.getProjectData(data.projectId).then((succes) => {
+      // console.log('project data succes');
+      return succes;
+    }).catch((err) => {
+      res.send(err);
+    });
+
+    if (!req.params.folder) {
+      // console.log('No folder is specified root is called');
+      var fileCall = dataFunctions.findRootFiles(data.projectId, null).then((succes) => {
+        // console.log(succes);
+        // console.log('root files succes');
+        return succes;
+      }).catch((err) => {
+        res.send(err);
+      });
+    } else {
+      // console.log('Folder is specified data is called');
+      var fileCall = dataFunctions.findFolderAndContent(data.projectId, data.folder).then((succes) => {
+        // console.log('files succes');
+        return succes;
+      }).catch((err) => {
+        res.send(err);
+      });
+    }
+
+
+    getPath = function(folder) {
+      var fileCall = dataFunctions.findFolder(folder).then((succes) => {
+        // console.log(succes);
+        return succes;
+      }).catch((err) => {
+        res.send(err);
+      });
+      fileCall.then(succes => {
+        if(succes.containdIn != null) {
+          data.path.push({id:succes._id, name:succes.name});
+          getPath(succes.containdIn);
+        } else {
+          data.path.reverse();
+          done();
+        };
+      });
+    }
+
+    var done = function() {
+      Promise.all([fileCall, projectDataCall]).then(values => {
+        data.container = values[0].container;
+        data.files = values[0].contains;
+        data.project = values[1];
+
+        res.render('projects/projectFiles', {req: req, data: data, title: data.project.name})
+      });
+    }
+
+    if (data.folder) {
+      getPath(data.folder);
+    } else {
+      done();
+    }
+
+  },
+
+  getProjectAuth: function (req, res) {
     var data = {
   		projectId: req.params.projectId,
-  		location: req.params.location,
   		title: req.params.projectId
-
   	};
 
-  	if (data.location == undefined) {
-  		data.location = 'files';
-  	};
+    var projectDataCall = dataFunctions.getProjectData(data.projectId).then((succes) => {
+      // console.log('project data succes');
+      return succes;
+    }).catch((err) => {
+      res.send(err);
+    });
 
-  	res.render('projects/projectDetail', {req: req, data: data, title: data.title})
+    Promise.all([projectDataCall]).then(values => {
+      console.log(values);
+      data.project = values[0];
+
+      res.render('projects/projectAuth', {req: req, data: data, title: data.project.name})
+
+      // res.render('projects/createProject', {req: req, title: 'nieuw project', clients: clients, accounts: accounts});
+    });
   }
 }
