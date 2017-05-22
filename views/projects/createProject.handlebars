@@ -1,6 +1,6 @@
 {{> header}}
 
-<div class="container" id="projects">
+<div class="container" id="new-project">
 
 	{{> side-nav}}
 
@@ -10,38 +10,106 @@
 			<h1>{{title}}</h1>
 			<a href="create">Nieuw project aanmaken</a>
 		</div> --}}
+		<div class="page-content">
 
-		<form action="/projects/create" method="post">
+			<form action="/projects/create" method="post">
+				<h1>Gegevens van het project</h1>
+				{{#if error}}<p class="error-log">{{error}}</p>{{/if}}
 
-			{{#if error}}<p class="error-log">{{error}}</p>{{/if}}
+
+				<label for="client">Klant</label>
+				<select class="" name="client">
+					{{#each clients}}
+						<option value="{{_id}}">{{name}}</option>
+					{{/each}}
+				</select>
 
 
-			<label for="client">Klant id!</label>
-			{{#each clients}}
-				<p>{{name}} - {{_id}}</p>
-			{{/each}}
-			<input id='client' name='client' type='text' value="{{client}}">
+				{{!-- <input id='client' name='client' type='text' value="{{client}}"> --}}
 
-			<label for="projectName">Naam project</label>
-			<input id='projectName' name='projectName' type='text' value="{{projectName}}">
+				<label for="projectName">Project naam</label>
+				<input id='projectName' name='projectName' type='text' value="{{projectName}}">
 
-			<label>Beheerder</label>
-			{{#each accounts}}
-				<label for="{{id}}">{{name}}</label>
-				<input id='{{id}}' name='managerId' type='checkbox' value="{{id}}">
-			{{/each}}
+				<label>Beheerder</label>
+				<select class="" name="managerId">
+					{{#each accounts}}
+						<option value="{{id}}">{{name}}</option>
+					{{/each}}
+				</select>
 
-			<label>Accounts</label>
-			{{#each accounts}}
-				<label for="{{id}}">{{name}} - {{permission}}</label>
-				<input id='{{id}}' name='accountId' type='checkbox' value="{{id}}">
-			{{/each}}
 
-			{{!-- <label for="permission">rol</label>
-			<input id='permission' name='permission' type='text' value="{{permission}}"> --}}
+				<label class="">Accounts</label>
+				<div class="checkboxes">
+					{{#each accounts}}
+						<input id='{{id}}' name='accountId' type='checkbox' value="{{id}}">
+						<label for="{{id}}">{{name}} - {{permission}}</label>
+					{{/each}}
+				</div>
 
-			<button type="submit">Aanmaken</button>
-		</form>
+
+
+				{{!-- <label for="permission">rol</label>
+				<input id='permission' name='permission' type='text' value="{{permission}}"> --}}
+
+				<button type="submit">Aanmaken</button>
+			</form>
+		</div>
+
+		<div class="classifications">
+			<h1>Informatie Classificatie Niveau's</h1>
+
+			<div class="icn-container">
+				<div class="icn-card n-one">
+					<div class="icn-action">
+							<p>&#11044; &#11044; &#11044;</p>
+					</div>
+					<img src="https://pbs.twimg.com/profile_images/1308193012/IMG-20110411-00097_400x400.jpg" alt="image">
+					<h2>Jesper Honders</h2>
+					<h3>Release manager - niveau 1</h3>
+				</div>
+				<div class="icn-card n-two">
+					<div class="icn-action">
+							<p>&#11044; &#11044; &#11044;</p>
+					</div>
+					<img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/5/005/08e/1af/2194742.jpg" alt="image">
+					<h2>Leander van Baekel</h2>
+					<h3>Developer - niveau 2</h3>
+				</div>
+				<div class="icn-card n-three">
+					<div class="icn-action">
+							<p>&#11044; &#11044; &#11044;</p>
+					</div>
+					<img src="https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-1/p320x320/18119588_10213496199706256_7578411443375059057_n.jpg?oh=7e87fe4cb5b72b025fdb4e6b88d407bf&oe=59B28C7E" alt="image">
+					<h2>Gavin Lighthart</h2>
+					<h3>Developer - niveau 3</h3>
+				</div>
+				<div class="icn-card n-four">
+					<div class="icn-action">
+							<p>&#11044; &#11044; &#11044;</p>
+					</div>
+					<img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/3/005/0af/32b/39ce7e1.jpg" alt="image">
+					<h2>Arthur van Schravendijk</h2>
+					<h3>Desiger - niveau 4</h3>
+				</div>
+				<div class="icn-card n-five">
+					<div class="icn-action">
+							<p>&#11044; &#11044; &#11044;</p>
+					</div>
+					<img src="https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-1/p100x100/17523399_10209144668319211_404166692964834715_n.jpg?oh=cc529741f06b94aa4a5ce0dbb9bb06a3&oe=59A5BC34" alt="image">
+					<h2>Niels van Dijke</h2>
+					<h3>Stagiaire - niveau 5</h3>
+				</div>
+				<div class="icn-card n-six">
+					<div class="icn-action">
+							<p>&#11044; &#11044; &#11044;</p>
+					</div>
+					<img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAjBAAAAJDlkZjFiZWI5LWVkOWYtNGRjMC05MzRlLWUyM2YyN2NjOTdjNg.jpg" alt="image">
+					<h2>Raymond Martens</h2>
+					<h3>Project manager - niveau 6</h3>
+				</div>
+			</div>
+
+		</div>
 
 	</main>
 </div>

@@ -55,7 +55,7 @@ module.exports = {
   	// projecten laden in project overzicht
 
   	const users = db.get('users');
-  	users.findOne({_id: req.body.accountId})
+  	users.findOne({_id: req.body.accountId[0]})
 		.then((doc) => {
 			var accounts = [[doc._id, doc.permissionId]];
 			var newProject = new dataSource.project(req.body.projectName, req.body.managerId, '', accounts);
@@ -173,16 +173,16 @@ module.exports = {
   		title: req.params.projectId
   	};
 
-    var rootFileCall = dataFunctions.findRootFiles(data.projectId).then((succes) => {
+    var projectDataCall = dataFunctions.getProjectData(data.projectId).then((succes) => {
+      // console.log('project data succes');
       return succes;
-      console.log('clients succes');
     }).catch((err) => {
       res.send(err);
     });
 
-    Promise.all([rootFileCall]).then(values => {
+    Promise.all([projectDataCall]).then(values => {
       console.log(values);
-      data.rootFiles = values[0];
+      data.project = values[0];
 
       res.render('projects/projectAuth', {req: req, data: data, title: data.project.name})
 

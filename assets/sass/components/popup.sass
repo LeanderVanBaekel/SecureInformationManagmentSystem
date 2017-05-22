@@ -16,8 +16,38 @@
 .popup-content
   display: block
   position: fixed
-  top: 0
+  top: 15vh
+  left: 25vw
   min-width: 50vw
   min-height: 50vh
-  margin: auto
+  margin: 0 auto
   background-color: $white
+
+  h2
+    text-align: center
+    margin: 1em
+
+  form
+    padding: 3em
+
+    input, select
+      display: inline-block
+      margin-bottom: 1em
+
+    label
+      display: inline-block
+      width: 10em
+      margin-right: 1em
+      text-align: right
+
+    button
+      display: block
+      margin: 1.6em auto 0.8em
+      padding: 0.8em
+      min-width: 10em
+      color: white
+      background-color: $action-color
+      border: 0
+      transition: background-color 0.2s ease-out
+      &:hover
+        background-color: $action-color-active

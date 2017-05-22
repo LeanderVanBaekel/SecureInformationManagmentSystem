@@ -33,11 +33,16 @@ module.exports = {
     console.log(upload);
 
     for (var i = 0; i < upload.length; i++) {
-      fs.rename(upload[i].path, "/storage/projects/" + projectId + "/" + upload[i].originalname, function (err) {
+      var dir = "storage/projects/" + projectId;
+      if (!fs.existsSync(dir)){
+        fs.mkdirSync(dir);
+      }
+      fs.rename(upload[i].path, "storage/projects/" + projectId + "/" + upload[i].originalname, function (err) {
   			if(err){
-  				res.send("ojee");
+  				res.send(err);
   			} else {
-          filePath = "/storage/projects/" + projectId + "/" + upload[i].originalname;
+          console.log(upload[i]);
+          filePath = "storage/projects/" + projectId + "/" + upload[i].originalname;
         }
       });
     }

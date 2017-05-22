@@ -6,8 +6,8 @@
 
 	<main>
 		<nav class="project-nav">
-			<a href="{{req.baseUrl}}/projects/{{title}}/files">Bestanden</a>
-			<a href="{{req.baseUrl}}/projects/{{title}}/auth">Authenticatie gegevens</a>
+			<a class="active" href="{{req.baseUrl}}/projects/{{data.project._id}}/files">Bestanden</a>
+			<a href="{{req.baseUrl}}/projects/{{data.project._id}}/auth">Authenticatie gegevens</a>
 		</nav>
 
 		<div class="files-container">
@@ -17,13 +17,13 @@
 					> <a href="{{../data.baseUrl}}/{{id}}">{{name}}</a>
 				{{/each}}
 				<div class="new-file-button newFileButtonListner" id="newFileButton">
-					new file
+					+
 				</div>
 			</div>
 			<div class="files-list">
 				{{#each data.files}}
 					{{#if (ifEqual type "file")}}
-						test
+						{{!-- test --}}
 					{{/if}}
 					<a href="{{../data.baseUrl}}/{{_id}}" class="files-item files-item-folder">
 						<p>{{name}}</p>
@@ -43,7 +43,7 @@
 
 		</div>
 		<div class="popup-content">
-			<p>map toevoegen</p>
+			<h2>map toevoegen</h2>
 
 			<form action="/file/create" enctype="multipart/form-data" method="post">
 
@@ -52,25 +52,25 @@
 				<input type="hidden" name="redirect" value="{{req.url}}">
 
 				<label for="fileName">Naam</label>
-				<input type="text" name="fileName" value="">
+				<input type="text" name="fileName" value=""><br>
 
 				<label for="file">Bestand</label>
-				<input type="file" name="file" multiple value="">
+				<input type="file" name="file" multiple value=""><br>
 
 				<label for="type">Type</label>
 				<select name="type">
 					<option value="folder">folder</option>
 					<option value="file">file</option>
-				</select>
+				</select><br>
 
-				<label for="projectId">projectId</label>
+				{{!-- <label for="projectId">projectId</label> --}}
 				<input type="hidden" name="projectId" value="{{data.projectId}}">
 
-				<label for="containdIn">containdIn (in welke folder zit ik?)</label>
+				{{!-- <label for="containdIn">containdIn (in welke folder zit ik?)</label> --}}
 				<input type="hidden" name="containdIn" value="{{data.container._id}}">
 
 				<label for="premissionId">premissionId</label>
-				<input type="number" name="premissionId" value="{{req.session.user.permissionId}}">
+				<input type="number" name="premissionId" value="{{req.session.user.permissionId}}"><br>
 
 				<button type="submit">Aanmaken</button>
 			</form>
