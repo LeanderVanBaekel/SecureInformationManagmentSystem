@@ -72,6 +72,22 @@ module.exports = {
 		})
 	},
 
+	getUserAccount: function(id) {
+		return new Promise((resolve, reject) => {
+			const users = db.get('users');
+    	users.findOne({_id: id})
+    	.then((doc) => {
+    		if (doc) {
+          resolve(doc)
+        } else {
+          reject('Geen users gevonden.')
+        }
+      }).catch((err) => {
+				console.log(err);
+		  }).then(() => db.close());
+		})
+	},
+
 	getClients: function() {
 		return new Promise((resolve, reject) => {
 			const clients = db.get('clients');

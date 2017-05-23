@@ -14,10 +14,10 @@
 		<div class="tile-container">
 
 			{{#each projects}}
-			<div class="tile">
+			<a href="/projects/{{_id}}" class="tile">
 				<div class="project-logo" style="background-image: url('{{projectImage}}')"></div>
 				<h1>{{name}}</h1>
-			</div>
+			</a>
 			{{/each}}
 
 		</div>

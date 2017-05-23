@@ -22,15 +22,15 @@ module.exports = {
       succes.forEach(function(account){
   			accounts.push({id:account._id, name:account.userName, permission:account.permissionId});
   		})
-  		return accounts;
       console.log('accounts succes');
+  		return accounts;
   	}).catch((err) => {
   		res.send(err);
   	});
 
     var clientsCall = dataFunctions.getClients().then((succes) => {
-  		return succes;
       console.log('clients succes');
+  		return succes;
   	}).catch((err) => {
   		res.send(err);
   	});

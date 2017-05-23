@@ -1,0 +1,108 @@
+{{> header}}
+
+<div class="container" id="manage">
+
+	{{> side-nav}}
+
+	<main class="flex">
+
+		<div class="page-content">
+		</div>
+
+		<div class="classifications">
+			<h1>Informatie Classificatie Niveau's voor {{data.account.userName}}</h1>
+
+			<div class="icn-container">
+				<div class="icn-card n-one">
+					<div class="icn-action">
+							<p>&#11044; &#11044; &#11044;</p>
+					</div>
+					<div class="image" style="background-image: url('https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0020/2958/brand.gif?itok=Nbf6GXa3')"></div>
+					<h2>Lidl 20</h2>
+					<h3>Release manager - niveau 1</h3>
+				</div>
+
+				<div class="icn-card n-one edit">
+					<div class="icn-close">
+							<p>X</p>
+					</div>
+					{{!-- <h2>Lidl 20</h2> --}}
+					<h3>Bewerken</h3>
+					<form class="">
+						{{!-- <label for="projectName">Project naam</label>
+						<input id='projectName' name='projectName' type='text' value="{{projectName}}"> --}}
+						<label for="projectName">Project</label>
+						<input id='projectName' disabled name='projectName' type='text' value="Lidl 20">
+						<label for="">Rol</label>
+						<select class="" name="">
+								<option value="">Developer</option>
+								<option value="">Release manager</option>
+								<option value="">Designer</option>
+								<option value="">Stagiaire</option>
+						</select>
+
+						<label for="">Nivea</label>
+						<div class="select-niveau">
+							<div class="circle n-six">
+								<p>6</p>
+							</div>
+							<div class="circle n-five">
+								<p>5</p>
+							</div>
+							<div class="circle n-four">
+								<p>4</p>
+							</div>
+							<div class="circle n-three">
+								<p>3</p>
+							</div>
+							<div class="circle selected n-two">
+								<p>2</p>
+							</div>
+							<div class="circle n-one">
+								<p>1</p>
+							</div>
+						</div>
+
+						<button type="submit">verwijderen</button>
+						{{!-- <button type="submit">annuleren</button> --}}
+						<button type="submit">Opslaan</button>
+					</form>
+				</div>
+
+				<div class="icn-card n-two">
+					<div class="icn-action">
+							<p>&#11044; &#11044; &#11044;</p>
+					</div>
+					<div class="image" style="background-image: url('http://www.chocapack.nl/wp-content/themes/ac/images/Chocapack_logo.svg')"></div>
+					<h2>Chocapack redesign 2017</h2>
+					<h3>Developer - niveau 2</h3>
+				</div>
+				<div class="icn-card n-three">
+					<div class="icn-action">
+							<p>&#11044; &#11044; &#11044;</p>
+					</div>
+					<div class="image" style="background-image: url('https://momove.nl/imgs/MOMOVE.png')"></div>
+					<h2>Momove ERP</h2>
+					<h3>Developer - niveau 3</h3>
+				</div>
+				<div class="icn-card n-four">
+					<div class="icn-action">
+							<p>&#11044; &#11044; &#11044;</p>
+					</div>
+					<div class="image" style="background-image: url('https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0020/2958/brand.gif?itok=Nbf6GXa3')"></div>
+					<h2>Lidl hub</h2>
+					<h3>Desiger - niveau 4</h3>
+				</div>
+				<div class="icn-card n-five">
+					<div class="icn-action">
+							<p>&#11044; &#11044; &#11044;</p>
+					</div>
+					<div class="image" style="background-image: url('http://iamcore.nl/wp-content/uploads/2016/05/AC.png')"></div>
+					<h2>AC website</h2>
+					<h3>Stagiaire - niveau 5</h3>
+				</div>
+			</div>
+
+		</div>
+	</main>
+</div>

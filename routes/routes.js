@@ -44,6 +44,8 @@ var manageCtrl = require('../controllers/manageCtrl');
 router.get('/manage', auth.login, auth.admin, manageCtrl.getManage);
 router.get('/manage/accounts', auth.login, auth.admin, manageCtrl.getAccounts);
 
+router.get('/manage/accounts/:account', auth.login, auth.admin, manageCtrl.getAccount);
+
 // file handeling
 var fileCtrl = require('../controllers/fileCtrl');
 router.get('/file', auth.login, fileCtrl.getFile);

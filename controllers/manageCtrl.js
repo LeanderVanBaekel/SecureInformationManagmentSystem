@@ -16,6 +16,25 @@ module.exports = {
     }).catch((err) => {
       res.send(err);
     });
+  },
+  getAccount: function(req, res) {
+
+    var id = req.params.account
+
+    var getAccount = dataFunctions.getUserAccount(id)
+    .then((succes) => {
+      console.log(succes);
+      return succes;
+    }).catch((err) => {
+      res.send(err);
+    });
+
+    Promise.all([getAccount]).then(values => {
+      console.log(values);
+      data = {account: values[0]};
+
+      res.render('manage/account', {req: req, data: data, title: data.account.userName + "'s account"});
+    });
 
   }
 }
