@@ -31,7 +31,7 @@ module.exports = {
       var projects = values[0];
       var clients = values[1];
 
-      res.render('search', {req: req, title: 'nieuw project', projects: projects, clients: clients, searchQ: searchQ});
+      res.render('search', {req: req, title: 'Zoeken op: "' + searchQ + '"', projects: projects, clients: clients, searchQ: searchQ});
     });
 
 
