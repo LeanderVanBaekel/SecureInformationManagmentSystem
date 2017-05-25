@@ -8,38 +8,55 @@ main
 	width: 100%
 	height: 90%
 	// height: calc(100vh - 3rem)
-	overflow: scroll
+	overflow-y: scroll
 
-	display: flex
+	// display: flex
 	// flex-direction: row
-	flex-wrap: wrap
+	// flex-wrap: wrap
 	// align-items: center
 	// justify-content: space-around
 
 	.tile
-		width: 15em
-		height: 15em
-
-		margin: 1.6em 0.8em
-
-		background-color: $ac-blue
+		min-width: 15rem
+		// height: 15em
+		//
+		// margin: 1.6em 0.8em
+		//
+		// background-color: $ac-blue
+		margin: 0.6rem
+		background-color: white
+		box-shadow: $light-shadow
+		display: flex
+		justify-content: flex-start
+		align-items: center
+		height: 5rem
+		color: $prim-color
+		overflow: hidden
 
 		.project-logo
-			width: 100%
-			height: 80%
+			// width: 100%
+			// height: 80%
+			// background-size: cover
+			// background-position: center center
+			// background-color: white
+
+			height: 100%
+			width: 5em
+			background-position: center
 			background-size: cover
-			background-position: center center
-			background-color: white
+			background-color: $white
 
 		h1
-			display: block
-			height: 20%
-			margin: 0.5rem 0.4rem 0.4rem 0.4rem
-
+			// display: block
+			// height: 20%
+			// margin: 0.5rem 0.4rem 0.4rem 0.4rem
+			//
 			font-size: 1.3em
-			color: white
-			text-align: center
-			text-transform: uppercase
+			// color: white
+			// text-align: center
+			// text-transform: uppercase
+			margin: 0 0 0 1rem
+			font-weight: normal
 
 .flat-tile-container
 	width: 100%

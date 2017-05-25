@@ -15,7 +15,7 @@ module.exports = {
     }
   },
   admin: (req, res, next) => {
-    if (req.session.userName == 'admin') {
+    if (req.session.userName == 'Raymond') {
       next();
       // If there's no SessionID (so no logged in user), rederect
     } else {

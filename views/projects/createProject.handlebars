@@ -41,7 +41,7 @@
 				<label class="">Accounts</label>
 				<div class="checkboxes">
 					{{#each accounts}}
-						<input id='{{id}}' name='accountId' type='checkbox' value="{{id}}">
+						<input id='{{id}}' name='accountId' user='{{name}}' type='checkbox' value="{{id}}">
 						<label for="{{id}}">{{name}} - {{permission}}</label>
 					{{/each}}
 				</div>
@@ -59,7 +59,7 @@
 			<h1>Informatie Classificatie Niveau's</h1>
 
 			<div class="icn-container">
-				<div class="icn-card n-one">
+				<div icn-user="Jesper" class="icn-card n-one">
 					<div class="icn-action">
 							<p>&#11044; &#11044; &#11044;</p>
 					</div>
@@ -67,7 +67,52 @@
 					<h2>Jesper Honders</h2>
 					<h3>Release manager - niveau 1</h3>
 				</div>
-				<div class="icn-card n-two">
+
+				<div icn-user-edit="Jesper" class="icn-card n-one edit">
+					<div class="icn-close">
+							<p>X</p>
+					</div>
+					<h3>Bewerken</h3>
+					<form class="icn-edit-submit">
+						<label for="projectName">Gebruiker</label>
+						<input id='projectName' disabled name='projectName' type='text' value="Jesper Honders">
+						<label for="">Rol</label>
+						<select class="" name="">
+								<option value="">Developer</option>
+								<option value="">Release manager</option>
+								<option value="">Designer</option>
+								<option value="">Stagiaire</option>
+						</select>
+
+						<label for="">Niveau</label>
+						<div class="select-niveau">
+							<div class="circle n-six">
+								<p>6</p>
+							</div>
+							<div class="circle n-five">
+								<p>5</p>
+							</div>
+							<div class="circle n-four">
+								<p>4</p>
+							</div>
+							<div class="circle n-three">
+								<p>3</p>
+							</div>
+							<div class="circle n-two">
+								<p>2</p>
+							</div>
+							<div class="circle selected n-one">
+								<p>1</p>
+							</div>
+						</div>
+
+						<button type="submit">verwijderen</button>
+						{{!-- <button type="submit">annuleren</button> --}}
+						<button type="submit">Opslaan</button>
+					</form>
+				</div>
+
+				<div icn-user="Leander" class="icn-card n-two">
 					<div class="icn-action">
 							<p>&#11044; &#11044; &#11044;</p>
 					</div>
@@ -75,7 +120,52 @@
 					<h2>Leander van Baekel</h2>
 					<h3>Developer - niveau 2</h3>
 				</div>
-				<div class="icn-card n-three">
+
+				<div icn-user-edit="Leander" class="icn-card n-one edit">
+					<div class="icn-close">
+							<p>X</p>
+					</div>
+					<h3>Bewerken</h3>
+					<form class="icn-edit-submit">
+						<label for="projectName">Gebruiker</label>
+						<input id='projectName' disabled name='projectName' type='text' value="Leander van Baekel">
+						<label for="">Rol</label>
+						<select class="" name="">
+								<option value="">Developer</option>
+								<option value="">Release manager</option>
+								<option value="">Designer</option>
+								<option value="">Stagiaire</option>
+						</select>
+
+						<label for="">Niveau</label>
+						<div class="select-niveau">
+							<div class="circle n-six">
+								<p>6</p>
+							</div>
+							<div class="circle n-five">
+								<p>5</p>
+							</div>
+							<div class="circle n-four">
+								<p>4</p>
+							</div>
+							<div class="circle n-three">
+								<p>3</p>
+							</div>
+							<div class="circle selected n-two">
+								<p>2</p>
+							</div>
+							<div class="circle n-one">
+								<p>1</p>
+							</div>
+						</div>
+
+						<button type="submit">verwijderen</button>
+						{{!-- <button type="submit">annuleren</button> --}}
+						<button type="submit">Opslaan</button>
+					</form>
+				</div>
+
+				<div icn-user="Gavin" class="icn-card n-three">
 					<div class="icn-action">
 							<p>&#11044; &#11044; &#11044;</p>
 					</div>
@@ -83,7 +173,52 @@
 					<h2>Gavin Lighthart</h2>
 					<h3>Developer - niveau 3</h3>
 				</div>
-				<div class="icn-card n-four">
+
+				<div icn-user-edit="Gavin" class="icn-card n-three edit">
+					<div class="icn-close">
+							<p>X</p>
+					</div>
+					<h3>Bewerken</h3>
+					<form class="icn-edit-submit">
+						<label for="projectName">Gebruiker</label>
+						<input id='projectName' disabled name='projectName' type='text' value="Gavin Lighthart">
+						<label for="">Rol</label>
+						<select class="" name="">
+								<option value="">Developer</option>
+								<option value="">Release manager</option>
+								<option value="">Designer</option>
+								<option value="">Stagiaire</option>
+						</select>
+
+						<label for="">Niveau</label>
+						<div class="select-niveau">
+							<div class="circle n-six">
+								<p>6</p>
+							</div>
+							<div class="circle n-five">
+								<p>5</p>
+							</div>
+							<div class="circle n-four">
+								<p>4</p>
+							</div>
+							<div class="circle selected n-three">
+								<p>3</p>
+							</div>
+							<div class="circle n-two">
+								<p>2</p>
+							</div>
+							<div class="circle n-one">
+								<p>1</p>
+							</div>
+						</div>
+
+						<button type="submit">verwijderen</button>
+						{{!-- <button type="submit">annuleren</button> --}}
+						<button type="submit">Opslaan</button>
+					</form>
+				</div>
+
+				<div icn-user="Arthur" class="icn-card n-four">
 					<div class="icn-action">
 							<p>&#11044; &#11044; &#11044;</p>
 					</div>
@@ -91,7 +226,52 @@
 					<h2>Arthur van Schravendijk</h2>
 					<h3>Desiger - niveau 4</h3>
 				</div>
-				<div class="icn-card n-five">
+
+				<div icn-user-edit="Arthur" class="icn-card n-four edit">
+					<div class="icn-close">
+							<p>X</p>
+					</div>
+					<h3>Bewerken</h3>
+					<form class="icn-edit-submit">
+						<label for="projectName">Gebruiker</label>
+						<input id='projectName' disabled name='projectName' type='text' value="Arthur van Schravendijk">
+						<label for="">Rol</label>
+						<select class="" name="">
+								<option value="">Developer</option>
+								<option value="">Release manager</option>
+								<option value="">Designer</option>
+								<option value="">Stagiaire</option>
+						</select>
+
+						<label for="">Niveau</label>
+						<div class="select-niveau">
+							<div class="circle n-six">
+								<p>6</p>
+							</div>
+							<div class="circle n-five">
+								<p>5</p>
+							</div>
+							<div class="circle selected n-four">
+								<p>4</p>
+							</div>
+							<div class="circle n-three">
+								<p>3</p>
+							</div>
+							<div class="circle n-two">
+								<p>2</p>
+							</div>
+							<div class="circle n-one">
+								<p>1</p>
+							</div>
+						</div>
+
+						<button type="submit">verwijderen</button>
+						{{!-- <button type="submit">annuleren</button> --}}
+						<button type="submit">Opslaan</button>
+					</form>
+				</div>
+
+				<div icn-user="Niels" class="icn-card n-five">
 					<div class="icn-action">
 							<p>&#11044; &#11044; &#11044;</p>
 					</div>
@@ -99,7 +279,52 @@
 					<h2>Niels van Dijke</h2>
 					<h3>Stagiaire - niveau 5</h3>
 				</div>
-				<div class="icn-card n-six">
+
+				<div icn-user-edit="Niels" class="icn-card n-five edit">
+					<div class="icn-close">
+							<p>X</p>
+					</div>
+					<h3>Bewerken</h3>
+					<form class="icn-edit-submit">
+						<label for="projectName">Gebruiker</label>
+						<input id='projectName' disabled name='projectName' type='text' value="Niels van Dijke">
+						<label for="">Rol</label>
+						<select class="" name="">
+								<option value="">Developer</option>
+								<option value="">Release manager</option>
+								<option value="">Designer</option>
+								<option value="">Stagiaire</option>
+						</select>
+
+						<label for="">Niveau</label>
+						<div class="select-niveau">
+							<div class="circle n-six">
+								<p>6</p>
+							</div>
+							<div class="circle selected n-five">
+								<p>5</p>
+							</div>
+							<div class="circle n-four">
+								<p>4</p>
+							</div>
+							<div class="circle n-three">
+								<p>3</p>
+							</div>
+							<div class="circle n-two">
+								<p>2</p>
+							</div>
+							<div class="circle n-one">
+								<p>1</p>
+							</div>
+						</div>
+
+						<button type="submit">verwijderen</button>
+						{{!-- <button type="submit">annuleren</button> --}}
+						<button type="submit">Opslaan</button>
+					</form>
+				</div>
+
+				<div icn-user="Raymond" class="icn-card n-six">
 					<div class="icn-action">
 							<p>&#11044; &#11044; &#11044;</p>
 					</div>
@@ -107,6 +332,50 @@
 					<h2>Raymond Martens</h2>
 					<h3>Project manager - niveau 6</h3>
 				</div>
+			</div>
+
+			<div icn-user-edit="Raymond" class="icn-card n-six edit">
+				<div class="icn-close">
+						<p>X</p>
+				</div>
+				<h3>Bewerken</h3>
+				<form class="icn-edit-submit">
+					<label for="projectName">Gebruiker</label>
+					<input id='projectName' disabled name='projectName' type='text' value="Raymond Martens">
+					<label for="">Rol</label>
+					<select class="" name="">
+							<option value="">Developer</option>
+							<option value="">Release manager</option>
+							<option value="">Designer</option>
+							<option value="">Stagiaire</option>
+					</select>
+
+					<label for="">Niveau</label>
+					<div class="select-niveau">
+						<div class="circle selected n-six">
+							<p>6</p>
+						</div>
+						<div class="circle n-five">
+							<p>5</p>
+						</div>
+						<div class="circle n-four">
+							<p>4</p>
+						</div>
+						<div class="circle n-three">
+							<p>3</p>
+						</div>
+						<div class="circle n-two">
+							<p>2</p>
+						</div>
+						<div class="circle n-one">
+							<p>1</p>
+						</div>
+					</div>
+
+					<button type="submit">verwijderen</button>
+					{{!-- <button type="submit">annuleren</button> --}}
+					<button type="submit">Opslaan</button>
+				</form>
 			</div>
 
 		</div>
