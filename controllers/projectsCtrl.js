@@ -36,7 +36,7 @@ module.exports = {
   	});
 
     Promise.all([accountsCall, clientsCall]).then(values => {
-      console.log(values);
+      // console.log(values);
       var accounts = values[0];
       var clients = values[1];
 
@@ -59,11 +59,29 @@ module.exports = {
 		.then((doc) => {
 			var accounts = [[doc._id, doc.permissionId]];
 			var newProject = new dataSource.project(req.body.projectName, req.body.managerId, '', accounts);
-
 			const projects = db.get('projects');
 			projects.insert(newProject)
 				.then((doc) => {
 					var project = doc;
+
+          for (var i = 0; i < req.body.accountId.length; i++) {
+            users.findOne({_id: req.body.accountId[i]}).then((doc) => {
+              doc.projects.push(project._id)
+              doc.recentProjects.push(project._id)
+
+							users.update({_id: doc._id}, { $set: {projects: doc.projects, recentProjects: doc.recentProjects}})
+							.then((result) => {
+                // console.log(result);
+                // if (result._id == req.session.user._id) {
+                //   req.session.user = result;
+                // }
+							}).catch((err) => {
+								console.log(err);
+							})
+						}).catch((err) => {
+							console.log(err);
+						})
+          }
 
 					const clients = db.get('clients');
 					clients.findOne({_id: req.body.client})
@@ -72,7 +90,6 @@ module.exports = {
 
 							clients.update({_id: doc._id}, { $set: {projects: doc.projects}})
 							.then((result) => {
-								console.log(result);
 								res.redirect('/projects');
 
 							}).catch((err) => {
