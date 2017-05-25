@@ -1,17 +1,24 @@
 
-{{> header}}
+<main class="login">
+	<header style="background-color:rgba(00, 00, 00,0.8);">
+		<h1 style="text-align: center; width: 100%;">Secure Information Management System</h1>
+	</header>
 
-<div class="card">
-	<form action="/login/" method="post">
+	<div class="card">
+		<form action="/login/" method="post">
 
-		{{#if error}}<p class="error-log">{{error}}</p>{{/if}}
+			{{#if error}}<p class="error-log">{{error}}</p>{{/if}}
 
-		<label for="userName">Gebruikersnaam</label>
-		<input id='userName' name='userName' type='name' value="{{userName}}">
+			<label for="userName">Gebruikersnaam</label>
+			<input id='userName' name='userName' type='name' value="{{userName}}">
 
-		<label for="username">Wachtwoord</label>
-		<input id='password' name='password' type='password' value="{{password}}">
+			<label for="username">Wachtwoord</label>
+			<input id='password' name='password' type='password' value="{{password}}">
 
-		<button type="submit">Login</button>
-	</form>
-</div>
+			<button type="submit">Login</button>
+
+			<a href="#">Wachtwoord vergeten?</a>
+
+		</form>
+	</div>
+</main>

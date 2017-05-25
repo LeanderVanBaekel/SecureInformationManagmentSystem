@@ -6,7 +6,13 @@
 	display: block
 	transform: translateY(-50%)
 
-	background-color: $prim-color
+	background-color: $prim-color-trans
+
+	a
+		margin-top: 1.2rem
+		margin-bottom: 0.5rem
+		display: inline-block
+		color: white
 
 	form
 		// display: flex
@@ -36,14 +42,17 @@
 
 	button
 		display: block
-		margin: 1.6em auto 0.8em
+		margin: 2em auto 0.8em
 		padding: 0.8em
 		min-width: 10em
+		width: 54%
+
+		font-family: 'dinBold'
 
 		color: white
 		background-color: $action-color
 		border: 0
 		transition: background-color 0.2s ease-out
-		
+
 		&:hover
 			background-color: $action-color-active

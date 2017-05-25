@@ -1,0 +1,25 @@
+{{> header}}
+
+<div class="container" id="projects">
+
+	{{> side-nav}}
+
+	<main>
+		<div class="dashboard-info">
+			<p>gebruiker: {{req.session.username}}</p>
+			<h1>{{title}}</h1>
+			<a href="{{req.originalUrl}}/create">Nieuw project aanmaken</a>
+		</div>
+
+		<div class="tile-container">
+
+			{{#each projects}}
+			<a href="/projects/{{_id}}" class="tile">
+				<div class="project-logo" style="background-image: url('{{projectImage}}')"></div>
+				<h1>{{name}}</h1>
+			</a>
+			{{/each}}
+
+		</div>
+	</main>
+</div>

@@ -18,6 +18,10 @@ router.get('/login', loginCtrl.get);
 router.post('/login', loginCtrl.post);
 router.get('/logout', loginCtrl.logout);
 
+// search
+var searchCtrl = require('../controllers/searchCtrl');
+router.post('/search', auth.login, searchCtrl.get);
+
 // dashboard
 var dashboardCtrl = require('../controllers/dashboardCtrl');
 router.get('/dashboard', auth.login, dashboardCtrl.get);

@@ -49,6 +49,30 @@ module.exports = {
   },
 
   getClient: function (req, res) {
-    res.send('client info')
+    // res.send('client info')
+
+    var projectsCall = dataFunctions.getClientProjects(req, req.params.clientId).then((succes) => {
+  		return succes;
+  	}).catch((err) => {
+  		res.send(err);
+  	});
+
+    var clientCall = dataFunctions.getClient(req.params.clientId).then((succes) => {
+  		return succes;
+  	}).catch((err) => {
+  		res.send(err);
+  	});
+
+    Promise.all([projectsCall, clientCall]).then(values => {
+      console.log(values);
+      var projects = values[0];
+      var client = values[1];
+      console.log(client);
+      // res.send(projects)
+      // res.render('search', {req: req, title: 'nieuw project', projects: projects, clients: clients, searchQ: searchQ});
+      res.render('clients/clientProjects', {req: req, title: 'Projecten van ' + client.name, projects: projects});
+
+    });
+
   }
 }

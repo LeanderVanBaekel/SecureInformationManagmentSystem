@@ -1,0 +1,48 @@
+{{> header}}
+
+<div class="container" id="dashboard">
+
+	{{> side-nav}}
+
+	<main class="search">
+		<div class="dashboard-info">
+			<input type="text" name="" value="{{searchQ}}">
+		</div>
+
+		<div class="dashboard-container">
+
+			<div class="dashboard-col">
+				<div class="dashboard-col-header">
+					<h2>Projecten</h2>
+				</div>
+				{{#each projects}}
+				<a class="dashboard-tile" href="/projects/{{_id}}">
+					<div class="project-logo" style="background-image: url('http://iamcore.nl/wp-content/uploads/2016/05/AC.png')"></div>
+					<h2>{{name}}</h2>
+					{{!-- <p>{{date}}</p> --}}
+				</a>
+				{{/each}}
+			</div>
+
+			<div class="dashboard-col">
+				<div class="dashboard-col-header">
+					<h2>Klanten</h2>
+				</div>
+				{{#each clients}}
+				<a class="dashboard-tile" href="/clients/{{_id}}">
+					<div class="project-logo" style="background-image: url('http://iamcore.nl/wp-content/uploads/2016/05/AC.png')"></div>
+					<h2>{{name}}</h2>
+					{{!-- <p>{{date}}</p> --}}
+				</a>
+				{{/each}}
+			</div>
+
+			{{!-- <div class="dashboard-col">
+				<div class="dashboard-col-header">
+					<h2>nieuwe projecten</h2>
+				</div>
+			</div> --}}
+
+		</div>
+	</main>
+</div>

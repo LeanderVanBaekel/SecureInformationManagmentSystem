@@ -24,6 +24,37 @@ module.exports = {
 		})
 	},
 
+	getClientProjects: function(req, clientId) {
+
+		return new Promise((resolve, reject) => {
+			const clients = db.get('clients');
+  		clients.findOne({_id: clientId})
+  		.then((doc) => {
+				if (doc) {
+					if (doc.projects) {
+						const projects = db.get('projects');
+			    	projects.find({_id: {$in:doc.projects}})
+			    	.then((doc) => {
+			    		if (doc) {
+			          resolve(doc)
+			        } else {
+			          reject('Geen projecten gevonden.')
+			        }
+			      }).catch((err) => {
+							console.log(err);
+					  }).then(() => db.close())
+					} else {
+						resolve([])
+					}
+        } else {
+          reject('Geen clients gevonden.')
+        }
+  		}).catch((err) => {
+				console.log(err);
+		  })
+		})
+	},
+
 	getProjectData: function(id) {
 		return new Promise((resolve, reject) => {
 			const projects = db.get('projects');
@@ -101,6 +132,22 @@ module.exports = {
   		}).catch((err) => {
 				console.log(err);
 		  }).then(() => db.close());
+		})
+	},
+
+	getClient: function(clientId) {
+		return new Promise((resolve, reject) => {
+			const clients = db.get('clients');
+			clients.findOne({_id: clientId})
+			.then((doc) => {
+				if (doc) {
+					resolve(doc)
+				} else {
+					reject('Geen clients gevonden.')
+				}
+			}).catch((err) => {
+				console.log(err);
+			}).then(() => db.close());
 		})
 	},
 

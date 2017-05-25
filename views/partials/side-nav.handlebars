@@ -1,6 +1,11 @@
 <nav>
 	<ul>
-		<li><input type="text" name="search" placeholder="zoeken"></li>
+		<li>
+			<form class="" action="/search" method="post">
+				<input type="text" name="search" placeholder="zoeken">
+				<button type="hidden" style="display: none;" name="button"></button>
+				</form>
+		</li>
 		<a href="/dashboard"><li>Dashboard</li></a>
 		<a href="/clients"><li>Klanten</li></a>
 		<a href="/projects"><li>Projecten</li></a>
