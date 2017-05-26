@@ -24,29 +24,39 @@
 			<div class="files-list">
 				{{#each data.files}}
 					{{#if (ifEqual type "folder")}}
-						<a href="{{../data.baseUrl}}/{{_id}}" class="files-item files-item-folder">
-							<img src="http://pngimg.com/uploads/folder/folder_PNG8764.png" alt="">
-							<p class="name">{{name}}</p>
-							<div class="circle n-{{permissionId}}">
-								<p>{{permissionId}}</p>
+						<div class="item-wrapper">
+							<a href="{{../data.baseUrl}}/{{_id}}" class="files-item files-item-folder">
+								<img src="http://pngimg.com/uploads/folder/folder_PNG8764.png" alt="">
+								<p class="name">{{name}}</p>
+								<div class="circle n-{{permissionId}}">
+									<p>{{permissionId}}</p>
+								</div>
+								<p class="user">{{../req.session.userName}}</p>
+								<div class="action-button">
+									<p>&#11044; &#11044; &#11044;</p>
+								</div>
+							</a>
+							<div class="action-menu">
+								<ul>
+									<li>Bekijk in browser</li>
+									<li>Download</li>
+									<li>Wijzigen</li>
+									<li>Verwijderen</li>
+								</ul>
 							</div>
-							<p>{{../req.session.userName}}</p>
+						</div>
 
-							<div class="action-button">
-								<p>&#11044; &#11044; &#11044;</p>
-							</div>
-						</a>
 					{{/if}}
 				{{/each}}
 				{{#each data.files}}
 					{{#if (ifEqual type "file")}}
-						<a href="/file/{{../data.project._id}}/{{_id}}" class="files-item files-item-folder">
+						<a href="/file/{{../data.project._id}}/{{_id}}/ads" class="files-item files-item-folder">
 							<img src="http://icons.iconarchive.com/icons/dtafalonso/android-lollipop/512/Docs-icon.png" alt="">
 							<p class="name">{{name}}</p>
 							<div class="circle n-{{permissionId}}">
 								<p>{{permissionId}}</p>
 							</div>
-							<p>{{../req.session.userName}}</p>
+							<p class="user">{{../req.session.userName}}</p>
 							<div class="action-button">
 								<p>&#11044; &#11044; &#11044;</p>
 							</div>
