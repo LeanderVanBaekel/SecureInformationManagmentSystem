@@ -5,5 +5,10 @@ module.exports = {
         return url.substr(0, url.length - 1);
     }
     return url;
+  },
+
+  reloadProjectData: function(req, projectId) {
+        req.session.user.projects.push(projectId);
+        req.session.user.recentProjects.push(projectId);
   }
 };

@@ -38,7 +38,7 @@ module.exports = {
     return newClient;
   },
 
-  project: function(name, managerId, image, usersPermissions) {
+  project: function(name, clientName, managerId, image, usersPermissions) {
     date = new Date();
     var newProject = {
       active: true,
@@ -46,12 +46,14 @@ module.exports = {
       managerId: '', // user id
       dateModified: null,
       name: '',
+      clientName: '',
       image: '',
       usersPermissions: [] //example: [[userId, permissionId], [userId, permissionId]]
     }
 
 
     newProject.name = name;
+    newProject.clientName = clientName;
     newProject.managerId = managerId;
     newProject.date = date;
     newProject.image = image;

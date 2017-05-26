@@ -9,7 +9,10 @@ module.exports = {
 		recent ? searchIn = req.session.user.recentProjects : searchIn = req.session.user.projects;
 
 		return new Promise((resolve, reject) => {
-			if (!searchIn) {return reject('Geen projecten gevonden.')};
+			if (!searchIn) {
+				return reject('Geen projecten gevonden.')
+			};
+
 			const projects = db.get('projects');
     	projects.find({_id: {$in:searchIn}})
     	.then((doc) => {

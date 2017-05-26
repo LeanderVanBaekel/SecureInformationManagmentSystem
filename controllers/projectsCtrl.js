@@ -8,7 +8,6 @@ module.exports = {
   getProjects : function(req, res){
     dataFunctions.getUserProjects(req, false).then((succes) => {
   		var projects = succes;
-      console.log(succes);
   		res.render('projects/projects', {req: req, title: 'Projecten', projects: projects});
   	}).catch((err) => {
   		res.send(err);
@@ -16,7 +15,6 @@ module.exports = {
   },
 
   getCreate : function(req, res){
-
     var accountsCall = dataFunctions.getUserAccounts().then((succes) => {
       var accounts = [];
       succes.forEach(function(account){
@@ -71,10 +69,6 @@ module.exports = {
 
 							users.update({_id: doc._id}, { $set: {projects: doc.projects, recentProjects: doc.recentProjects}})
 							.then((result) => {
-                // console.log(result);
-                // if (result._id == req.session.user._id) {
-                //   req.session.user = result;
-                // }
 							}).catch((err) => {
 								console.log(err);
 							})
@@ -86,10 +80,19 @@ module.exports = {
 					const clients = db.get('clients');
 					clients.findOne({_id: req.body.client})
 					.then((doc) => {
+              var clientName = doc.name;
+
+              projects.update({_id: project._id}, { $set: {clientName: clientName}})
+							.then((result) => {
+              }).catch((err) => {
+								console.log(err);
+							})
+
 							doc.projects.push(project._id)
 
 							clients.update({_id: doc._id}, { $set: {projects: doc.projects}})
 							.then((result) => {
+                helper.reloadProjectData(req, project._id);
 								res.redirect('/projects');
 
 							}).catch((err) => {
@@ -198,7 +201,6 @@ module.exports = {
     });
 
     Promise.all([projectDataCall]).then(values => {
-      console.log(values);
       data.project = values[0];
 
       res.render('projects/projectAuth', {req: req, data: data, title: data.project.name})
