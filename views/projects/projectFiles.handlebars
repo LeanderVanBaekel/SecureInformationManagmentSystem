@@ -20,19 +20,30 @@
 					+
 				</div>
 			</div>
+
 			<div class="files-list">
 				{{#each data.files}}
-					{{#if (ifEqual type "file")}}
-						{{!-- test --}}
+					{{#if (ifEqual type "folder")}}
+						<a href="{{../data.baseUrl}}/{{_id}}" class="files-item files-item-folder">
+							<img src="http://pngimg.com/uploads/folder/folder_PNG8764.png" alt="">
+							<p>{{name}}</p>
+						</a>
 					{{/if}}
-					<a href="{{../data.baseUrl}}/{{_id}}" class="files-item files-item-folder">
-						<p>{{name}}</p>
-					</a>
 				{{/each}}
+				{{#each data.files}}
+					{{#if (ifEqual type "file")}}
+						<a href="/file/{{../data.project._id}}/{{_id}}" class="files-item files-item-folder">
+							<img src="http://icons.iconarchive.com/icons/dtafalonso/android-lollipop/512/Docs-icon.png" alt="">
+							<p>{{name}}</p>
+						</a>
+					{{/if}}
+				{{/each}}
+
 				{{!-- <div class="files-item files-item-folder files-item-active">
 					<p>Vormgeving</p>
 				</div>  --}}
 			</div>
+
 		</div>
 
 

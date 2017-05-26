@@ -240,5 +240,22 @@ module.exports = {
 				console.log(err);
 			})
 		});
+	},
+
+	findFile: function(fileId) {
+		return new Promise((resolve, reject) => {
+			const files = db.get('files');
+			files.findOne({_id: fileId})
+			.then((doc) => {
+				if (doc) {
+					resolve(doc)
+				} else {
+					reject('Files niet gevonden.')
+				}
+			}).catch((err) => {
+				console.log(err);
+			})
+		});
 	}
+
 };

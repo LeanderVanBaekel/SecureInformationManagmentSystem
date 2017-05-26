@@ -55,6 +55,7 @@ var fileCtrl = require('../controllers/fileCtrl');
 router.get('/file', auth.login, fileCtrl.getFile);
 router.get('/file/create', auth.login, fileCtrl.getCreate);
 router.post('/file/create', auth.login, upload.array('file'), fileCtrl.postCreate);
+router.get('/file/:projectId/:fileId/:web?', auth.login, fileCtrl.serveFile);
 
 
 module.exports = router;

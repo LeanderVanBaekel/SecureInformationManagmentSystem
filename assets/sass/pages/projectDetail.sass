@@ -50,11 +50,9 @@
     display: inline-block
 
   .auth-text
-    // width: 90%
     margin: 2rem
 
   .auth-data
-    // width: 90%
     margin: 2rem 1rem
 
     p
@@ -70,15 +68,12 @@
 
   .files-container
     width: 100%
-    height: calc(100% - 1.5rem)
+    height: calc(100% - 3rem)
     overflow-y: scroll
-    // display: flex
-    // flex-direction: row
-    // justify-content: flex-start
-    // align-items: flex-start
 
     .files-header
       padding: 0.5em
+      position: relative
 
     .new-file-button
       display: inline-block
@@ -87,10 +82,9 @@
       font-weight: bolder
       font-size: 2.5em
       line-height: 0
-      cursor: pointer 
+      cursor: pointer
 
     .files-list
-      // height: 100%
       min-width: 15rem
       overflow-y: scroll
       background-color: lightgray
@@ -99,11 +93,16 @@
     .files-item
       box-sizing: border-box
       min-height: 5em
-      margin: 0.2rem
+      margin: 0.7rem
       padding: 0.2rem 0.2rem 0.2rem 0.6rem
       display: flex
       align-items: center
       background-color: $white
+      box-shadow: $light-shadow
+
+      img
+        width: 2rem
+        margin-right: 1rem
 
       &:hover
         background-color: white

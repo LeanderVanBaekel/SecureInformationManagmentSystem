@@ -9,6 +9,27 @@ module.exports = {
     res.redirect('/file/create');
   },
 
+  serveFile : function(req, res){
+    var fileId = req.params.fileId;
+    var projectId = req.params.projectId;
+
+    var getFile = dataFunctions.findFile(fileId).then((succes) => {
+      console.log(succes);
+      return succes;
+    }).catch((err) => {
+      res.send(err);
+    });
+
+    Promise.all([getFile]).then(values => {
+      // data.container = values[0].container;
+      if (req.params.web) {
+        res.sendfile('./storage/projects/' + projectId + '/' + values[0].name);
+      } else {
+        res.download('./storage/projects/' + projectId + '/' + values[0].name);
+      }
+    });
+  },
+
   getCreate : function(req, res){
     var data = {
 
@@ -17,10 +38,10 @@ module.exports = {
   },
 
   postCreate: function(req, res) {
-    var fileName      = req.body.fileName;
+    var fileName      = req.files[0].originalname;
     // var root          = req.body.root;
     var type          = req.body.type;
-    var filePath      = req.body.filePath;
+    var filePath      = "storage/projects/" + projectId + "/" + req.files[0].originalname;
     var containdIn     = req.body.containdIn;
     // var contains      = [];
     var projectId     = req.body.projectId;
@@ -33,6 +54,8 @@ module.exports = {
     console.log(upload);
 
     for (var i = 0; i < upload.length; i++) {
+      // console.log("storage/projects/" + projectId + "/" + upload[i].originalname);
+      // filePath = "storage/projects/" + projectId + "/" + upload[i].originalname;
       var dir = "storage/projects/" + projectId;
       if (!fs.existsSync(dir)){
         fs.mkdirSync(dir);
@@ -41,8 +64,8 @@ module.exports = {
   			if(err){
   				res.send(err);
   			} else {
-          console.log(upload[i]);
-          filePath = "storage/projects/" + projectId + "/" + upload[i].originalname;
+          // console.log(upload[0]);
+          // filePath = "storage/projects/" + projectId + "/" + upload[0].originalname;
         }
       });
     }
