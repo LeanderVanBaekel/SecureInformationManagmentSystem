@@ -26,7 +26,15 @@
 					{{#if (ifEqual type "folder")}}
 						<a href="{{../data.baseUrl}}/{{_id}}" class="files-item files-item-folder">
 							<img src="http://pngimg.com/uploads/folder/folder_PNG8764.png" alt="">
-							<p>{{name}}</p>
+							<p class="name">{{name}}</p>
+							<div class="circle n-{{permissionId}}">
+								<p>{{permissionId}}</p>
+							</div>
+							<p>{{../req.session.userName}}</p>
+
+							<div class="action-button">
+								<p>&#11044; &#11044; &#11044;</p>
+							</div>
 						</a>
 					{{/if}}
 				{{/each}}
@@ -34,7 +42,14 @@
 					{{#if (ifEqual type "file")}}
 						<a href="/file/{{../data.project._id}}/{{_id}}" class="files-item files-item-folder">
 							<img src="http://icons.iconarchive.com/icons/dtafalonso/android-lollipop/512/Docs-icon.png" alt="">
-							<p>{{name}}</p>
+							<p class="name">{{name}}</p>
+							<div class="circle n-{{permissionId}}">
+								<p>{{permissionId}}</p>
+							</div>
+							<p>{{../req.session.userName}}</p>
+							<div class="action-button">
+								<p>&#11044; &#11044; &#11044;</p>
+							</div>
 						</a>
 					{{/if}}
 				{{/each}}
@@ -45,7 +60,15 @@
 			</div>
 
 		</div>
-
+<script type="text/javascript">
+	var action = document.querySelectorAll('.action-button');
+	for (var i = 0; i < action.length; i++) {
+		action[i].addEventListener('click', function(e) {
+			e.preventDefault();
+			alert('hoi');
+		});
+	}
+</script>
 
 	</main>
 
@@ -81,7 +104,7 @@
 				<input type="hidden" name="containdIn" value="{{data.container._id}}">
 
 				<label for="premissionId">premissionId</label>
-				<input type="number" name="premissionId" value="{{req.session.user.permissionId}}"><br>
+				<input type="number" min="1" max="6" name="permissionId" value="{{req.session.user.permissionId}}"><br>
 
 				<button type="submit">Aanmaken</button>
 			</form>

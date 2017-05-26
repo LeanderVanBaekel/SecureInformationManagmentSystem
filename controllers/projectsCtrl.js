@@ -62,6 +62,25 @@ module.exports = {
 				.then((doc) => {
 					var project = doc;
 
+          var newId = doc._id;
+          console.log(doc._id);
+          console.log(doc._id.str);
+          console.log(newId);
+
+          var containdIn    = null;
+          var projectId     = newId + '';
+          var byUser        = req.session.user._id;
+          var permissionId  = 6;
+          var type          = 'folder';
+          var fileName      = 'root';
+          var filePath      = null;
+          var newFile = dataSource.file(fileName, type, filePath, containdIn, projectId, byUser, permissionId);
+          dataFunctions.saveFile(newFile)
+          .then((succes) => {
+          }).catch((err) => {
+            res.send(err);
+          });
+
           for (var i = 0; i < req.body.accountId.length; i++) {
             users.findOne({_id: req.body.accountId[i]}).then((doc) => {
               doc.projects.push(project._id)
