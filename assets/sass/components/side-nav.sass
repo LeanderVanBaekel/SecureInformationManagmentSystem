@@ -28,6 +28,18 @@ nav
 			// &:hover
 			// 	background-color: $prim-color
 
+		a
+			&.active::after
+				content: " "
+				// margin-left: 20%
+				width: 5rem
+				height: 0.4rem
+				position: absolute
+				display: block
+				background-color: $ac-blue
+				left: 0
+				margin-top: -0.5rem
+
 	.user-info
 		// width: calc(100% - 2em)
 		width: 100%

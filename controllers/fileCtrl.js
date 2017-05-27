@@ -22,8 +22,10 @@ module.exports = {
 
     Promise.all([getFile]).then(values => {
       // data.container = values[0].container;
-      if (req.params.web) {
+      if (req.params.action == 'view') {
         res.sendfile('./storage/projects/' + projectId + '/' + values[0].name);
+      } else if (req.params.action == 'delete') {
+        res.redirect(req.get('referer'));
       } else {
         res.download('./storage/projects/' + projectId + '/' + values[0].name);
       }

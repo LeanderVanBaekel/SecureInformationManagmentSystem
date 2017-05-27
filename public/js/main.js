@@ -62,4 +62,16 @@ if (window.location.href.indexOf('/projects/create') != -1){
     });
   }
 
+} else if (window.location.href.indexOf('/files') != -1) {
+
+  var action = document.querySelectorAll('.action-button');
+
+  for (var i = 0; i < action.length; i++) {
+  	action[i].addEventListener('click', function(e) {
+  		e.preventDefault();
+  		// alert('hoi');
+      this.parentNode.parentNode.querySelector('.action-menu').classList.toggle('hidden');
+  	});
+  }
+
 }

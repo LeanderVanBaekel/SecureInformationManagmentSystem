@@ -72,13 +72,40 @@
     overflow-y: scroll
 
     .files-header
-      padding: 0.5em
+      // padding: 0.5em
       position: relative
+
+      .crums
+        display: inline-block
+        background-color: white
+        padding: 0.5rem
+        padding-left: 0.8rem
+        margin: 0.6rem
+        margin-left: 0
+        margin-right: 14px
+        vertical-align: middle
+        position: relative
+        color: black
+        // box-shadow: $light-shadow
+
+        &:hover
+          font-family: 'dinLight'
+
+        &::after
+          content: ""
+          width: 0
+          height: 0
+          border-top: 20px solid transparent
+          border-bottom: 20px solid transparent
+          border-left: 10px solid white
+          position: absolute
+          right: -10px
+          top: 0
 
     .new-file-button
       display: inline-block
       right: 1.5rem
-      top: 0.8rem
+      top: 1.5rem
       position: absolute
       font-weight: bolder
       font-size: 2.5em
@@ -150,7 +177,9 @@
       position: absolute
       min-width: 10rem
       min-height: 10rem
+      padding: 1rem
       background-color: white
-      right: 0
+      right: 1.3rem
       top: 3rem
       z-index: 10
+      box-shadow: $light-shadow
