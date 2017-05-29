@@ -5,46 +5,50 @@
   color: $prim-color
 
 
-  .dashboard-col
-    width: 33.3%
-    // padding: 0.2rem
-    overflow-y: scroll
+.dashboard-col
+  width: 33.3%
+  // padding: 0.2rem
+  overflow-y: scroll
 
-    .dashboard-col-header, .dashboard-tile
-      margin: 0.6rem
-      background-color: white
-      box-shadow: $light-shadow
+.dashboard-col-header, .dashboard-tile
+  margin: 0.6rem
+  background-color: white
+  box-shadow: $light-shadow
 
-    .dashboard-col-header
-      // height: 2em
-      text-align: center
+.dashboard-col-header
+  // height: 2em
+  text-align: center
 
-      h2
-        margin: 0
-        padding: 1rem
-        font-weight: bold
+  h2
+    margin: 0
+    padding: 1rem
+    font-weight: bold
 
-    .dashboard-tile
-      display: flex
-      justify-content: flex-start
-      align-items: center
-      flex-wrap: wrap
-      height: 5rem
-      color: $prim-color
-      overflow: hidden
+.dashboard-tile
+  display: flex
+  min-width: 20rem
+  justify-content: flex-start
+  align-items: center
+  flex-wrap: wrap
+  height: 5rem
+  color: $prim-color
+  overflow: hidden
 
-      .project-logo
-        height: 100%
-        width: 5em
-        background-position: center
-        background-size: cover
-        background-color: $white
+  .project-logo
+    height: 100%
+    width: 5em
+    background-position: center
+    background-size: cover
+    background-color: $white
 
-      h2
-        margin: 0 0 0 1rem
-        font-family: 'dinlight'
+  h2
+    margin: 0 0 0 1rem
+    font-family: 'dinlight'
 
-      h3
-        margin: 0 0 0 1rem
-        font-family: 'dinLight'
-        font-size: 1rem
+  h3
+    margin: 0 0 0 1rem
+    font-family: 'dinLight'
+    font-size: 1rem
+
+  .circle
+    margin-left: auto

@@ -24,6 +24,9 @@
 						<h3>{{clientName}}</h3>
 					</div>
 					{{!-- <p>{{date}}</p> --}}
+					<div class="circle n-{{../req.session.user.permissionId}}">
+						<p>{{../req.session.user.permissionId}}</p>
+					</div>
 				</a>
 				{{/each}}
 			</div>

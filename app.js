@@ -56,6 +56,9 @@ var hbs = exphbs.create({
 				return false;
 			}
 		},
+		first: function (arr) {
+			return arr[0];
+		},
 		bar: function () { return 'BAR!'; }
 	}
 });

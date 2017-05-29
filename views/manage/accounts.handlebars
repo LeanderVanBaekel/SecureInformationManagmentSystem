@@ -6,19 +6,31 @@
 
 	<main>
 		<div class="dashboard-info">
-			<p>gebruiker: {{req.session.username}}</p>
-			<h1>{{title}}</h1>
+			{{!-- <p>gebruiker: {{req.session.username}}</p>
+			<h1>{{title}}</h1> --}}
+			<a href="{{url}}/create">Maak nieuw account aan</a>
 		</div>
 
 		<div class="tile-container">
 
 			{{#each accounts}}
-				<div class="tile">
+				{{!-- <div class="tile">
 					<a href="{{../url}}/{{_id}}">
 						<div class="project-logo" style="background-image: url('')"></div>
 						<h1>{{fullName}}</h1>
 					</a>
-				</div>
+				</div> --}}
+
+				<a href="{{../url}}/{{_id}}">
+					<div icn-user="{{name}}" class="icn-card n-{{permissionId}}">
+						{{!-- <div class="icn-action">
+								<p>&#11044; &#11044; &#11044;</p>
+						</div> --}}
+						<div class="image" style="background-image: url('{{profilePicture}}')"></div>
+						<h2>{{fullName}}</h2>
+						<h3>Release manager - niveau {{permissionId}}</h3>
+					</div>
+				</a>
 			{{/each}}
 
 		</div>

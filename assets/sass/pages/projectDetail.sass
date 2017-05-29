@@ -77,6 +77,7 @@
 
       .crums
         display: inline-block
+        font-size: 0.9rem
         background-color: white
         padding: 0.5rem
         padding-left: 0.8rem
@@ -95,8 +96,8 @@
           content: ""
           width: 0
           height: 0
-          border-top: 20px solid transparent
-          border-bottom: 20px solid transparent
+          border-top: 17px solid transparent
+          border-bottom: 17px solid transparent
           border-left: 10px solid white
           position: absolute
           right: -10px
@@ -114,6 +115,7 @@
 
     .files-list
       min-width: 15rem
+      min-height: 87%
       overflow-y: scroll
       background-color: lightgray
       border-right: 2px solid rgba(255,255,255,0.4)
@@ -144,17 +146,6 @@
         width: 2rem
         margin-right: 1rem
 
-      .circle
-        border-radius: 100%
-        display: inline-block
-        width: 1.7rem
-        height: 1.7rem
-        margin: 1rem
-        p
-          text-align: center
-          margin-top: 0.2rem
-          color: white
-          font-family: "dinBold"
 
       .action-button
         display: inline-block
@@ -175,11 +166,27 @@
 
     .action-menu
       position: absolute
-      min-width: 10rem
-      min-height: 10rem
-      padding: 1rem
+      // min-width: 10rem
+      // min-height: 10rem
+      padding: 1.5rem
       background-color: white
       right: 1.3rem
       top: 3rem
-      z-index: 10
+      z-index: 99
       box-shadow: $light-shadow
+
+      ul
+        margin: 0
+
+      li
+        list-style-type: none
+        display: block
+        margin: 0.7rem 0 0 0
+        margin-left: -2.5rem
+        color: black
+        &:hover
+          font-family: 'dinLight'
+
+      h3
+        // margin-left: 1rem
+        margin: 0 0 0.5rem 0

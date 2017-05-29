@@ -21,6 +21,7 @@
 @import "pages/dashboard"
 @import "pages/projectDetail"
 @import "pages/search"
+@import "pages/manage"
 
 .hidden
   display: none!important
@@ -120,120 +121,120 @@ main.flex
     font-size: 1.15rem
     margin: 1rem
 
-  .icn-container
-    width: 100%
-    // height: 83.5%
-    overflow-y: scroll
+.icn-container
+  width: 100%
+  // height: 83.5%
+  overflow-y: scroll
 
-  .icn-card
-    // width: calc(100% - 2rem)
-    width: 20rem
-    height: 6rem
-    margin: 0 1rem 1rem 1rem
-    padding: 1rem
-    overflow: hidden
-    display: flex
-    flex-direction: column
-    flex-wrap: wrap
-    align-items: stretch
-    box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.6)
-    position: relative
-    visibility: visible
-    opacity: 1
-    transition: all 1s linear
+.icn-card
+  // width: calc(100% - 2rem)
+  width: 20rem
+  height: 6rem
+  margin: 0 1rem 1rem 1rem
+  padding: 1rem
+  overflow: hidden
+  display: flex
+  flex-direction: column
+  flex-wrap: wrap
+  align-items: stretch
+  box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.6)
+  position: relative
+  visibility: visible
+  opacity: 1
+  transition: all 1s linear
 
-    &.edit
-      background-color: $white
+  &.edit
+    background-color: $white
+    display: block
+    height: auto
+    h3
+      color: black
+      text-transform: uppercase
       display: block
-      height: auto
-      h3
-        color: black
-        text-transform: uppercase
-        display: block
-      form
-        margin: 1rem 0 0 0
-      label, input, select
-        font-size: 1rem
-        margin: 0.4rem 0
-        display: inline-block
-      label
-        width: 30%
-      input, select
-        width: 66.8%
-        border: 0
-      button
-        display: inline-block
-        min-width: 5em
-      select
-        width: 68%
-        background-color: white
-
-      .select-niveau
-        display: inline-block
-        width: 66.8%
-        & .circle
-          border-radius: 100%
-          display: inline-block
-          width: 1.7rem
-          height: 1.7rem
-          margin-right: 0.27rem
-          p
-            text-align: center
-            margin-top: 0.2rem
-            color: white
-            font-family: "dinBold"
-          &.selected
-            border: 2px solid black
-
-      .icn-close
-        color: black
-        font-family: "dinBold"
-        // height: 2rem
-        font-size: 1rem
-        // position: fixed
-        top: 1rem
-        right: 1rem
-        position: absolute
-
-    img
-      width: 6rem
-      height: 6rem
-      // display: inline-block
-      border-radius: 100%
-    .image
-      width: 6rem
-      height: 6rem
-      // display: inline-block
-      border-radius: 100%
-      background-position: center
-      background-size: contain
-      background-repeat: no-repeat
+    form
+      margin: 1rem 0 0 0
+    label, input, select
+      font-size: 1rem
+      margin: 0.4rem 0
+      display: inline-block
+    label
+      width: 30%
+    input, select
+      width: 66.8%
+      border: 0
+    button
+      display: inline-block
+      min-width: 5em
+    select
+      width: 68%
       background-color: white
 
-    h2
-      color: $white
-      width: auto
-      max-width: 11rem
+    .select-niveau
       display: inline-block
-      text-transform: uppercase
-      margin: 0 0 0.4rem 0
-      font-size: 1.4rem
+      width: 66.8%
+      & .circle
+        border-radius: 100%
+        display: inline-block
+        width: 1.7rem
+        height: 1.7rem
+        margin-right: 0.27rem
+        p
+          text-align: center
+          margin-top: 0.2rem
+          color: white
+          font-family: "dinBold"
+        &.selected
+          border: 2px solid black
 
-    h3
-      color: $white
-      display: inline-block
-      margin: 0
-      max-width: 11rem
-      font-size: 1rem
-
-    .icn-action
-      color: $white
+    .icn-close
+      color: black
+      font-family: "dinBold"
       // height: 2rem
-      font-size: 0.3rem
+      font-size: 1rem
       // position: fixed
+      top: 1rem
       right: 1rem
       position: absolute
-      cursor: pointer
+
+  img
+    width: 6rem
+    height: 6rem
+    // display: inline-block
+    border-radius: 100%
+  .image
+    width: 6rem
+    height: 6rem
+    // display: inline-block
+    border-radius: 100%
+    background-position: center
+    background-size: contain
+    background-repeat: no-repeat
+    background-color: white
+
+  h2
+    color: $white
+    width: auto
+    max-width: 11rem
+    display: inline-block
+    text-transform: uppercase
+    margin: 0 0 0.4rem 0
+    font-size: 1.4rem
+
+  h3
+    color: $white
+    display: inline-block
+    margin: 0
+    max-width: 11rem
+    font-size: 1rem
+
+  .icn-action
+    color: $white
+    // height: 2rem
+    font-size: 0.3rem
+    // position: fixed
+    right: 1rem
+    position: absolute
+    cursor: pointer
 
 .n-one
   background-color: $n-one

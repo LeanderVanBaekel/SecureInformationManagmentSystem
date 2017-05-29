@@ -5,18 +5,25 @@
 	{{> side-nav}}
 
 	<main>
-		{{!-- <div class="dashboard-info">
-			<p>gebruiker: {{req.session.username}}</p>
-			<h1>{{title}}</h1>
+		<div class="dashboard-info">
+			{{!-- <p>gebruiker: {{req.session.username}}</p>
+			<h1>{{title}}</h1> --}}
 			<a href="{{req.originalUrl}}/create">Nieuw project aanmaken</a>
-		</div> --}}
+		</div>
 
 		<div class="tile-container">
 
 			{{#each projects}}
-			<a href="/projects/{{_id}}" class="tile">
-				<div class="project-logo" style="background-image: url('{{projectImage}}')"></div>
-				<h1>{{name}}</h1>
+			<a class="dashboard-tile" href="/projects/{{_id}}">
+				<div class="project-logo" style="background-image: url('http://iamcore.nl/wp-content/uploads/2016/05/AC.png')"></div>
+				<div class="tile-text">
+					<h2>{{name}}</h2>
+					<h3>{{clientName}}</h3>
+				</div>
+				<div class="circle n-3">
+					<p>3</p>
+				</div>
+				{{!-- <p>{{date}}</p> --}}
 			</a>
 			{{/each}}
 

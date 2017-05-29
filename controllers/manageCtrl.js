@@ -36,5 +36,45 @@ module.exports = {
       res.render('manage/account', {req: req, data: data, title: data.account.userName + "'s account"});
     });
 
-  }
+  },
+
+  createAccount: function(req, res) {
+
+
+    var getPermissions = dataFunctions.getPermissions()
+    .then((succes) => {
+      console.log(succes);
+      return succes;
+    }).catch((err) => {
+      res.send(err);
+    });
+
+    Promise.all([getPermissions]).then(values => {
+      console.log(values);
+      data = {permissions: values[0]};
+      res.render('manage/create', {req: req, data: data, title: "account aanmaken"});
+    });
+
+  },
+
+  postCreate: function(req, res) {
+
+
+    var getPermissions = dataFunctions.getPermissions()
+    .then((succes) => {
+      console.log(succes);
+      return succes;
+    }).catch((err) => {
+      res.send(err);
+    });
+
+    Promise.all([getAccount]).then(values => {
+      console.log(values);
+      data = {permissions: values[0]};
+
+      res.redirect('/manage/accounts');
+    });
+
+  },
+
 }

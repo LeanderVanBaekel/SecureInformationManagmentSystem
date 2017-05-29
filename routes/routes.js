@@ -47,6 +47,8 @@ router.get('/clients/:clientId', auth.login, clientsCtrl.getClient);
 var manageCtrl = require('../controllers/manageCtrl');
 router.get('/manage', auth.login, auth.admin, manageCtrl.getManage);
 router.get('/manage/accounts', auth.login, auth.admin, manageCtrl.getAccounts);
+router.get('/manage/accounts/create', auth.login, auth.admin, manageCtrl.createAccount);
+router.post('/manage/accounts/create', auth.login, auth.admin, manageCtrl.postCreate);
 
 router.get('/manage/accounts/:account', auth.login, auth.admin, manageCtrl.getAccount);
 

@@ -74,6 +74,22 @@ module.exports = {
 		})
 	},
 
+	getPermissions: function(id) {
+		return new Promise((resolve, reject) => {
+			const permissions = db.get('permissions');
+    	permissions.find()
+    	.then((doc) => {
+    		if (doc) {
+          resolve(doc)
+        } else {
+          reject('Geen permissies gevonden.')
+        }
+      }).catch((err) => {
+				console.log(err);
+		  }).then(() => db.close());
+		})
+	},
+
 	getUserClients: function(req) {
 		return new Promise((resolve, reject) => {
 			const clients = db.get('clients');

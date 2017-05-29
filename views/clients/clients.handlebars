@@ -5,17 +5,17 @@
 	{{> side-nav}}
 
 	<main>
-		{{!-- <div class="dashboard-info">
-			<p>gebruiker: {{req.session.username}}</p>
-			<h1>{{title}}</h1>
+		<div class="dashboard-info">
+			{{!-- <p>gebruiker: {{req.session.username}}</p>
+			<h1>{{title}}</h1> --}}
 			<a href="{{req.originalUrl}}/create">Nieuwe klant aanmaken</a>
-		</div> --}}
+		</div>
 
 		<div class="tile-container">
 
 			{{#each clients}}
 			<a href="/clients/{{_id}}" class="tile">
-				<div class="project-logo" style="background-image: url('{{logo}}')"></div>
+				<div class="project-logo" style="background-image: url('http://iamcore.nl/wp-content/uploads/2016/05/AC.png')"></div>
 				<h1>{{name}}</h1>
 			</a>
 			{{/each}}

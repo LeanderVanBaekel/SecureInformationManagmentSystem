@@ -24,7 +24,7 @@ module.exports = {
       // data.container = values[0].container;
       if (req.params.action == 'view') {
         res.sendfile('./storage/projects/' + projectId + '/' + values[0].name);
-      } else if (req.params.action == 'delete') {
+      } else if (req.params.action == 'delete' ||req.params.action == 'folder') {
         res.redirect(req.get('referer'));
       } else {
         res.download('./storage/projects/' + projectId + '/' + values[0].name);
