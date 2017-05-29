@@ -6,9 +6,11 @@
 
 	<main>
 		<div class="dashboard-info">
-			{{!-- <p>gebruiker: {{req.session.username}}</p>
-			<h1>{{title}}</h1> --}}
-			<a href="{{req.originalUrl}}/create">Nieuw project aanmaken</a>
+			<a href="{{req.originalUrl}}/create">
+				<div class="button">
+					<p>Nieuw project aanmaken</p>
+				</div>
+			</a>
 		</div>
 
 		<div class="tile-container">
@@ -20,13 +22,59 @@
 					<h2>{{name}}</h2>
 					<h3>{{clientName}}</h3>
 				</div>
-				<div class="circle n-3">
-					<p>3</p>
+				<div class="circle n-{{../req.session.user.permissionId}}">
+					<p>{{../req.session.user.permissionId}}</p>
 				</div>
-				{{!-- <p>{{date}}</p> --}}
 			</a>
 			{{/each}}
+
+			<div class="dashboard-tile locked" href="/projects">
+				<div class="project-logo" style="background-image: url('http://iamcore.nl/wp-content/uploads/2016/05/AC.png')"></div>
+				<div class="tile-text">
+					<h2>Lidl 20 app</h2>
+					<h3>Lidl</h3>
+				</div>
+				<div class="circle n-1">
+					<p><img src="/img/lock.png" alt=""></p>
+				</div>
+			</div>
 
 		</div>
 	</main>
 </div>
+
+<div class="lockedPop popup">
+	<div class="popup-closer">
+
+	</div>
+	<div class="popup-content">
+		<h2>Je hebt geen rechten voor dit project</h2>
+		<p>Om toegang te krijgen tot dit project kun je contact opnemen met de project manager: </p>
+		<div icn-user="Raymond" class="icn-card n-six">
+
+			<div class="image" style="background-image: url('https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAjBAAAAJDlkZjFiZWI5LWVkOWYtNGRjMC05MzRlLWUyM2YyN2NjOTdjNg.jpg')"></div>
+			<h2>Raymond Martens</h2>
+			<h3>Project manager - niveau 6</h3>
+		</div>
+
+		<a href="/projects">
+			<button type="button" name="button">Vraag toestemming</button>
+		</a>
+
+	</div>
+</div>
+
+<script type="text/javascript">
+	var projects = document.querySelectorAll('.locked');
+
+	for (var i = 0; i < projects.length; i++) {
+		projects[i].addEventListener('click', function(e) {
+			document.querySelector('.lockedPop').classList.add('show');
+		});
+	}
+
+	document.querySelector('.popup-closer').addEventListener('click', function(e) {
+		document.querySelector('.lockedPop').classList.remove('show');
+	});
+
+</script>

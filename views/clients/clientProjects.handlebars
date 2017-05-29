@@ -6,9 +6,11 @@
 
 	<main>
 		<div class="dashboard-info">
-			{{!-- <p>gebruiker: {{req.session.username}}</p>
-			<h1>{{title}}</h1> --}}
-			<a href="{{req.originalUrl}}/create">Nieuw project aanmaken</a>
+			<a href="/projects/create">
+				<div class="button">
+					<p>Nieuw project aanmaken</p>
+				</div>
+			</a>
 		</div>
 
 		<div class="tile-container">

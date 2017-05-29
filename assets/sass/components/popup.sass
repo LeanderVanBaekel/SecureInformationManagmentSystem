@@ -11,15 +11,17 @@
 .popup-closer
   width: 100vw
   height: 100vh
+  position: fixed
+  top: 0
   background-color: rgba(90,90,90,0.2)
 
 .popup-content
   display: block
   position: fixed
-  top: 15vh
-  left: 25vw
-  min-width: 50vw
-  min-height: 50vh
+  top: 25vh
+  left: 35vw
+  min-width: 30vw
+  min-height: 30vh
   margin: 0 auto
   background-color: $white
 
@@ -51,3 +53,14 @@
       transition: background-color 0.2s ease-out
       &:hover
         background-color: $action-color-active
+
+  .icn-card
+    margin: auto
+  p
+    display: block
+    max-width: 24rem
+    margin: 1rem auto
+
+  button
+    margin-top: 2rem
+    margin-bottom: 2rem

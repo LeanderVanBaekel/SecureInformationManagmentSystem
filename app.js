@@ -172,10 +172,14 @@ usersInit = function() {
 
 	const users = db.get('users');
 
-	var user = new dataSource.user('admin', 'administrator', 'admin@ac.nl', '12345', 1);
-	var user2 = new dataSource.user('leander', 'Leander van Baekel', 'leander@ac.nl', '12345', 3);
+	var user = new dataSource.user('Raymond', 'Raymond Martens', 'admin@ac.nl', '12345', 'Beheerder', 6, 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAjBAAAAJDlkZjFiZWI5LWVkOWYtNGRjMC05MzRlLWUyM2YyN2NjOTdjNg.jpg');
+	var user2 = new dataSource.user('Leander', 'Leander van Baekel', 'leander@ac.nl', '12345', 'Developer', 2, 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/5/005/08e/1af/2194742.jpg');
+	var user3 = new dataSource.user('Gavin', 'Gavin Ligthart', 'gavin@ac.nl', '12345', 'Developer', 3, 'https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-1/p320x320/18119588_10213496199706256_7578411443375059057_n.jpg?oh=7e87fe4cb5b72b025fdb4e6b88d407bf&oe=59B28C7E');
+	var user4 = new dataSource.user('Arthur', 'Arthur van Schravendijk', 'arthur@ac.nl', '12345', 'Developer', 4, 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/3/005/0af/32b/39ce7e1.jpg');
+	var user5 = new dataSource.user('Niels', 'Niels van Dijke', 'niels@ac.nl', '12345', 'Stagiair', 5, 'https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-1/p100x100/17523399_10209144668319211_404166692964834715_n.jpg?oh=cc529741f06b94aa4a5ce0dbb9bb06a3&oe=59A5BC34');
+	var user6 = new dataSource.user('Jesper', 'Jesper Honders', 'jesper@ac.nl', '12345', 'Release Manager', 1, 'https://pbs.twimg.com/profile_images/1308193012/IMG-20110411-00097_400x400.jpg');
 
-	users.insert([user,user2])
+	users.insert([user6,user2,user3,user4,user5,user])
 		.then((docs) => {
 			// console.log(docs);
 		}).catch((err) => {

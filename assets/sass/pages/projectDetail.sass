@@ -28,22 +28,22 @@
     align-items: flex-start
 
   .auth-block
-    background-color: lightgray
+    background-color: white
     width: 20rem
-    min-height: 20rem
+    // min-height: 20rem
     margin: 1rem
     box-shadow: $light-shadow
 
   .auth-header
     width: 100%
-    color: white
-    background-color: gray
+    color: black
+    background-color: $darker-white
     border-bottom: 2px solid white
 
     h2
       display: inline-block
       width: 70%
-      margin: 0.2rem 0rem 0.2rem 2rem
+      margin: 0.5rem 0rem 0.5rem 2rem
 
   .auth-edit
     width: 10%
@@ -56,13 +56,20 @@
     margin: 2rem 1rem
 
     p
-      color: white
+      color: black
       display: block
       overflow: scroll
-      background-color: gray
+      background-color: $white
       margin: 1rem 0rem
       padding: 0.5rem
       box-shadow: $light-shadow
+      position: relative
+
+    img
+      height: 1.4rem
+      position: absolute
+      right: 0.4rem
+      cursor: pointer
 
 
 

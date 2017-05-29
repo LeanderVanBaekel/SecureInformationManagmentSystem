@@ -26,7 +26,7 @@
 					{{#if (ifEqual type "folder")}}
 						<div class="item-wrapper">
 							<a href="{{../data.baseUrl}}/{{_id}}" class="files-item files-item-folder">
-								<img src="http://pngimg.com/uploads/folder/folder_PNG8764.png" alt="">
+								<img src="/img/folder.png" alt="">
 								<p class="name">{{name}}</p>
 								<div class="circle n-{{permissionId}}">
 									<p>{{permissionId}}</p>
@@ -52,7 +52,7 @@
 					{{#if (ifEqual type "file")}}
 					<div class="item-wrapper">
 						<a href="/file/{{../data.project._id}}/{{_id}}" class="files-item files-item-folder">
-							<img src="http://icons.iconarchive.com/icons/dtafalonso/android-lollipop/512/Docs-icon.png" alt="">
+							<img src="/img/doc.png" alt="">
 							<p class="name">{{name}}</p>
 							<div class="circle n-{{permissionId}}">
 								<p>{{permissionId}}</p>
