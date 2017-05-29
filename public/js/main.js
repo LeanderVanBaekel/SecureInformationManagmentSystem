@@ -40,8 +40,6 @@ if (window.location.href.indexOf('/projects/create') != -1){
 
   for (var i = 0; i < actions.length; i++) {
     actions[i].addEventListener('click', function() {
-      console.log('[icn-user-edit="'+this.parentNode.getAttribute('icn-user')+'"]');
-      console.log(this.parentNode);
       document.querySelector('[icn-user-edit="'+this.parentNode.getAttribute('icn-user')+'"]').classList.remove('hidden');
       this.parentNode.classList.add('hidden');
     });

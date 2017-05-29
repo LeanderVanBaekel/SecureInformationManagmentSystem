@@ -8,29 +8,98 @@
 		<div class="dashboard-info">
 			{{!-- <p>gebruiker: {{req.session.username}}</p>
 			<h1>{{title}}</h1> --}}
-			<a href="{{url}}/create">Maak nieuw account aan</a>
+			<a href="{{url}}/create">
+				<div class="button">
+					<p>Maak nieuw account aan</p>
+				</div>
+			</a>
 		</div>
 
 		<div class="tile-container">
 
 			{{#each accounts}}
-				{{!-- <div class="tile">
+				{{#if (ifEqual permissionId 1)}}
 					<a href="{{../url}}/{{_id}}">
-						<div class="project-logo" style="background-image: url('')"></div>
-						<h1>{{fullName}}</h1>
+						<div icn-user="{{name}}" class="icn-card n-{{permissionId}}">
+							{{!-- <div class="icn-action">
+									<p>&#11044; &#11044; &#11044;</p>
+							</div> --}}
+							<div class="image" style="background-image: url('{{profilePicture}}')"></div>
+							<h2>{{fullName}}</h2>
+							<h3>{{roll}} - niveau {{permissionId}}</h3>
+						</div>
 					</a>
-				</div> --}}
-
-				<a href="{{../url}}/{{_id}}">
-					<div icn-user="{{name}}" class="icn-card n-{{permissionId}}">
-						{{!-- <div class="icn-action">
-								<p>&#11044; &#11044; &#11044;</p>
-						</div> --}}
-						<div class="image" style="background-image: url('{{profilePicture}}')"></div>
-						<h2>{{fullName}}</h2>
-						<h3>Release manager - niveau {{permissionId}}</h3>
-					</div>
-				</a>
+				{{/if}}
+			{{/each}}
+			{{#each accounts}}
+				{{#if (ifEqual permissionId 2)}}
+					<a href="{{../url}}/{{_id}}">
+						<div icn-user="{{name}}" class="icn-card n-{{permissionId}}">
+							{{!-- <div class="icn-action">
+									<p>&#11044; &#11044; &#11044;</p>
+							</div> --}}
+							<div class="image" style="background-image: url('{{profilePicture}}')"></div>
+							<h2>{{fullName}}</h2>
+							<h3>{{roll}} - niveau {{permissionId}}</h3>
+						</div>
+					</a>
+				{{/if}}
+			{{/each}}
+			{{#each accounts}}
+				{{#if (ifEqual permissionId 3)}}
+					<a href="{{../url}}/{{_id}}">
+						<div icn-user="{{name}}" class="icn-card n-{{permissionId}}">
+							{{!-- <div class="icn-action">
+									<p>&#11044; &#11044; &#11044;</p>
+							</div> --}}
+							<div class="image" style="background-image: url('{{profilePicture}}')"></div>
+							<h2>{{fullName}}</h2>
+							<h3>{{roll}} - niveau {{permissionId}}</h3>
+						</div>
+					</a>
+				{{/if}}
+			{{/each}}
+			{{#each accounts}}
+				{{#if (ifEqual permissionId 4)}}
+					<a href="{{../url}}/{{_id}}">
+						<div icn-user="{{name}}" class="icn-card n-{{permissionId}}">
+							{{!-- <div class="icn-action">
+									<p>&#11044; &#11044; &#11044;</p>
+							</div> --}}
+							<div class="image" style="background-image: url('{{profilePicture}}')"></div>
+							<h2>{{fullName}}</h2>
+							<h3>{{roll}} - niveau {{permissionId}}</h3>
+						</div>
+					</a>
+				{{/if}}
+			{{/each}}
+			{{#each accounts}}
+				{{#if (ifEqual permissionId 5)}}
+					<a href="{{../url}}/{{_id}}">
+						<div icn-user="{{name}}" class="icn-card n-{{permissionId}}">
+							{{!-- <div class="icn-action">
+									<p>&#11044; &#11044; &#11044;</p>
+							</div> --}}
+							<div class="image" style="background-image: url('{{profilePicture}}')"></div>
+							<h2>{{fullName}}</h2>
+							<h3>{{roll}} - niveau {{permissionId}}</h3>
+						</div>
+					</a>
+				{{/if}}
+			{{/each}}
+			{{#each accounts}}
+				{{#if (ifEqual permissionId 6)}}
+					<a href="{{../url}}/{{_id}}">
+						<div icn-user="{{name}}" class="icn-card n-{{permissionId}}">
+							{{!-- <div class="icn-action">
+									<p>&#11044; &#11044; &#11044;</p>
+							</div> --}}
+							<div class="image" style="background-image: url('{{profilePicture}}')"></div>
+							<h2>{{fullName}}</h2>
+							<h3>{{roll}} - niveau {{permissionId}}</h3>
+						</div>
+					</a>
+				{{/if}}
 			{{/each}}
 
 		</div>

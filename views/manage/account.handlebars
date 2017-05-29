@@ -1,108 +1,356 @@
 {{> header}}
 
-<div class="container" id="manage">
+<div class="container" id="manage-account">
 
 	{{> side-nav}}
 
 	<main class="flex">
+		<div class="dashboard-info page-content">
 
-		<div class="page-content">
+			<form class="">
+				<h1>Gegevens van {{data.account.userName}}</h1>
+				<label for="">Naam</label>
+				<input type="text" name="" value="{{data.account.fullName}}">
+
+				<label for="">Email</label>
+				<input type="text" name="" value="{{data.account.email}}">
+
+				<label for="">Rol</label>
+				<input type="text" name="" value="{{data.account.roll}}">
+
+				<label for="">Niveau</label>
+				<div class="select-niveau">
+					<div class="circle n-six {{#if (ifEqual data.account.permissionId 6)}}selected{{/if}}">
+						<p>6</p>
+					</div>
+					<div class="circle n-five {{#if (ifEqual data.account.permissionId 5)}}selected{{/if}}">
+						<p>5</p>
+					</div>
+					<div class="circle n-four {{#if (ifEqual data.account.permissionId 4)}}selected{{/if}}">
+						<p>4</p>
+					</div>
+					<div class="circle n-three {{#if (ifEqual data.account.permissionId 3)}}selected{{/if}}">
+						<p>3</p>
+					</div>
+					<div class="circle n-two {{#if (ifEqual data.account.permissionId 2)}}selected{{/if}}">
+						<p>2</p>
+					</div>
+					<div class="circle {{#if (ifEqual data.account.permissionId 1)}}selected{{/if}} n-one">
+						<p>1</p>
+					</div>
+				</div>
+
+
+				{{!-- <p>Rol: {{data.account.roll}}</p>
+				<p>Permissie niveau:</p>
+				<div class="circle n-{{data.account.permissionId}}">
+					<p>{{data.account.permissionId}}</p>
+				</div> --}}
+			</form>
 		</div>
 
 		<div class="classifications">
-			<h1>Informatie Classificatie Niveau's voor {{data.account.userName}}</h1>
-
-			<div class="icn-container">
-				<div class="icn-card n-one">
-					<div class="icn-action">
-							<p>&#11044; &#11044; &#11044;</p>
-					</div>
-					<div class="image" style="background-image: url('https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0020/2958/brand.gif?itok=Nbf6GXa3')"></div>
-					<h2>Lidl 20</h2>
-					<h3>Release manager - niveau 1</h3>
+			<h1>Projecten waar {{data.account.userName}} toegang tot heeft:</h1>
+			<div icn-project="lidl" class="icn-card n-one">
+				<div class="icn-action">
+						<p>&#11044; &#11044; &#11044;</p>
 				</div>
+				<div class="image" style="background-image: url('https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0020/2958/brand.gif?itok=Nbf6GXa3')"></div>
+				<h2>Lidl 20</h2>
+				<h3>Release manager - niveau 1</h3>
+			</div>
 
-				<div class="icn-card n-one edit">
-					<div class="icn-close">
-							<p>X</p>
-					</div>
-					{{!-- <h2>Lidl 20</h2> --}}
-					<h3>Bewerken</h3>
-					<form class="">
-						{{!-- <label for="projectName">Project naam</label>
-						<input id='projectName' name='projectName' type='text' value="{{projectName}}"> --}}
-						<label for="projectName">Project</label>
-						<input id='projectName' disabled name='projectName' type='text' value="Lidl 20">
-						<label for="">Rol</label>
-						<select class="" name="">
-								<option value="">Developer</option>
-								<option value="">Release manager</option>
-								<option value="">Designer</option>
-								<option value="">Stagiaire</option>
-						</select>
+			<div icn-project-edit="lidl" class="icn-card n-one edit">
+				<div class="icn-close">
+						<p>X</p>
+				</div>
+				{{!-- <h2>Lidl 20</h2> --}}
+				<h3>Bewerken</h3>
+				<form class="">
+					{{!-- <label for="projectName">Project naam</label>
+					<input id='projectName' name='projectName' type='text' value="{{projectName}}"> --}}
+					<label for="projectName">Project</label>
+					<input id='projectName' disabled name='projectName' type='text' value="Lidl 20">
+					<label for="">Rol</label>
+					<select class="" name="">
+							<option value="">Developer</option>
+							<option value="">Release manager</option>
+							<option value="">Designer</option>
+							<option value="">Stagiaire</option>
+					</select>
 
-						<label for="">Niveau</label>
-						<div class="select-niveau">
-							<div class="circle n-six">
-								<p>6</p>
-							</div>
-							<div class="circle n-five">
-								<p>5</p>
-							</div>
-							<div class="circle n-four">
-								<p>4</p>
-							</div>
-							<div class="circle n-three">
-								<p>3</p>
-							</div>
-							<div class="circle selected n-two">
-								<p>2</p>
-							</div>
-							<div class="circle n-one">
-								<p>1</p>
-							</div>
+					<label for="">Niveau</label>
+					<div class="select-niveau">
+						<div class="circle n-six">
+							<p>6</p>
 						</div>
+						<div class="circle n-five">
+							<p>5</p>
+						</div>
+						<div class="circle n-four">
+							<p>4</p>
+						</div>
+						<div class="circle n-three">
+							<p>3</p>
+						</div>
+						<div class="circle n-two">
+							<p>2</p>
+						</div>
+						<div class="circle selected n-one">
+							<p>1</p>
+						</div>
+					</div>
 
-						<button type="submit">verwijderen</button>
-						{{!-- <button type="submit">annuleren</button> --}}
-						<button type="submit">Opslaan</button>
-					</form>
-				</div>
+					<button type="submit">verwijderen</button>
+					{{!-- <button type="submit">annuleren</button> --}}
+					<button type="submit">Opslaan</button>
+				</form>
+			</div>
 
-				<div class="icn-card n-two">
-					<div class="icn-action">
-							<p>&#11044; &#11044; &#11044;</p>
-					</div>
-					<div class="image" style="background-image: url('http://www.chocapack.nl/wp-content/themes/ac/images/Chocapack_logo.svg')"></div>
-					<h2>Chocapack redesign 2017</h2>
-					<h3>Developer - niveau 2</h3>
+			<div icn-project="choca" class="icn-card n-two">
+				<div class="icn-action">
+						<p>&#11044; &#11044; &#11044;</p>
 				</div>
-				<div class="icn-card n-three">
-					<div class="icn-action">
-							<p>&#11044; &#11044; &#11044;</p>
-					</div>
-					<div class="image" style="background-image: url('https://momove.nl/imgs/MOMOVE.png')"></div>
-					<h2>Momove ERP</h2>
-					<h3>Developer - niveau 3</h3>
+				<div class="image" style="background-image: url('http://www.chocapack.nl/wp-content/themes/ac/images/Chocapack_logo.svg')"></div>
+				<h2>Chocapack redesign 2017</h2>
+				<h3>Developer - niveau 2</h3>
+			</div>
+
+			<div icn-project-edit="choca" class="icn-card n-2 edit">
+				<div class="icn-close">
+						<p>X</p>
 				</div>
-				<div class="icn-card n-four">
-					<div class="icn-action">
-							<p>&#11044; &#11044; &#11044;</p>
+				{{!-- <h2>Lidl 20</h2> --}}
+				<h3>Bewerken</h3>
+				<form class="">
+					{{!-- <label for="projectName">Project naam</label>
+					<input id='projectName' name='projectName' type='text' value="{{projectName}}"> --}}
+					<label for="projectName">Project</label>
+					<input id='projectName' disabled name='projectName' type='text' value="Chocapack redesign 2017">
+					<label for="">Rol</label>
+					<select class="" name="">
+							<option value="">Developer</option>
+							<option value="">Release manager</option>
+							<option value="">Designer</option>
+							<option value="">Stagiaire</option>
+					</select>
+
+					<label for="">Niveau</label>
+					<div class="select-niveau">
+						<div class="circle n-six">
+							<p>6</p>
+						</div>
+						<div class="circle n-five">
+							<p>5</p>
+						</div>
+						<div class="circle n-four">
+							<p>4</p>
+						</div>
+						<div class="circle n-three">
+							<p>3</p>
+						</div>
+						<div class="circle selected n-two">
+							<p>2</p>
+						</div>
+						<div class="circle n-one">
+							<p>1</p>
+						</div>
 					</div>
-					<div class="image" style="background-image: url('https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0020/2958/brand.gif?itok=Nbf6GXa3')"></div>
-					<h2>Lidl hub</h2>
-					<h3>Desiger - niveau 4</h3>
+					<button type="submit">verwijderen</button>
+					{{!-- <button type="submit">annuleren</button> --}}
+					<button type="submit">Opslaan</button>
+				</form>
+			</div>
+
+			<div icn-project="momove" class="icn-card n-three">
+				<div class="icn-action">
+						<p>&#11044; &#11044; &#11044;</p>
 				</div>
-				<div class="icn-card n-five">
-					<div class="icn-action">
-							<p>&#11044; &#11044; &#11044;</p>
+				<div class="image" style="background-image: url('https://momove.nl/imgs/MOMOVE.png')"></div>
+				<h2>Momove ERP</h2>
+				<h3>Developer - niveau 3</h3>
+			</div>
+
+			<div icn-project-edit="momove" class="icn-card n-3 edit">
+				<div class="icn-close">
+						<p>X</p>
+				</div>
+				{{!-- <h2>Lidl 20</h2> --}}
+				<h3>Bewerken</h3>
+				<form class="">
+					{{!-- <label for="projectName">Project naam</label>
+					<input id='projectName' name='projectName' type='text' value="{{projectName}}"> --}}
+					<label for="projectName">Project</label>
+					<input id='projectName' disabled name='projectName' type='text' value="Momove ERP">
+					<label for="">Rol</label>
+					<select class="" name="">
+							<option value="">Developer</option>
+							<option value="">Release manager</option>
+							<option value="">Designer</option>
+							<option value="">Stagiaire</option>
+					</select>
+
+					<label for="">Niveau</label>
+					<div class="select-niveau">
+						<div class="circle n-six">
+							<p>6</p>
+						</div>
+						<div class="circle n-five">
+							<p>5</p>
+						</div>
+						<div class="circle n-four">
+							<p>4</p>
+						</div>
+						<div class="circle selected n-three">
+							<p>3</p>
+						</div>
+						<div class="circle n-two">
+							<p>2</p>
+						</div>
+						<div class="circle n-one">
+							<p>1</p>
+						</div>
 					</div>
-					<div class="image" style="background-image: url('http://iamcore.nl/wp-content/uploads/2016/05/AC.png')"></div>
-					<h2>AC website</h2>
-					<h3>Stagiaire - niveau 5</h3>
+					<button type="submit">verwijderen</button>
+					{{!-- <button type="submit">annuleren</button> --}}
+					<button type="submit">Opslaan</button>
+				</form>
+			</div>
+
+			<div icn-project="hub" class="icn-card n-four">
+				<div class="icn-action">
+						<p>&#11044; &#11044; &#11044;</p>
 				</div>
+				<div class="image" style="background-image: url('https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0020/2958/brand.gif?itok=Nbf6GXa3')"></div>
+				<h2>Lidl hub</h2>
+				<h3>Desiger - niveau 4</h3>
+			</div>
+
+			<div icn-project-edit="hub" class="icn-card n-4 edit">
+				<div class="icn-close">
+						<p>X</p>
+				</div>
+				{{!-- <h2>Lidl 20</h2> --}}
+				<h3>Bewerken</h3>
+				<form class="">
+					{{!-- <label for="projectName">Project naam</label>
+					<input id='projectName' name='projectName' type='text' value="{{projectName}}"> --}}
+					<label for="projectName">Project</label>
+					<input id='projectName' disabled name='projectName' type='text' value="Lidl hub">
+					<label for="">Rol</label>
+					<select class="" name="">
+							<option value="">Developer</option>
+							<option value="">Release manager</option>
+							<option value="">Designer</option>
+							<option value="">Stagiaire</option>
+					</select>
+
+					<label for="">Niveau</label>
+					<div class="select-niveau">
+						<div class="circle n-six">
+							<p>6</p>
+						</div>
+						<div class="circle n-five">
+							<p>5</p>
+						</div>
+						<div class="circle selected n-four">
+							<p>4</p>
+						</div>
+						<div class="circle n-three">
+							<p>3</p>
+						</div>
+						<div class="circle n-two">
+							<p>2</p>
+						</div>
+						<div class="circle n-one">
+							<p>1</p>
+						</div>
+					</div>
+					<button type="submit">verwijderen</button>
+					{{!-- <button type="submit">annuleren</button> --}}
+					<button type="submit">Opslaan</button>
+				</form>
+			</div>
+
+			<div icn-project="ac" class="icn-card n-five">
+				<div class="icn-action">
+						<p>&#11044; &#11044; &#11044;</p>
+				</div>
+				<div class="image" style="background-image: url('http://iamcore.nl/wp-content/uploads/2016/05/AC.png')"></div>
+				<h2>AC website</h2>
+				<h3>Stagiaire - niveau 5</h3>
+			</div>
+
+			<div icn-project-edit="ac" class="icn-card n-5 edit">
+				<div class="icn-close">
+						<p>X</p>
+				</div>
+				{{!-- <h2>Lidl 20</h2> --}}
+				<h3>Bewerken</h3>
+				<form class="">
+					{{!-- <label for="projectName">Project naam</label>
+					<input id='projectName' name='projectName' type='text' value="{{projectName}}"> --}}
+					<label for="projectName">Project</label>
+					<input id='projectName' disabled name='projectName' type='text' value="AC website">
+					<label for="">Rol</label>
+					<select class="" name="">
+							<option value="">Developer</option>
+							<option value="">Release manager</option>
+							<option value="">Designer</option>
+							<option value="">Stagiaire</option>
+					</select>
+
+					<label for="">Niveau</label>
+					<div class="select-niveau">
+						<div class="circle n-six">
+							<p>6</p>
+						</div>
+						<div class="circle selected n-five">
+							<p>5</p>
+						</div>
+						<div class="circle n-four">
+							<p>4</p>
+						</div>
+						<div class="circle n-three">
+							<p>3</p>
+						</div>
+						<div class="circle n-two">
+							<p>2</p>
+						</div>
+						<div class="circle n-one">
+							<p>1</p>
+						</div>
+					</div>
+					<button type="submit">verwijderen</button>
+					{{!-- <button type="submit">annuleren</button> --}}
+					<button type="submit">Opslaan</button>
+				</form>
 			</div>
 
 		</div>
 	</main>
 </div>
+
+<script type="text/javascript">
+	var cards = document.querySelectorAll('[icn-project]');
+	var edit = document.querySelectorAll('[icn-project-edit]');
+	var closes = document.querySelectorAll('.icn-close');
+
+	for (var i = 0; i < edit.length; i++) {
+		edit[i].classList.add('hidden')
+	}
+
+	for (var i = 0; i < cards.length; i++) {
+		cards[i].querySelector('.icn-action').addEventListener('click', function() {
+      document.querySelector('[icn-project-edit="'+this.parentNode.getAttribute('icn-project')+'"]').classList.remove('hidden');
+      this.parentNode.classList.add('hidden');
+    });
+	}
+
+	for (var i = 0; i < closes.length; i++) {
+    closes[i].addEventListener('click', function(e) {
+      document.querySelector('[icn-project="'+this.parentNode.getAttribute('icn-project-edit')+'"]').classList.remove('hidden');
+      this.parentNode.classList.add('hidden');
+    });
+  }
+</script>

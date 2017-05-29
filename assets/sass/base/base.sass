@@ -19,13 +19,15 @@ body
 	// position: absolute
 
 .circle
-  border-radius: 100%
-  display: inline-block
-  width: 1.7rem
-  height: 1.7rem
-  margin: 1rem
-  p
-    text-align: center
-    margin-top: 0.2rem
-    color: white
-    font-family: "dinBold"
+	border-radius: 100%
+	display: inline-block
+	width: 1.7rem
+	height: 1.7rem
+	margin: 1rem
+	&.selected
+		border: 2px solid black
+	p
+		text-align: center
+		margin-top: 0.2rem
+		color: white!important
+		font-family: "dinBold"

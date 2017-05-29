@@ -1,5 +1,5 @@
 module.exports = {
-  user: function(userName, fullName, email, password, permissionId) {
+  user: function(userName, fullName, email, password, roll, permissionId, profilePicture) {
     date = new Date();
     var newUser = {
       active: null,
@@ -9,6 +9,7 @@ module.exports = {
       email: '',
       password: '',
       permissionId: null,
+      roll: '',
       profilePicture: '',
       projects: [],
       recentProjects: []
@@ -18,6 +19,8 @@ module.exports = {
     newUser.userName = userName;
     newUser.fullName = fullName;
     newUser.email = email;
+    newUser.roll = roll;
+    newUser.profilePicture = profilePicture;
     newUser.password = password;
     newUser.permissionId = permissionId;
     return newUser;

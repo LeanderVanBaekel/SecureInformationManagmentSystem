@@ -43,14 +43,12 @@ module.exports = {
 
     var getPermissions = dataFunctions.getPermissions()
     .then((succes) => {
-      console.log(succes);
       return succes;
     }).catch((err) => {
       res.send(err);
     });
 
     Promise.all([getPermissions]).then(values => {
-      console.log(values);
       data = {permissions: values[0]};
       res.render('manage/create', {req: req, data: data, title: "account aanmaken"});
     });
@@ -59,21 +57,31 @@ module.exports = {
 
   postCreate: function(req, res) {
 
+    var user = new dataSource.user(req.body.userName, req.body.name, req.body.email, '12345', req.body.roll, req.body.level, req.body.avatar);
 
-    var getPermissions = dataFunctions.getPermissions()
-    .then((succes) => {
-      console.log(succes);
-      return succes;
-    }).catch((err) => {
-      res.send(err);
-    });
+    const users = db.get('users');
+    users.insert(user)
+  		.then((docs) => {
+  			console.log(docs);
+        res.redirect('/manage/accounts');
+  		}).catch((err) => {
+  			console.log(err);
+  		}).then(() => db.close())
+    //
+    // var getPermissions = dataFunctions.getPermissions()
+    // .then((succes) => {
+    //   console.log(succes);
+    //   return succes;
+    // }).catch((err) => {
+    //   res.send(err);
+    // });
+    //
+    // Promise.all([getAccount]).then(values => {
+    //   console.log(values);
+    //   data = {permissions: values[0]};
 
-    Promise.all([getAccount]).then(values => {
-      console.log(values);
-      data = {permissions: values[0]};
 
-      res.redirect('/manage/accounts');
-    });
+    // });
 
   },
 

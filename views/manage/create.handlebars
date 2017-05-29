@@ -4,15 +4,94 @@
 
 	{{> side-nav}}
 
-	<main>
-		<div class="icn-container1">
-			{{#each data.permissions}}
-				<div icn-user="{{name}}" class="icn-card1 n-{{level}}">
-					<h2>{{name}}</h2>
-					<h3>{{level}}</h3>
-					<p>{{description}}</p>
+	<main class="flex">
+		<div class="page-content">
+			<form class="" action="/manage/accounts/create" method="post">
+				<h1>Gegevens van het nieuwe account</h1>
+				<label for="userName">Gebruikersnaam</label>
+				<input type="text" name="userName" value="">
+				<label for="name">Volledige naam</label>
+				<input type="text" name="name" value="">
+				<label for="email">Email addres</label>
+				<input type="text" name="email" value="">
+				<label for="avatar">Profiel foto</label>
+				<input type="url" name="avatar" value="">
+
+				<label for="roll">Rol</label>
+				<select class="" name="roll">
+						<option value="Developer">Developer</option>
+						<option value="Release manager">Release manager</option>
+						<option value="Designer">Designer</option>
+						<option value="Stagiaire">Stagiaire</option>
+				</select>
+
+				<label for="">Niveau</label>
+				<div class="select-niveau">
+					<div class="circle n-six">
+						<p>6</p>
+						<input type="radio" name="level" value=6>
+					</div>
+					<div class="circle n-five">
+						<p>5</p>
+						<input type="radio" name="level" value=5>
+					</div>
+					<div class="circle n-four">
+						<p>4</p>
+						<input type="radio" name="level" value=4>
+					</div>
+					<div class="circle n-three">
+						<p>3</p>
+						<input type="radio" name="level" value=3>
+					</div>
+					<div class="circle n-two">
+						<p>2</p>
+						<input type="radio" name="level" value=2>
+					</div>
+					<div class="circle selected n-one">
+						<p>1</p>
+						<input type="radio" name="level" value=1>
+					</div>
 				</div>
-			{{/each}}
+
+				<script type="text/javascript">
+					// var radios = document.querySelectorAll('[name="level"]');
+					var radios = document.querySelectorAll('.circle');
+					console.log(radios);
+
+					for (var i = 0; i < radios.length; i++) {
+						radios[i].addEventListener('click', function(e){
+							for (var i = 0; i < radios.length; i++) {
+								radios[i].classList.remove('selected');
+								radios[i].querySelector('[type="radio"]').removeAttribute('checked');
+							};
+							console.log(this.querySelector('[type="radio"]'));
+							this.querySelector('[type="radio"]').setAttribute('checked', 'checked');
+							this.classList.add('selected');
+						});
+					}
+				</script>
+
+				<button type="submit" name="button">Aanmaken</button>
+			</form>
+		</div>
+		{{!-- <div class="icn-exp-container"> --}}
+		<div class="classifications">
+			<h1>Informatie Classificatie Niveau's</h1>
+
+			<div class="icn-container">
+				{{#each data.permissions}}
+					<div icn-user="{{name}}" class="icn-card n-{{level}}">
+						<h2>{{name}}</h2>
+						<p>{{description}}</p>
+						<h3>Voorbeeld rollen</h3>
+						<ul>
+							{{#each roles as |role key|}}
+								<li>{{role}}</li>
+							{{/each}}
+						</ul>
+					</div>
+				{{/each}}
+			</div>
 		</div>
 	</main>
 </div>

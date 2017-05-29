@@ -40,74 +40,74 @@ main.login
 main.flex
   display: flex
 
-  .page-content
-    display: block
-    width: 100%
+.page-content
+  display: block
+  width: 100%
+  max-width: 45rem
 
-    form
-      max-width: 35rem
-      margin: 2em auto
-      background-color: white
-      padding: 2rem
+  form
+    max-width: 35rem
+    margin: 2em auto
+    background-color: white
+    padding: 2rem
 
-      .full-width
-        width: 100% !important
+    .full-width
+      width: 100% !important
 
-      h1
-        margin-bottom: 1rem
-        text-align: center
+    h1
+      margin-bottom: 1rem
+      text-align: center
 
-      h1, p, label
-      	color: black
+    h1, p, label
+    	color: black
 
-      label, input, select, .checkboxes
-        display: inline-block
-        // margin: 0 auto
-        // padding: 0
-        border: 0
-        // background-color: $dark-white
+    label, input, select, .checkboxes
+      display: inline-block
+      // margin: 0 auto
+      // padding: 0
+      border: 0
+      // background-color: $dark-white
+
+    label
+      font-family: 'DinBold'
+      width: 25%
+      margin: 0.8em auto 0.4em auto
+      text-align: left
+
+    input
+      width: 71.6%
+      padding: 0.4em
+      background-color: $dark-white
+      border-radius: 6px
+
+    .checkboxes
+      width: 71.2%
+      margin: 0.8em auto 0.4em auto
+      padding: 0.4em 0.4em
+      background-color: $dark-white
+      border-radius: 6px
 
       label
-        font-family: 'DinBold'
-        width: 25%
-        margin: 0.8em auto 0.4em auto
-        text-align: left
-
+        font-family: 'DinLight'
+        margin: 0.4em auto
+        width: 35%
       input
-        width: 71.6%
-        padding: 0.4em
-        background-color: $dark-white
-        border-radius: 6px
-
-      .checkboxes
-        width: 71.2%
-        margin: 0.8em auto 0.4em auto
-        padding: 0.4em 0.4em
-        background-color: $dark-white
-        border-radius: 6px
-
-        label
-          font-family: 'DinLight'
-          margin: 0.4em auto
-          width: 35%
-        input
-          width: auto
-          margin: 0 0.4rem 0 1rem
+        width: auto
+        margin: 0 0.4rem 0 1rem
 
 
-      select
-        width: 74%
-        background-color: $dark-white
-        -webkit-border-radius: 1px
-        -moz-border-radius: 1px
-        border-radius: 1px
+    select
+      width: 74%
+      background-color: $dark-white
+      -webkit-border-radius: 1px
+      -moz-border-radius: 1px
+      border-radius: 1px
+      height: 2rem
 
 
 .classifications
-  // flex: 0.5
-  background: $icn-bg
-  // min-width: 30em
-  min-width: 24rem
+  // background: $icn-bg
+  width: 24rem
   min-height: 2em
   padding: 0
   display: flex
@@ -116,18 +116,16 @@ main.flex
   align-items: stretch
 
   h1
-    color: $white
+    // color: $white
     text-transform: uppercase
     font-size: 1.15rem
     margin: 1rem
 
 .icn-container
   width: 100%
-  // height: 83.5%
   overflow-y: scroll
 
 .icn-card
-  // width: calc(100% - 2rem)
   width: 20rem
   height: 6rem
   margin: 0 1rem 1rem 1rem
@@ -177,6 +175,7 @@ main.flex
         display: inline-block
         width: 1.7rem
         height: 1.7rem
+        margin: 0
         margin-right: 0.27rem
         p
           text-align: center
@@ -195,6 +194,7 @@ main.flex
       top: 1rem
       right: 1rem
       position: absolute
+      cursor: pointer
 
   img
     width: 6rem
@@ -231,8 +231,10 @@ main.flex
     color: $white
     // height: 2rem
     font-size: 0.3rem
+    padding: 1rem
     // position: fixed
-    right: 1rem
+    right: 0rem
+    top: 0
     position: absolute
     cursor: pointer
 
@@ -272,7 +274,7 @@ main.flex
 .n-6
   background-color: $n-six
 
-button
+button, .button
   display: block
   margin: 1.6em auto 0.8em
   padding: 0.8em
