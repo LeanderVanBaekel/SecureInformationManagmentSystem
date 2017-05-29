@@ -1,5 +1,4 @@
 yarn.lock
-public/img/*
 node_modules/*
 sessions/
 activate_sims.app
