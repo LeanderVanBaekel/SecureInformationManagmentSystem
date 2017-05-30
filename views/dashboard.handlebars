@@ -46,3 +46,24 @@
 		</div>
 	</main>
 </div>
+
+<script type="text/javascript">
+var items = document.querySelectorAll('.dashboard-tile');
+	var cols = document.querySelectorAll('.dashboard-col');
+	if (items.length == 3) {
+		var item = items[items.length -1];
+		cols[1].appendChild(item);
+	} else if (items.length == 4) {
+		var item = items[items.length -1];
+		cols[1].appendChild(item);
+		item = items[items.length -2];
+		cols[2].appendChild(item);
+	} else if (items.length > 4) {
+		var item = items[items.length -1];
+		cols[1].appendChild(item);
+		item = items[items.length -2];
+		cols[2].appendChild(item);
+		item = items[items.length -3];
+		cols[1].appendChild(item);
+	}
+</script>

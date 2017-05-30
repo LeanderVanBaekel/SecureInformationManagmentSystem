@@ -10,18 +10,19 @@
 			<h1>{{title}}</h1>
 			<a href="create">Nieuw project aanmaken</a>
 		</div> --}}
+		<div class="page-content">
+			<form action="/clients/create" method="post">
+				<h1>Gegevens van de klant</h1>
 
-		<form action="/clients/create" method="post">
-
-			{{#if error}}<p class="error-log">{{error}}</p>{{/if}}
-
-
-			<label for="client">Klant naam</label>
-			<input id='clientName' name='clientName' type='text' value="{{clientName}}">
+				{{#if error}}<p class="error-log">{{error}}</p>{{/if}}
 
 
-			<button type="submit">Aanmaken</button>
-		</form>
+				<label for="client">Klant naam</label>
+				<input id='clientName' name='clientName' type='text' value="{{clientName}}">
 
+
+				<button type="submit">Aanmaken</button>
+			</form>
+		</div>
 	</main>
 </div>
