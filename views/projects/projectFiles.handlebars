@@ -12,16 +12,30 @@
 
 		<div class="files-container">
 			<div class="files-header">
-				<a class="crums" href="{{data.baseUrl}}">{{title}}</a>
-				{{#each data.path}}
-					 <a class="crums" href="{{../data.baseUrl}}/{{id}}">{{name}}</a>
-				{{/each}}
-				<div class="new-file-button newFileButtonListner" id="newFileButton">
-					+
+				<div class="crums-container">
+					<a class="crums" href="{{data.baseUrl}}">{{title}}</a>
+					{{#each data.path}}
+						 <a class="crums" href="{{../data.baseUrl}}/{{id}}">{{name}}</a>
+					{{/each}}
+				</div>
+				<div class="new-file-button">
+					<div class="button newFileButtonListner" id="newFileButton">
+						<img src="/img/doc.png" alt=""><p>Nieuw bestand</p>
+					</div>
+					<div class="button newFolderButtonListner" id="newFolderButton">
+						<img src="/img/folder.png" alt=""><p>Nieuwe map</p>
+					</div>
 				</div>
 			</div>
 
 			<div class="files-list">
+				<div class="files-item files-item-folder files-item-header">
+					{{!-- <img src="" alt=""> --}}
+					<p class="name">Naam</p>
+					<p>Niveau</p>
+					<p class="user">Door</p>
+					<p class='acties'>Acties</p>
+				</div>
 				{{#each data.files}}
 					{{#if (ifEqual type "folder")}}
 						<div class="item-wrapper">
@@ -89,7 +103,7 @@
 
 		</div>
 		<div class="popup-content">
-			<h2>map toevoegen</h2>
+			<h2>Bestand toevoegen</h2>
 
 			<form action="/file/create" enctype="multipart/form-data" method="post">
 
@@ -97,15 +111,14 @@
 
 				<input type="hidden" name="redirect" value="{{req.url}}">
 
-				<label for="fileName">Naam</label>
-				<input type="text" name="fileName" value=""><br>
+				{{!-- <label for="fileName">Naam</label>
+				<input type="text" name="fileName" value=""><br> --}}
 
 				<label for="file">Bestand</label>
 				<input type="file" name="file" multiple value=""><br>
 
-				<label for="type">Type</label>
+				{{!-- <label for="type">Type</label> --}}
 				<select name="type">
-					<option value="folder">folder</option>
 					<option value="file">file</option>
 				</select><br>
 
@@ -115,14 +128,111 @@
 				{{!-- <label for="containdIn">containdIn (in welke folder zit ik?)</label> --}}
 				<input type="hidden" name="containdIn" value="{{data.container._id}}">
 
-				<label for="premissionId">premissionId</label>
-				<input type="number" min="1" max="6" name="permissionId" value="{{req.session.user.permissionId}}"><br>
+				{{!-- <label for="premissionId">premissionId</label>
+				<input type="number" min="1" max="6" name="permissionId" value="{{req.session.user.permissionId}}"><br> --}}
+
+				<label for="">Niveau</label>
+				<div class="select-niveau">
+					<div class="circle n-six">
+						<p>6</p>
+						<input type="radio" name="permissionId" value=6>
+					</div>
+					<div class="circle n-five">
+						<p>5</p>
+						<input type="radio" name="permissionId" value=5>
+					</div>
+					<div class="circle n-four">
+						<p>4</p>
+						<input type="radio" name="permissionId" value=4>
+					</div>
+					<div class="circle n-three">
+						<p>3</p>
+						<input type="radio" name="permissionId" value=3>
+					</div>
+					<div class="circle n-two">
+						<p>2</p>
+						<input type="radio" name="permissionId" value=2>
+					</div>
+					<div class="circle n-one">
+						<p>1</p>
+						<input type="radio" name="permissionId" value=1>
+					</div>
+				</div>
 
 				<button type="submit">Aanmaken</button>
 			</form>
 
 		</div>
 	</div>
+
+
+		<div class="popup" id="newFolderPopup">
+			<div class="popup-closer newFolderButtonListner">
+
+			</div>
+			<div class="popup-content">
+				<h2>Map toevoegen</h2>
+
+				<form action="/file/create" enctype="multipart/form-data" method="post">
+
+					{{#if error}}<p class="error-log">{{error}}</p>{{/if}}
+
+					<input type="hidden" name="redirect" value="{{req.url}}">
+
+					<label for="fileName">Naam</label>
+					<input type="text" name="fileName" value=""><br>
+
+					{{!-- <label for="file">Bestand</label>
+					<input type="file" name="file" multiple value=""><br> --}}
+
+					{{!-- <label for="type">Type</label> --}}
+					<select name="type">
+						<option value="folder">folder</option>
+						{{!-- <option value="file">file</option> --}}
+					</select><br>
+
+					{{!-- <label for="projectId">projectId</label> --}}
+					<input type="hidden" name="projectId" value="{{data.projectId}}">
+
+					{{!-- <label for="containdIn">containdIn (in welke folder zit ik?)</label> --}}
+					<input type="hidden" name="containdIn" value="{{data.container._id}}">
+
+					{{!-- <label for="premissionId">premissionId</label>
+					<input type="number" min="1" max="6" name="permissionId" value="{{req.session.user.permissionId}}"><br> --}}
+
+					<label for="">Niveau</label>
+					<div class="select-niveau">
+						<div class="circle n-six">
+							<p>6</p>
+							<input type="radio" name="permissionId" value=6>
+						</div>
+						<div class="circle n-five">
+							<p>5</p>
+							<input type="radio" name="permissionId" value=5>
+						</div>
+						<div class="circle n-four">
+							<p>4</p>
+							<input type="radio" name="permissionId" value=4>
+						</div>
+						<div class="circle n-three">
+							<p>3</p>
+							<input type="radio" name="permissionId" value=3>
+						</div>
+						<div class="circle n-two">
+							<p>2</p>
+							<input type="radio" name="permissionId" value=2>
+						</div>
+						<div class="circle n-one">
+							<p>1</p>
+							<input type="radio" name="permissionId" value=1>
+						</div>
+					</div>
+
+					<button type="submit">Aanmaken</button>
+				</form>
+
+			</div>
+		</div>
 
 </div>
 
@@ -146,5 +256,23 @@ var popup = function(listners, element) {
 
 	window.onload = function() {
 		popup('newFileButtonListner', 'newFilePopup');
+		popup('newFolderButtonListner', 'newFolderPopup');
 	};
+
+
+	// var radios = document.querySelectorAll('[name="level"]');
+	var radios = document.querySelectorAll('.select-niveau .circle');
+	console.log(radios);
+
+	for (var i = 0; i < radios.length; i++) {
+		radios[i].addEventListener('click', function(e){
+			for (var i = 0; i < radios.length; i++) {
+				radios[i].classList.remove('selected');
+				radios[i].querySelector('[type="radio"]').removeAttribute('checked');
+			};
+			console.log(this.querySelector('[type="radio"]'));
+			this.querySelector('[type="radio"]').setAttribute('checked', 'checked');
+			this.classList.add('selected');
+		});
+	}
 </script>

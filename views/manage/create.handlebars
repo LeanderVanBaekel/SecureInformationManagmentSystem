@@ -9,13 +9,13 @@
 			<form class="" action="/manage/accounts/create" method="post">
 				<h1>Gegevens van het nieuwe account</h1>
 				<label for="userName">Gebruikersnaam</label>
-				<input type="text" name="userName" value="">
+				<input type="text" name="userName" placeholder="BV: {{req.session.user.userName}}" value="">
 				<label for="name">Volledige naam</label>
-				<input type="text" name="name" value="">
+				<input type="text" name="name" placeholder="BV: {{req.session.user.fullName}}" value="">
 				<label for="email">Email addres</label>
-				<input type="text" name="email" value="">
-				<label for="avatar">Profiel foto</label>
-				<input type="url" name="avatar" value="">
+				<input type="text" name="email" placeholder="BV: {{req.session.user.email}}" value="">
+				{{!-- <label for="avatar">Profiel foto</label>
+				<input type="url" name="avatar" placeholder="BV: {{req.session.user.profilePicture}}" value=""> --}}
 
 				<label for="roll">Rol</label>
 				<select class="" name="roll">

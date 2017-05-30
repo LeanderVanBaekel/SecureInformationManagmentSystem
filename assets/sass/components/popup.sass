@@ -31,20 +31,25 @@
 
   form
     padding: 3em
+    padding-top: 1rem
 
-    input, select
+    input
       display: inline-block
-      margin-bottom: 1em
+      margin-bottom: 0.5em
+
+    select
+      display: none
 
     label
       display: inline-block
       width: 10em
       margin-right: 1em
       text-align: right
+      font-family: 'dinBold'
 
     button
       display: block
-      margin: 1.6em auto 0.8em
+      margin: 2.5em auto 0.8em
       padding: 0.8em
       min-width: 10em
       color: white
@@ -53,6 +58,17 @@
       transition: background-color 0.2s ease-out
       &:hover
         background-color: $action-color-active
+
+    .select-niveau
+      display: inline-block
+    .circle
+      margin: 0 0.5rem 0 0
+      cursor: pointer
+      p
+        margin: 0.2rem auto auto
+
+      input
+        display: none
 
   .icn-card
     margin: auto
