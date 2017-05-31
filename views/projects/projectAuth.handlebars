@@ -12,7 +12,7 @@
 
 		<div class="dashboard-info">
 			<a href="#">
-				<div class="button">
+				<div class="button newFileButtonListner">
 					<p>Nieuwe gegevens toevoegen</p>
 				</div>
 			</a>
@@ -71,5 +71,131 @@
 
 			</div>
 
+
+		<div class="overlay" id="overlay">
+			<h1>Wachtwoord vereist</h1>
+			<p>Deze pagina bevat gevoelige informatie. Om toegang te krijgen tot de pagina dient u uw wachtwoord in te vullen.</p>
+			<form>
+				<label for="">Wachtwoord</label>
+				<input type="password" name="" value="">
+				<button type="button" id="overlay-button" name="button">Ga door</button>
+			</form>
+		</div>
+
+
+		<div class="popup" id="newFilePopup">
+			<div class="popup-closer newFileButtonListner">
+
+			</div>
+			<div class="popup-content">
+				<h2>Authenticatie gegevens toevoegen</h2>
+
+				<form>
+
+					{{#if error}}<p class="error-log">{{error}}</p>{{/if}}
+
+					<input type="hidden" name="redirect" value="{{req.url}}">
+
+					<label for="fileName">Naam</label>
+					<input type="text" name="fileName" value=""><br>
+
+					<label for="fileName">Informatie</label>
+					{{!-- <input type="text" name="fileName" value=""> --}}
+					<textarea name="name" rows="2" cols="19"></textarea><br>
+
+					<label for="fileName">Gebruikersnaam</label>
+					<input type="text" name="fileName" value=""><br>
+
+					<label for="fileName">Wachtwoord</label>
+					<input type="text" name="fileName" value=""><br>
+
+					<label for="">Niveau</label>
+					<div class="select-niveau">
+						<div class="circle n-six">
+							<p>6</p>
+							<input type="radio" name="permissionId" value=6>
+						</div>
+						<div class="circle n-five">
+							<p>5</p>
+							<input type="radio" name="permissionId" value=5>
+						</div>
+						<div class="circle n-four">
+							<p>4</p>
+							<input type="radio" name="permissionId" value=4>
+						</div>
+						<div class="circle n-three">
+							<p>3</p>
+							<input type="radio" name="permissionId" value=3>
+						</div>
+						<div class="circle n-two">
+							<p>2</p>
+							<input type="radio" name="permissionId" value=2>
+						</div>
+						<div class="circle n-one">
+							<p>1</p>
+							<input type="radio" name="permissionId" value=1>
+						</div>
+					</div>
+
+					<button id="add" type="submit">Aanmaken</button>
+				</form>
+
+			</div>
+		</div>
+
+
 	</main>
+
 </div>
+
+<script type="text/javascript">
+	document.getElementById('overlay-button').addEventListener('click', function(e) {
+		document.getElementById('overlay').classList.add('gone');
+	})
+
+	document.getElementById('add').addEventListener('click', function(e) {
+		e.preventDefault()
+		document.getElementById('newFilePopup').classList.toggle('show');
+		document.getElementById('overlay').classList.add('gone');
+	})
+
+</script>
+<script type="text/javascript">
+
+var popup = function(listners, element) {
+	var toggle = function() {
+		document.getElementById(element).classList.toggle('show');
+	}
+
+	var listners = document.querySelectorAll('.' + listners);
+
+	listners.forEach(function(listner) {
+		listner.addEventListener('click', toggle);
+	});
+
+  // document.getElementById(button).addEventListener('click', active);
+  // console.log('hoi');
+}
+
+
+	window.onload = function() {
+		popup('newFileButtonListner', 'newFilePopup');
+	};
+
+
+	// var radios = document.querySelectorAll('[name="level"]');
+	var radios = document.querySelectorAll('.select-niveau .circle');
+	console.log(radios);
+
+	for (var i = 0; i < radios.length; i++) {
+		radios[i].addEventListener('click', function(e){
+			for (var i = 0; i < radios.length; i++) {
+				radios[i].classList.remove('selected');
+				radios[i].querySelector('[type="radio"]').removeAttribute('checked');
+			};
+			console.log(this.querySelector('[type="radio"]'));
+			this.querySelector('[type="radio"]').setAttribute('checked', 'checked');
+			this.classList.add('selected');
+		});
+	}
+</script>

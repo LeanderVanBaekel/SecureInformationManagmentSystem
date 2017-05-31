@@ -15,15 +15,12 @@
 			</a>
 		</div>
 
-		<div class="tile-container">
+		<div id="full-color" class="tile-container">
 
 			{{#each accounts}}
 				{{#if (ifEqual permissionId 1)}}
 					<a href="{{../url}}/{{_id}}">
 						<div icn-user="{{name}}" class="icn-card n-{{permissionId}}">
-							{{!-- <div class="icn-action">
-									<p>&#11044; &#11044; &#11044;</p>
-							</div> --}}
 							<div class="image" style="background-image: url('{{#if profilePicture}}{{profilePicture}}{{else}}http://www.freeiconspng.com/uploads/profile-icon-png-profiles-13.png{{/if}}')"></div>
 							<h2>{{fullName}}</h2>
 							<h3>{{roll}} - niveau {{permissionId}}</h3>
@@ -35,9 +32,6 @@
 				{{#if (ifEqual permissionId 2)}}
 					<a href="{{../url}}/{{_id}}">
 						<div icn-user="{{name}}" class="icn-card n-{{permissionId}}">
-							{{!-- <div class="icn-action">
-									<p>&#11044; &#11044; &#11044;</p>
-							</div> --}}
 							<div class="image" style="background-image: url('{{#if profilePicture}}{{profilePicture}}{{else}}http://www.freeiconspng.com/uploads/profile-icon-png-profiles-13.png{{/if}}')"></div>
 							<h2>{{fullName}}</h2>
 							<h3>{{roll}} - niveau {{permissionId}}</h3>
@@ -49,9 +43,6 @@
 				{{#if (ifEqual permissionId 3)}}
 					<a href="{{../url}}/{{_id}}">
 						<div icn-user="{{name}}" class="icn-card n-{{permissionId}}">
-							{{!-- <div class="icn-action">
-									<p>&#11044; &#11044; &#11044;</p>
-							</div> --}}
 							<div class="image" style="background-image: url('{{#if profilePicture}}{{profilePicture}}{{else}}http://www.freeiconspng.com/uploads/profile-icon-png-profiles-13.png{{/if}}')"></div>
 							<h2>{{fullName}}</h2>
 							<h3>{{roll}} - niveau {{permissionId}}</h3>
@@ -63,9 +54,6 @@
 				{{#if (ifEqual permissionId 4)}}
 					<a href="{{../url}}/{{_id}}">
 						<div icn-user="{{name}}" class="icn-card n-{{permissionId}}">
-							{{!-- <div class="icn-action">
-									<p>&#11044; &#11044; &#11044;</p>
-							</div> --}}
 							<div class="image" style="background-image: url('{{#if profilePicture}}{{profilePicture}}{{else}}http://www.freeiconspng.com/uploads/profile-icon-png-profiles-13.png{{/if}}')"></div>
 							<h2>{{fullName}}</h2>
 							<h3>{{roll}} - niveau {{permissionId}}</h3>
@@ -77,9 +65,6 @@
 				{{#if (ifEqual permissionId 5)}}
 					<a href="{{../url}}/{{_id}}">
 						<div icn-user="{{name}}" class="icn-card n-{{permissionId}}">
-							{{!-- <div class="icn-action">
-									<p>&#11044; &#11044; &#11044;</p>
-							</div> --}}
 							<div class="image" style="background-image: url('{{#if profilePicture}}{{profilePicture}}{{else}}http://www.freeiconspng.com/uploads/profile-icon-png-profiles-13.png{{/if}}')"></div>
 							<h2>{{fullName}}</h2>
 							<h3>{{roll}} - niveau {{permissionId}}</h3>
@@ -91,9 +76,6 @@
 				{{#if (ifEqual permissionId 6)}}
 					<a href="{{../url}}/{{_id}}">
 						<div icn-user="{{name}}" class="icn-card n-{{permissionId}}">
-							{{!-- <div class="icn-action">
-									<p>&#11044; &#11044; &#11044;</p>
-							</div> --}}
 							<div class="image" style="background-image: url('{{#if profilePicture}}{{profilePicture}}{{else}}http://www.freeiconspng.com/uploads/profile-icon-png-profiles-13.png{{/if}}')"></div>
 							<h2>{{fullName}}</h2>
 							<h3>{{roll}} - niveau {{permissionId}}</h3>
@@ -103,5 +85,104 @@
 			{{/each}}
 
 		</div>
+
+		<div id="no-color" class="hidden tile-container">
+
+			{{#each accounts}}
+				{{#if (ifEqual permissionId 1)}}
+					<a href="{{../url}}/{{_id}}">
+						<div icn-user="{{name}}" class="icn-card n-{{permissionId}}">
+							<div class="image" style="background-image: url('{{#if profilePicture}}{{profilePicture}}{{else}}http://www.freeiconspng.com/uploads/profile-icon-png-profiles-13.png{{/if}}')"></div>
+							<h2>{{fullName}}</h2>
+							<h3>{{roll}}</h3>
+							<div class="circle n-{{permissionId}}">
+								<p>{{permissionId}}</p>
+							</div>
+						</div>
+					</a>
+				{{/if}}
+			{{/each}}
+			{{#each accounts}}
+				{{#if (ifEqual permissionId 2)}}
+					<a href="{{../url}}/{{_id}}">
+						<div icn-user="{{name}}" class="icn-card n-{{permissionId}}">
+							<div class="image" style="background-image: url('{{#if profilePicture}}{{profilePicture}}{{else}}http://www.freeiconspng.com/uploads/profile-icon-png-profiles-13.png{{/if}}')"></div>
+							<h2>{{fullName}}</h2>
+							<h3>{{roll}}</h3>
+							<div class="circle n-{{permissionId}}">
+								<p>{{permissionId}}</p>
+							</div>
+						</div>
+					</a>
+				{{/if}}
+			{{/each}}
+			{{#each accounts}}
+				{{#if (ifEqual permissionId 3)}}
+					<a href="{{../url}}/{{_id}}">
+						<div icn-user="{{name}}" class="icn-card n-{{permissionId}}">
+							<div class="image" style="background-image: url('{{#if profilePicture}}{{profilePicture}}{{else}}http://www.freeiconspng.com/uploads/profile-icon-png-profiles-13.png{{/if}}')"></div>
+							<h2>{{fullName}}</h2>
+							<h3>{{roll}}</h3>
+							<div class="circle n-{{permissionId}}">
+								<p>{{permissionId}}</p>
+							</div>
+						</div>
+					</a>
+				{{/if}}
+			{{/each}}
+			{{#each accounts}}
+				{{#if (ifEqual permissionId 4)}}
+					<a href="{{../url}}/{{_id}}">
+						<div icn-user="{{name}}" class="icn-card n-{{permissionId}}">
+							<div class="image" style="background-image: url('{{#if profilePicture}}{{profilePicture}}{{else}}http://www.freeiconspng.com/uploads/profile-icon-png-profiles-13.png{{/if}}')"></div>
+							<h2>{{fullName}}</h2>
+							<h3>{{roll}}</h3>
+							<div class="circle n-{{permissionId}}">
+								<p>{{permissionId}}</p>
+							</div>
+						</div>
+					</a>
+				{{/if}}
+			{{/each}}
+			{{#each accounts}}
+				{{#if (ifEqual permissionId 5)}}
+					<a href="{{../url}}/{{_id}}">
+						<div icn-user="{{name}}" class="icn-card n-{{permissionId}}">
+							<div class="image" style="background-image: url('{{#if profilePicture}}{{profilePicture}}{{else}}http://www.freeiconspng.com/uploads/profile-icon-png-profiles-13.png{{/if}}')"></div>
+							<h2>{{fullName}}</h2>
+							<h3>{{roll}}</h3>
+							<div class="circle n-{{permissionId}}">
+								<p>{{permissionId}}</p>
+							</div>
+						</div>
+					</a>
+				{{/if}}
+			{{/each}}
+			{{#each accounts}}
+				{{#if (ifEqual permissionId 6)}}
+					<a href="{{../url}}/{{_id}}">
+						<div icn-user="{{name}}" class="icn-card n-{{permissionId}}">
+							<div class="image" style="background-image: url('{{#if profilePicture}}{{profilePicture}}{{else}}http://www.freeiconspng.com/uploads/profile-icon-png-profiles-13.png{{/if}}')"></div>
+							<h2>{{fullName}}</h2>
+							<h3>{{roll}}</h3>
+							<div class="circle n-{{permissionId}}">
+								<p>{{permissionId}}</p>
+							</div>
+						</div>
+					</a>
+				{{/if}}
+			{{/each}}
+
+		</div>
+		<p id="swich">(kleur)</p>
+
+
 	</main>
 </div>
+
+<script type="text/javascript">
+	document.getElementById('swich').addEventListener('click', function () {
+		document.getElementById('full-color').classList.toggle('hidden')
+		document.getElementById('no-color').classList.toggle('hidden')
+	});
+</script>
