@@ -1,0 +1,220 @@
+{{> header}}
+
+<div class="container" id="manage-logs">
+
+	{{> side-nav}}
+
+	<main class="flex">
+		{{!-- <ul>
+			<li>Login log</li>
+			<li>Activity log</li>
+			<li>Auth log</li>
+		</ul> --}}
+		<div class="search-log page-content">
+			<form class="" action="index.html" method="post">
+				<h1>zoeken</h1>
+				<label for="">Gebruiker</label>
+				<input type="text" name="" value="">
+
+				<label for="">Klant</label>
+				<input type="text" name="" value="">
+
+				<label for="">Project</label>
+				<input type="text" name="" value="">
+
+				<label for="">Datum</label>
+				<input type="date" name="" value="">
+				{{!-- <img class="hidden" src="/img/datepicker.jpg" alt=""> --}}
+				<button type="button" id="search" name="button">Zoeken</button>
+			</form>
+		<div class="view-log">
+			<h2>Login log</h2>
+
+			<table class="hidden" id='login-search'>
+				<tr>
+					<th>Tijdstempel  &#9650;</th>
+					<th>Gebruiker</th>
+					<th>Niveau</th>
+					<th>Actie</th>
+				</tr>
+				<tr>
+					<td>15-05-2017 13:12:38</td>
+					<td>Gavin Ligthart</td>
+					<td>
+						<div class="circle n-two">
+							<p>2</p>
+						</div>
+					</td>
+					<td>Login</td>
+				</tr>
+				<tr>
+					<td>15-05-2017 14:02:55</td>
+					<td>Gavin Ligthart</td>
+					<td>
+						<div class="circle n-two">
+							<p>2</p>
+						</div>
+					</td>
+					<td>Logout</td>
+				</tr>
+				<tr>
+					<td>15-05-2017 13:12:38</td>
+					<td>Gavin Ligthart</td>
+					<td>
+						<div class="circle n-two">
+							<p>2</p>
+						</div>
+					</td>
+					<td>Login</td>
+				</tr>
+				<tr>
+					<td>15-05-2017 14:02:55</td>
+					<td>Gavin Ligthart</td>
+					<td>
+						<div class="circle n-two">
+							<p>2</p>
+						</div>
+					</td>
+					<td>Logout</td>
+				</tr>
+			</table>
+			<table id='login-all'>
+				<tr>
+					<th>Tijdstempel  &#9650;</th>
+					<th>Gebruiker</th>
+					<th>Niveau</th>
+					<th>Actie</th>
+				</tr>
+				<tr>
+					<td>15-05-2017 13:12:38</td>
+					<td>Gavin Ligthart</td>
+					<td>
+						<div class="circle n-two">
+							<p>2</p>
+						</div>
+					</td>
+					<td>Login</td>
+				</tr>
+				<tr>
+					<td>15-05-2017 13:14:02</td>
+					<td>Ruben Baas</td>
+					<td>
+						<div class="circle n-five">
+							<p>5</p>
+						</div>
+					</td>
+					<td>Login</td>
+				</tr>
+				<tr>
+					<td>15-05-2017 14:02:55</td>
+					<td>Gavin Ligthart</td>
+					<td>
+						<div class="circle n-two">
+							<p>2</p>
+						</div>
+					</td>
+					<td>Logout</td>
+				</tr>
+				<tr>
+					<td>15-05-2017 15:43:20</td>
+					<td>Niels van Dijke</td>
+					<td>
+						<div class="circle n-six">
+							<p>6</p>
+						</div>
+					</td>
+					<td>Login</td>
+				</tr>
+				<tr>
+					<td>15-05-2017 13:12:38</td>
+					<td>Niels van Dijke</td>
+					<td>
+						<div class="circle n-six">
+							<p>6</p>
+						</div>
+					</td>
+					<td>Logout</td>
+				</tr>
+				<tr>
+					<td>15-05-2017 13:12:38</td>
+					<td>Gavin Ligthart</td>
+					<td>
+						<div class="circle n-two">
+							<p>2</p>
+						</div>
+					</td>
+					<td>Login</td>
+				</tr>
+				<tr>
+					<td>15-05-2017 13:14:02</td>
+					<td>Ruben Baas</td>
+					<td>
+						<div class="circle n-five">
+							<p>5</p>
+						</div>
+					</td>
+					<td>Login</td>
+				</tr>
+				<tr>
+					<td>15-05-2017 14:02:55</td>
+					<td>Gavin Ligthart</td>
+					<td>
+						<div class="circle n-two">
+							<p>2</p>
+						</div>
+					</td>
+					<td>Logout</td>
+				</tr>
+				<tr>
+					<td>15-05-2017 15:43:20</td>
+					<td>Niels van Dijke</td>
+					<td>
+						<div class="circle n-six">
+							<p>6</p>
+						</div>
+					</td>
+					<td>Login</td>
+				</tr>
+				<tr>
+					<td>15-05-2017 13:12:38</td>
+					<td>Niels van Dijke</td>
+					<td>
+						<div class="circle n-six">
+							<p>6</p>
+						</div>
+					</td>
+					<td>Logout</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+
+		<div class="classifications">
+			<h1>Log categorieën</h1>
+
+			<div class="icn-container">
+				<div class="icn-card">
+					<h2>Login log</h2>
+					<p>fsrfdfrsfr</p>
+				</div>
+				<div class="icn-card">
+					<h2>Activity log</h2>
+					<p>fsrfdfrsfr</p>
+				</div>
+				<div class="icn-card">
+					<h2>Auth log</h2>
+					<p>fsrfdfrsfr</p>
+				</div>
+			</div>
+		</div>
+	</main>
+</div>
+
+<script type="text/javascript">
+	document.getElementById('search').addEventListener('click', function(e){
+		e.preventDefault();
+		document.getElementById('login-all').classList.toggle('hidden')
+		document.getElementById('login-search').classList.toggle('hidden')
+	})
+</script>

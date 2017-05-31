@@ -55,6 +55,27 @@ module.exports = {
 
   },
 
+  getLogs: function(req, res) {
+
+    res.render('manage/logs', {req: req, title: "Logs bekijken"});
+  },
+
+  getRoles: function(req, res) {
+
+    var getPermissions = dataFunctions.getPermissions()
+    .then((succes) => {
+      return succes;
+    }).catch((err) => {
+      res.send(err);
+    });
+
+    Promise.all([getPermissions]).then(values => {
+      data = {permissions: values[0]};
+      res.render('manage/roles', {req: req, data: data, title: "Rollen"});
+    });
+
+  },
+
   postCreate: function(req, res) {
 
     var user = new dataSource.user(req.body.userName, req.body.name, req.body.email, '12345', req.body.roll, req.body.level, req.body.avatar);

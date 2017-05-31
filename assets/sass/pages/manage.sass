@@ -24,7 +24,7 @@
     margin-left: 0
 
 
-#createAccount
+#createAccount, #manage-roles
 
   form
     .select-niveau
@@ -67,7 +67,7 @@
       display: inline-block
     .circle
       margin: 0
-      margin-right: 0.27rem
+      margin-right: 0.02rem
 
   h1
     // margin: 1rem 0
@@ -88,3 +88,41 @@
       border-radius: 0
       background-origin: content-box
       padding: 0.3rem
+
+#manage-logs
+
+  .search-log
+    img
+      width: 14rem
+      margin-left: 10rem
+
+  .view-log
+    margin: 1rem auto
+    padding: 2rem
+    width: 95%
+    background-color: white
+    max-width: 35rem
+    table
+      width: 100%
+      th
+        text-align: left
+        background-color: $dark-white
+        padding: 0.4rem 0
+        cursor: pointer
+      td
+        padding: 0.5rem 0
+        max-width: 9rem
+
+        .circle
+          margin: 0
+      tr:hover
+        background-color: $white
+
+    h2
+      margin-top: 0rem
+
+  .icn-card
+    background-color: white
+    cursor: pointer
+    h2
+      color: black

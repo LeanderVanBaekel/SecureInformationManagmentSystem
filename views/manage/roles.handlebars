@@ -1,0 +1,31 @@
+{{> header}}
+
+<div class="container" id="manage-roles">
+
+	{{> side-nav}}
+
+	<main class="flex">
+		<div class="classifications">
+			<h1>Informatie Classificatie Niveau's</h1>
+
+			<div class="icn-container">
+				{{#each data.permissions}}
+					<div icn-user="{{name}}" class="icn-card n-{{level}}">
+						<h2>{{name}}</h2>
+						<p>{{description}}</p>
+						<h3>Voorbeeld rollen</h3>
+						<ul>
+							{{#each roles as |role key|}}
+								<li>{{role}}</li>
+							{{/each}}
+						</ul>
+					</div>
+				{{/each}}
+			</div>
+		</div>
+	</main>
+</div>
+
+<script type="text/javascript">
+
+</script>
