@@ -42,7 +42,11 @@
 				<div class="checkboxes">
 					{{#each accounts}}
 						<input id='{{id}}' name='accountId' user='{{name}}' type='checkbox' value="{{id}}">
-						<label for="{{id}}">{{name}} - {{permission}}</label>
+						<label for="{{id}}">{{name}}
+							<div class="circle n-{{permission}}">
+							<p>{{permission}}</p>
+						</div>
+					</label>
 					{{/each}}
 				</div>
 

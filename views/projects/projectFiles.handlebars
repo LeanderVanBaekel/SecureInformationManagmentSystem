@@ -70,11 +70,11 @@
 						<a href="/file/{{../data.project._id}}/{{_id}}" class="files-item files-item-folder">
 							<img src="/img/doc.png" alt="">
 							<p class="name">{{name}}</p>
-							<div class="circle n-{{permissionId}}">
+							<div class="niveau circle n-{{permissionId}}">
 								<p>{{permissionId}}</p>
 							</div>
 							<p class="date">{{date}}</p>
-							
+
 							<p class="user">{{../req.session.userName}}</p>
 							<div class="action-button">
 								<p>&#11044; &#11044; &#11044;</p>
@@ -83,7 +83,7 @@
 						<div class="hidden action-menu">
 							<ul>
 								<h3>Acties</h3>
-								<a href="/file/{{../data.project._id}}/{{_id}}/view"><li>Bekijk in browser</li></a>
+								<a target="_blank" href="/file/{{../data.project._id}}/{{_id}}/view"><li>Bekijk in browser</li></a>
 								<a href="/file/{{../data.project._id}}/{{_id}}"><li>Download</li></a>
 								<li>Wijzigen</li>
 								<a href="/file/{{../data.project._id}}/{{_id}}/delete"><li>Verwijderen</li></a>
@@ -137,9 +137,9 @@
 
 				<label for="">Niveau</label>
 				<div class="select-niveau">
-					<div class="circle n-six">
+					<div class="circle selected n-six">
 						<p>6</p>
-						<input type="radio" name="permissionId" value=6>
+						<input type="radio" checked="checked" name="permissionId" value=6>
 					</div>
 					<div class="circle n-five">
 						<p>5</p>
@@ -163,7 +163,7 @@
 					</div>
 				</div>
 
-				<button type="submit">Aanmaken</button>
+				<button type="submit">Uploaden</button>
 			</form>
 
 		</div>
@@ -206,9 +206,9 @@
 
 					<label for="">Niveau</label>
 					<div class="select-niveau">
-						<div class="circle n-six">
+						<div class="circle selected n-six">
 							<p>6</p>
-							<input type="radio" name="permissionId" value=6>
+							<input type="radio" checked="checked" name="permissionId" value=6>
 						</div>
 						<div class="circle n-five">
 							<p>5</p>
@@ -266,7 +266,6 @@ var popup = function(listners, element) {
 
 	// var radios = document.querySelectorAll('[name="level"]');
 	var radios = document.querySelectorAll('.select-niveau .circle');
-	console.log(radios);
 
 	for (var i = 0; i < radios.length; i++) {
 		radios[i].addEventListener('click', function(e){
@@ -274,7 +273,6 @@ var popup = function(listners, element) {
 				radios[i].classList.remove('selected');
 				radios[i].querySelector('[type="radio"]').removeAttribute('checked');
 			};
-			console.log(this.querySelector('[type="radio"]'));
 			this.querySelector('[type="radio"]').setAttribute('checked', 'checked');
 			this.classList.add('selected');
 		});
