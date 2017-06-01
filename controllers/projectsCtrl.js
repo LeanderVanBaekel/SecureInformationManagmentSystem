@@ -194,6 +194,17 @@ module.exports = {
         data.files = values[0].contains;
         data.project = values[1];
 
+        for (var i = 0; i < data.files.length; i++) {
+          var date = data.files[i].date;
+          // var options = {
+          //   weekday: "long", month: "numeric",
+          //   day: "numeric", year: "numeric", hour: "2-digit", minute: "2-digit"
+          // };
+          // data.files[i].date = data.files[i].date.toLocaleDateString("nl-NL",options)
+          data.files[i].date = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear() + " " + date.getHours() + ":" + date.getMinutes()
+          console.log(data.files[i].date);
+        }
+
         res.render('projects/projectFiles', {req: req, data: data, title: data.project.name})
       });
     }

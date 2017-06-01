@@ -32,7 +32,8 @@
 				<div class="files-item files-item-folder files-item-header">
 					{{!-- <img src="" alt=""> --}}
 					<p class="name">Naam</p>
-					<p>Niveau</p>
+					<p class="niveau">Niveau</p>
+					<p class="date">Laatst bewerkt</p>
 					<p class="user">Door</p>
 					<p class='acties'>Acties</p>
 				</div>
@@ -42,9 +43,10 @@
 							<a href="{{../data.baseUrl}}/{{_id}}" class="files-item files-item-folder">
 								<img src="/img/folder.png" alt="">
 								<p class="name">{{name}}</p>
-								<div class="circle n-{{permissionId}}">
+								<div class="niveau circle n-{{permissionId}}">
 									<p>{{permissionId}}</p>
 								</div>
+								<p class="date">{{date}}</p>
 								<p class="user">{{../req.session.userName}}</p>
 								<div class="action-button">
 									<p>&#11044; &#11044; &#11044;</p>
