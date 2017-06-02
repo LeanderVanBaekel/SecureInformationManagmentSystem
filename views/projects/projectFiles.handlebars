@@ -8,6 +8,15 @@
 		<nav class="project-nav">
 			<a class="active" href="{{req.baseUrl}}/projects/{{data.project._id}}/files">Bestanden</a>
 			<a href="{{req.baseUrl}}/projects/{{data.project._id}}/auth">Authenticatie gegevens</a>
+
+			<div class="new-file-button">
+				<div class="button newFileButtonListner" id="newFileButton">
+					<img src="/img/doc.png" alt=""><p>Nieuw bestand</p>
+				</div>
+				<div class="button newFolderButtonListner" id="newFolderButton">
+					<img src="/img/folder.png" alt=""><p>Nieuwe map</p>
+				</div>
+			</div>
 		</nav>
 
 		<div class="files-container">
@@ -18,14 +27,7 @@
 						 <a class="crums" href="{{../data.baseUrl}}/{{id}}">{{name}}</a>
 					{{/each}}
 				</div>
-				<div class="new-file-button">
-					<div class="button newFileButtonListner" id="newFileButton">
-						<img src="/img/doc.png" alt=""><p>Nieuw bestand</p>
-					</div>
-					<div class="button newFolderButtonListner" id="newFolderButton">
-						<img src="/img/folder.png" alt=""><p>Nieuwe map</p>
-					</div>
-				</div>
+
 			</div>
 
 			<div class="files-list">
