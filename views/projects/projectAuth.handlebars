@@ -28,12 +28,14 @@
 						</div>
 					</div>
 					<div class="auth-text">
-						<p>Het IP address is: 92.435.124.35</p>
+						<in>Het IP address is: 92.435.124.35</in>
 						<p>Vergeet niet te verbinden met de VPN!</p>
 					</div>
 					<div class="auth-data">
-						<p>E@$5twerGerw<img src="/img/copy.png" alt=""></p>
-						<p>RRgd4563@tg45y.h,we<img src="/img/copy.png" alt=""></p>
+						<p class="auth-field auth-hidden">••••••••••<i class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
+						<p class="auth-field hidden auth-show">E@$5twerGerw<i class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
+						<p class="auth-field auth-hidden">••••••••••<i class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
+						<p class="auth-field hidden auth-show">RRgd4563@tg45y.h,we<i class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
 					</div>
 				</div>
 
@@ -48,8 +50,10 @@
 						<p>[options] (Object|String|Array): If the options is a string, it will be parsed as the fields to select. In addition to the mongo options, you can pass the option rawCursor in order to get the raw mongo cursor when the promise resolve.</p>
 					</div>
 					<div class="auth-data">
-						<p>JohnDoe<img src="/img/copy.png" alt=""></p>
-						<p>12345<img src="/img/copy.png" alt=""></p>
+						<p class="auth-field auth-hidden">••••••••••<i class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
+						<p class="auth-field hidden auth-show">JohnDoe<i class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
+						<p class="auth-field auth-hidden">••••••••••<i class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
+						<p class="auth-field hidden auth-show">12345<i class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
 					</div>
 				</div>
 
@@ -64,8 +68,10 @@
 						<p>[options] (Object|String|Array): If the options is a string, it will be parsed as the fields to select. In addition to the mongo options, you can pass the option rawCursor in order to get the raw mongo cursor when the promise resolve.</p>
 					</div>
 					<div class="auth-data">
-						<p>username<img src="/img/copy.png" alt=""></p>
-						<p>password<img src="/img/copy.png" alt=""></p>
+						<p class="auth-field auth-hidden">••••••••••<i class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
+						<p class="auth-field hidden auth-show">username<i class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
+						<p class="auth-field auth-hidden">••••••••••<i class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
+						<p class="auth-field hidden auth-show">password<i class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
 					</div>
 				</div>
 
@@ -158,6 +164,11 @@
 		document.getElementById('newFilePopup').classList.toggle('show');
 		document.getElementById('overlay').classList.add('gone');
 	})
+
+
+	var authFieldShow = document.querySelectorAll('.auth-show');
+	var authFieldHidden = document.querySelectorAll('.auth-hidden');
+	var authFieldToggle = document.querySelectorAll('.auth-toggle');
 
 </script>
 <script type="text/javascript">
