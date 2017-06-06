@@ -32,10 +32,10 @@
 						<p>Vergeet niet te verbinden met de VPN!</p>
 					</div>
 					<div class="auth-data">
-						<p class="auth-field auth-hidden">••••••••••<i class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
-						<p class="auth-field hidden auth-show">E@$5twerGerw<i class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
-						<p class="auth-field auth-hidden">••••••••••<i class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
-						<p class="auth-field hidden auth-show">RRgd4563@tg45y.h,we<i class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
+						<p auth-id="5" class="auth-field auth-hidden">••••••••••<i class="fa fa-eye auth-toggle" auth-id="5" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
+						<p auth-id="5" class="auth-field hidden auth-show">E@$5twerGerw<i class="fa fa-eye auth-toggle" auth-id="5" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
+						<p auth-id="6" class="auth-field auth-hidden">••••••••••<i class="fa fa-eye auth-toggle" auth-id="6" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
+						<p auth-id="6" class="auth-field hidden auth-show">RRgd4563@tg45y.h,we<i class="fa fa-eye auth-toggle" auth-id="6" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
 					</div>
 				</div>
 
@@ -50,10 +50,10 @@
 						<p>[options] (Object|String|Array): If the options is a string, it will be parsed as the fields to select. In addition to the mongo options, you can pass the option rawCursor in order to get the raw mongo cursor when the promise resolve.</p>
 					</div>
 					<div class="auth-data">
-						<p class="auth-field auth-hidden">••••••••••<i class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
-						<p class="auth-field hidden auth-show">JohnDoe<i class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
-						<p class="auth-field auth-hidden">••••••••••<i class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
-						<p class="auth-field hidden auth-show">12345<i class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
+						<p  auth-id="3"  class="auth-field auth-hidden">••••••••••<i auth-id="3" class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
+						<p  auth-id="3"  class="auth-field hidden auth-show">JohnDoe<i auth-id="3" class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
+						<p  auth-id="4"  class="auth-field auth-hidden">••••••••••<i auth-id="4" class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
+						<p  auth-id="4"  class="auth-field hidden auth-show">12345<i auth-id="4" class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
 					</div>
 				</div>
 
@@ -68,10 +68,10 @@
 						<p>[options] (Object|String|Array): If the options is a string, it will be parsed as the fields to select. In addition to the mongo options, you can pass the option rawCursor in order to get the raw mongo cursor when the promise resolve.</p>
 					</div>
 					<div class="auth-data">
-						<p class="auth-field auth-hidden">••••••••••<i class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
-						<p class="auth-field hidden auth-show">username<i class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
-						<p class="auth-field auth-hidden">••••••••••<i class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
-						<p class="auth-field hidden auth-show">password<i class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
+						<p auth-id="1" class="auth-field auth-hidden">••••••••••<i auth-id="1" class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
+						<p auth-id="1" class="auth-field hidden auth-show">username<i auth-id="1" class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
+						<p auth-id="2" class="auth-field auth-hidden">••••••••••<i auth-id="2" class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
+						<p auth-id="2" class="auth-field hidden auth-show">password<i auth-id="2" class="fa fa-eye auth-toggle" aria-hidden="true"></i><img src="/img/copy.png" alt=""></p>
 					</div>
 				</div>
 
@@ -165,13 +165,17 @@
 		document.getElementById('overlay').classList.add('gone');
 	})
 
-
-	var authFieldShow = document.querySelectorAll('.auth-show');
-	var authFieldHidden = document.querySelectorAll('.auth-hidden');
 	var authFieldToggle = document.querySelectorAll('.auth-toggle');
 
-	for (var i = 0; i < array.length; i++) {
-		array[i]
+	for (var i = 0; i < authFieldToggle.length; i++) {
+		authFieldToggle[i].addEventListener('click', function(e) {
+			var ids = document.querySelectorAll('[auth-id="'+this.getAttribute('auth-id')+'"]');
+			for (var i = 0; i < ids.length; i++) {
+				if (ids[i].classList.contains('auth-field')){
+					ids[i].classList.toggle('hidden');
+				}
+			}
+		})
 	}
 
 </script>

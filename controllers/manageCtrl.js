@@ -65,6 +65,11 @@ module.exports = {
     res.render('manage/logsActivity', {req: req, title: "Logs bekijken"});
   },
 
+  getLogsAlt: function(req, res) {
+
+    res.render('manage/logsAlt', {req: req, title: "Logs bekijken"});
+  },
+
   getRoles: function(req, res) {
 
     var getPermissions = dataFunctions.getPermissions()
