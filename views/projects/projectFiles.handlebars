@@ -42,6 +42,20 @@
 				{{#each data.files}}
 					{{#if (ifEqual type "folder")}}
 						<div class="item-wrapper">
+							{{#if (lower permissionId ../req.session.user.permissionId)}}
+							<a href="#0" class="files-item files-item-folder">
+								<img src="/img/folder_lock.png" alt="">
+								<p class="name">{{name}}</p>
+								<div class="niveau circle n-{{permissionId}}">
+									<p>{{permissionId}}</p>
+								</div>
+								<p class="date">{{date}}</p>
+								<p class="user">{{../req.session.userName}}</p>
+								<div class="action-button">
+									<p>&#11044; &#11044; &#11044;</p>
+								</div>
+							</a>
+							{{else}}
 							<a href="{{../data.baseUrl}}/{{_id}}" class="files-item files-item-folder">
 								<img src="/img/folder.png" alt="">
 								<p class="name">{{name}}</p>
@@ -54,6 +68,7 @@
 									<p>&#11044; &#11044; &#11044;</p>
 								</div>
 							</a>
+							{{/if}}
 							<div class="hidden action-menu">
 								<h3>Acties</h3>
 								<ul>
@@ -69,6 +84,21 @@
 				{{#each data.files}}
 					{{#if (ifEqual type "file")}}
 					<div class="item-wrapper">
+						{{#if (lower permissionId ../req.session.user.permissionId)}}
+						<a href="#0" class="files-item files-item-folder">
+							<img src="/img/doc_lock.png" alt="">
+							<p class="name">{{name}}</p>
+							<div class="niveau circle n-{{permissionId}}">
+								<p>{{permissionId}}</p>
+							</div>
+							<p class="date">{{date}}</p>
+
+							<p class="user">{{../req.session.userName}}</p>
+							<div class="action-button">
+								<p>&#11044; &#11044; &#11044;</p>
+							</div>
+						</a>
+						{{else}}
 						<a href="/file/{{../data.project._id}}/{{_id}}" class="files-item files-item-folder">
 							<img src="/img/doc.png" alt="">
 							<p class="name">{{name}}</p>
@@ -82,6 +112,7 @@
 								<p>&#11044; &#11044; &#11044;</p>
 							</div>
 						</a>
+						{{/if}}
 						<div class="hidden action-menu">
 							<ul>
 								<h3>Acties</h3>

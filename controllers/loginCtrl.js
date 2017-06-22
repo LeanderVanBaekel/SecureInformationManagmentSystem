@@ -28,7 +28,7 @@ module.exports = {
 
   		res.render('login', {
   			title: 'Login',
-  			username: req.body.username,
+  			userName: req.body.userName,
   			password: req.body.password,
   			error: err
   		});

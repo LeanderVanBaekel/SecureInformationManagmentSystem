@@ -59,7 +59,14 @@ var hbs = exphbs.create({
 		first: function (arr) {
 			return arr[0];
 		},
-		bar: function () { return 'BAR!'; }
+		lower: function (var1, var2) {
+			if ( var1 < var2 ) {
+				return true;
+			} else {
+				return false;
+			}
+
+		}
 	}
 });
 
